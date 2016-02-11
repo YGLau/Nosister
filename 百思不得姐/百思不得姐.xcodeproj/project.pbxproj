@@ -106,9 +106,6 @@
 				A47EF7821C6CCB4700AC9E6A /* ViewController.h */,
 				A47EF7831C6CCB4700AC9E6A /* ViewController.m */,
 				A47EF7851C6CCB4700AC9E6A /* Main.storyboard */,
-				A47EF7881C6CCB4700AC9E6A /* Assets.xcassets */,
-				A47EF78A1C6CCB4700AC9E6A /* LaunchScreen.storyboard */,
-				A47EF78D1C6CCB4700AC9E6A /* Info.plist */,
 				A47EF77C1C6CCB4700AC9E6A /* Supporting Files */,
 			);
 			path = "百思不得姐";
@@ -117,6 +114,9 @@
 		A47EF77C1C6CCB4700AC9E6A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A47EF7881C6CCB4700AC9E6A /* Assets.xcassets */,
+				A47EF78A1C6CCB4700AC9E6A /* LaunchScreen.storyboard */,
+				A47EF78D1C6CCB4700AC9E6A /* Info.plist */,
 				A47EF77D1C6CCB4700AC9E6A /* main.m */,
 			);
 			name = "Supporting Files";
