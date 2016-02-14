@@ -10,6 +10,15 @@
 
 @implementation UIView (YGExtension)
 
+#pragma mark - setter方法
+- (void)setSize:(CGSize)size
+{
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+    
+}
+
 - (void)setWidth:(CGFloat)width
 {
     CGRect frame = self.frame;
@@ -36,6 +45,13 @@
     CGRect frame = self.frame;
     frame.origin.y = y;
     self.frame = frame;
+}
+
+#pragma mark - getter方法
+
+- (CGSize)size
+{
+    return self.frame.size;
 }
 
 - (CGFloat)width

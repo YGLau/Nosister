@@ -11,4 +11,12 @@
 
 #import "UIView+YGExtension.h"
 
-#endif /* PrefixHeader_pch */
+#ifdef DEBUG
+#define YGLog(...) NSLog(__VA_ARGS__)
+#else
+#define YGLog(...)
+#endif
+
+#define YGLogFunc YGLog(@"%s", __func__)
+
+#endif
