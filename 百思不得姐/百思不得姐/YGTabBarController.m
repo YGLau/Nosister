@@ -11,6 +11,7 @@
 #import "YGNewViewController.h"
 #import "YGFriendTrendsViewController.h"
 #import "YGMeViewController.h"
+#import "YGTabBar.h"
 
 @interface YGTabBarController ()
 
@@ -42,6 +43,8 @@
     [self setupChildVc:[[YGNewViewController alloc] init] title:@"精华" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
     [self setupChildVc:[[YGFriendTrendsViewController alloc] init] title:@"精华" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     [self setupChildVc:[[YGMeViewController alloc] init] title:@"精华" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    
+    [self setValue:[[YGTabBar alloc] init] forKey:@"tabBar"];
     
 
 }
