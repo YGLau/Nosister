@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "YGTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +22,7 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     // 设置窗口的跟控制器
-    self.window.rootViewController = [[ViewController alloc] init];
+    self.window.rootViewController = [[YGTabBarController alloc] init];
     // 显示窗口
     [self.window makeKeyAndVisible];
     
