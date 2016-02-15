@@ -12,6 +12,7 @@
 #import "YGFriendTrendsViewController.h"
 #import "YGMeViewController.h"
 #import "YGTabBar.h"
+#import "YGNavigationViewController.h"
 
 @interface YGTabBarController ()
 
@@ -60,7 +61,7 @@
     vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
     vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(100)/100.0 green:arc4random_uniform(100)/100.0 blue:arc4random_uniform(100)/100.0 alpha:1.0];
     // 包装一个导航控制器，添加导航控制器为tabBarController的子控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    YGNavigationViewController *nav = [[YGNavigationViewController alloc] initWithRootViewController:vc];
     // 添加为子控制器
     [self addChildViewController:nav];
 }

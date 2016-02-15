@@ -17,6 +17,8 @@
 		A402D6F11C71BB1000F11B4B /* YGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E31C71BB1000F11B4B /* YGTabBarController.m */; };
 		A402D6F21C71BB1000F11B4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E41C71BB1000F11B4B /* main.m */; };
 		A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E91C71BB1000F11B4B /* YGTabBar.m */; };
+		A402D6FC1C71C87D00F11B4B /* YGTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */; };
+		A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */; };
 		A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */; };
 		A47EF7971C6CCB4700AC9E6A /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7961C6CCB4700AC9E6A /* _____Tests.m */; };
 		A47EF7A21C6CCB4700AC9E6A /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7A11C6CCB4700AC9E6A /* _____UITests.m */; };
@@ -60,6 +62,10 @@
 		A402D6E61C71BB1000F11B4B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A402D6E81C71BB1000F11B4B /* YGTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTabBar.h; sourceTree = "<group>"; };
 		A402D6E91C71BB1000F11B4B /* YGTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTabBar.m; sourceTree = "<group>"; };
+		A402D6FA1C71C87D00F11B4B /* YGTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTestViewController.h; sourceTree = "<group>"; };
+		A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTestViewController.m; sourceTree = "<group>"; };
+		A402D6FD1C71CA8100F11B4B /* YGNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNavigationViewController.h; sourceTree = "<group>"; };
+		A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNavigationViewController.m; sourceTree = "<group>"; };
 		A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47EF7791C6CCB4700AC9E6A /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47EF78D1C6CCB4700AC9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -243,14 +249,16 @@
 		A402D6D91C71BB1000F11B4B /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				A402D6DA1C71BB1000F11B4B /* AppDelegate.h */,
-				A402D6DB1C71BB1000F11B4B /* AppDelegate.m */,
+				A402D6E51C71BB1000F11B4B /* Model */,
 				A402D6DC1C71BB1000F11B4B /* Category */,
 				A402D6E11C71BB1000F11B4B /* Controller */,
-				A402D6E41C71BB1000F11B4B /* main.m */,
-				A402D6E51C71BB1000F11B4B /* Model */,
-				A402D6E61C71BB1000F11B4B /* PrefixHeader.pch */,
 				A402D6E71C71BB1000F11B4B /* View */,
+				A402D6DA1C71BB1000F11B4B /* AppDelegate.h */,
+				A402D6DB1C71BB1000F11B4B /* AppDelegate.m */,
+				A402D6E41C71BB1000F11B4B /* main.m */,
+				A402D6E61C71BB1000F11B4B /* PrefixHeader.pch */,
+				A402D6FA1C71C87D00F11B4B /* YGTestViewController.h */,
+				A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -271,6 +279,8 @@
 			children = (
 				A402D6E21C71BB1000F11B4B /* YGTabBarController.h */,
 				A402D6E31C71BB1000F11B4B /* YGTabBarController.m */,
+				A402D6FD1C71CA8100F11B4B /* YGNavigationViewController.h */,
+				A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -479,6 +489,7 @@
 			files = (
 				A402D6EB1C71BB1000F11B4B /* YGFriendTrendsViewController.m in Sources */,
 				A402D6ED1C71BB1000F11B4B /* YGNewViewController.m in Sources */,
+				A402D6FC1C71C87D00F11B4B /* YGTestViewController.m in Sources */,
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
 				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,
 				A402D6EC1C71BB1000F11B4B /* YGMeViewController.m in Sources */,
@@ -486,6 +497,7 @@
 				A402D6EF1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m in Sources */,
 				A402D6EE1C71BB1000F11B4B /* AppDelegate.m in Sources */,
 				A402D6F21C71BB1000F11B4B /* main.m in Sources */,
+				A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */,
 				A402D6F11C71BB1000F11B4B /* YGTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

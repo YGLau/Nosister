@@ -7,6 +7,7 @@
 //
 
 #import "YGEssenceViewController.h"
+#import "YGTestViewController.h"
 
 @interface YGEssenceViewController ()
 
@@ -28,4 +29,9 @@
     YGLogFunc;
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    YGTestViewController *vc = [[YGTestViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end
