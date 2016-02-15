@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A402D6B61C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6B51C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m */; };
-		A40768581C70357A00DE42BD /* YGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40768571C70357A00DE42BD /* YGTabBarController.m */; };
-		A407685B1C70ABBD00DE42BD /* YGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A407685A1C70ABBD00DE42BD /* YGEssenceViewController.m */; };
-		A407685E1C70ABD400DE42BD /* YGNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A407685D1C70ABD400DE42BD /* YGNewViewController.m */; };
-		A40768611C70ABFF00DE42BD /* YGFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40768601C70ABFF00DE42BD /* YGFriendTrendsViewController.m */; };
-		A40768641C70AC0C00DE42BD /* YGMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40768631C70AC0C00DE42BD /* YGMeViewController.m */; };
-		A40768671C70AEE300DE42BD /* YGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A40768661C70AEE300DE42BD /* YGTabBar.m */; };
-		A40768701C70B85700DE42BD /* UIView+YGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A407686F1C70B85700DE42BD /* UIView+YGExtension.m */; };
+		A402D6EA1C71BB1000F11B4B /* YGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6C41C71BB1000F11B4B /* YGEssenceViewController.m */; };
+		A402D6EB1C71BB1000F11B4B /* YGFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6CA1C71BB1000F11B4B /* YGFriendTrendsViewController.m */; };
+		A402D6EC1C71BB1000F11B4B /* YGMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6D01C71BB1000F11B4B /* YGMeViewController.m */; };
+		A402D6ED1C71BB1000F11B4B /* YGNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6D61C71BB1000F11B4B /* YGNewViewController.m */; };
+		A402D6EE1C71BB1000F11B4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6DB1C71BB1000F11B4B /* AppDelegate.m */; };
+		A402D6EF1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6DE1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m */; };
+		A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E01C71BB1000F11B4B /* UIView+YGExtension.m */; };
+		A402D6F11C71BB1000F11B4B /* YGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E31C71BB1000F11B4B /* YGTabBarController.m */; };
+		A402D6F21C71BB1000F11B4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E41C71BB1000F11B4B /* main.m */; };
+		A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E91C71BB1000F11B4B /* YGTabBar.m */; };
 		A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */; };
-		A47EF77E1C6CCB4700AC9E6A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF77D1C6CCB4700AC9E6A /* main.m */; };
-		A47EF7811C6CCB4700AC9E6A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7801C6CCB4700AC9E6A /* AppDelegate.m */; };
 		A47EF7971C6CCB4700AC9E6A /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7961C6CCB4700AC9E6A /* _____Tests.m */; };
 		A47EF7A21C6CCB4700AC9E6A /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7A11C6CCB4700AC9E6A /* _____UITests.m */; };
 /* End PBXBuildFile section */
@@ -40,28 +40,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A402D6B41C71B17C00F11B4B /* UIBarButtonItem+YGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+YGExtension.h"; sourceTree = "<group>"; };
-		A402D6B51C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+YGExtension.m"; sourceTree = "<group>"; };
-		A40768561C70357A00DE42BD /* YGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTabBarController.h; sourceTree = "<group>"; };
-		A40768571C70357A00DE42BD /* YGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTabBarController.m; sourceTree = "<group>"; };
-		A40768591C70ABBD00DE42BD /* YGEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEssenceViewController.h; sourceTree = "<group>"; };
-		A407685A1C70ABBD00DE42BD /* YGEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGEssenceViewController.m; sourceTree = "<group>"; };
-		A407685C1C70ABD400DE42BD /* YGNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNewViewController.h; sourceTree = "<group>"; };
-		A407685D1C70ABD400DE42BD /* YGNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNewViewController.m; sourceTree = "<group>"; };
-		A407685F1C70ABFF00DE42BD /* YGFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGFriendTrendsViewController.h; sourceTree = "<group>"; };
-		A40768601C70ABFF00DE42BD /* YGFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGFriendTrendsViewController.m; sourceTree = "<group>"; };
-		A40768621C70AC0C00DE42BD /* YGMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGMeViewController.h; sourceTree = "<group>"; };
-		A40768631C70AC0C00DE42BD /* YGMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGMeViewController.m; sourceTree = "<group>"; };
-		A40768651C70AEE300DE42BD /* YGTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTabBar.h; sourceTree = "<group>"; };
-		A40768661C70AEE300DE42BD /* YGTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTabBar.m; sourceTree = "<group>"; };
-		A407686E1C70B85700DE42BD /* UIView+YGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YGExtension.h"; sourceTree = "<group>"; };
-		A407686F1C70B85700DE42BD /* UIView+YGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YGExtension.m"; sourceTree = "<group>"; };
-		A40768711C70B8BD00DE42BD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A402D6C31C71BB1000F11B4B /* YGEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEssenceViewController.h; sourceTree = "<group>"; };
+		A402D6C41C71BB1000F11B4B /* YGEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGEssenceViewController.m; sourceTree = "<group>"; };
+		A402D6C91C71BB1000F11B4B /* YGFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGFriendTrendsViewController.h; sourceTree = "<group>"; };
+		A402D6CA1C71BB1000F11B4B /* YGFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGFriendTrendsViewController.m; sourceTree = "<group>"; };
+		A402D6CF1C71BB1000F11B4B /* YGMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGMeViewController.h; sourceTree = "<group>"; };
+		A402D6D01C71BB1000F11B4B /* YGMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGMeViewController.m; sourceTree = "<group>"; };
+		A402D6D51C71BB1000F11B4B /* YGNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNewViewController.h; sourceTree = "<group>"; };
+		A402D6D61C71BB1000F11B4B /* YGNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNewViewController.m; sourceTree = "<group>"; };
+		A402D6DA1C71BB1000F11B4B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A402D6DB1C71BB1000F11B4B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A402D6DD1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+YGExtension.h"; sourceTree = "<group>"; };
+		A402D6DE1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+YGExtension.m"; sourceTree = "<group>"; };
+		A402D6DF1C71BB1000F11B4B /* UIView+YGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YGExtension.h"; sourceTree = "<group>"; };
+		A402D6E01C71BB1000F11B4B /* UIView+YGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YGExtension.m"; sourceTree = "<group>"; };
+		A402D6E21C71BB1000F11B4B /* YGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTabBarController.h; sourceTree = "<group>"; };
+		A402D6E31C71BB1000F11B4B /* YGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTabBarController.m; sourceTree = "<group>"; };
+		A402D6E41C71BB1000F11B4B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A402D6E61C71BB1000F11B4B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A402D6E81C71BB1000F11B4B /* YGTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTabBar.h; sourceTree = "<group>"; };
+		A402D6E91C71BB1000F11B4B /* YGTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTabBar.m; sourceTree = "<group>"; };
 		A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47EF7791C6CCB4700AC9E6A /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A47EF77D1C6CCB4700AC9E6A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A47EF77F1C6CCB4700AC9E6A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A47EF7801C6CCB4700AC9E6A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A47EF78D1C6CCB4700AC9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A47EF7921C6CCB4700AC9E6A /* 百思不得姐Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47EF7961C6CCB4700AC9E6A /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
@@ -96,6 +96,201 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A402D6C01C71BB1000F11B4B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6C11C71BB1000F11B4B /* Essence */,
+				A402D6C71C71BB1000F11B4B /* FriendTrends */,
+				A402D6CD1C71BB1000F11B4B /* Me */,
+				A402D6D31C71BB1000F11B4B /* New */,
+				A402D6D91C71BB1000F11B4B /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A402D6C11C71BB1000F11B4B /* Essence */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6C21C71BB1000F11B4B /* Controller */,
+				A402D6C51C71BB1000F11B4B /* Model */,
+				A402D6C61C71BB1000F11B4B /* View */,
+			);
+			path = Essence;
+			sourceTree = "<group>";
+		};
+		A402D6C21C71BB1000F11B4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6C31C71BB1000F11B4B /* YGEssenceViewController.h */,
+				A402D6C41C71BB1000F11B4B /* YGEssenceViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A402D6C51C71BB1000F11B4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A402D6C61C71BB1000F11B4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A402D6C71C71BB1000F11B4B /* FriendTrends */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6C81C71BB1000F11B4B /* Controller */,
+				A402D6CB1C71BB1000F11B4B /* Model */,
+				A402D6CC1C71BB1000F11B4B /* View */,
+			);
+			path = FriendTrends;
+			sourceTree = "<group>";
+		};
+		A402D6C81C71BB1000F11B4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6C91C71BB1000F11B4B /* YGFriendTrendsViewController.h */,
+				A402D6CA1C71BB1000F11B4B /* YGFriendTrendsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A402D6CB1C71BB1000F11B4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A402D6CC1C71BB1000F11B4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A402D6CD1C71BB1000F11B4B /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6CE1C71BB1000F11B4B /* Controller */,
+				A402D6D11C71BB1000F11B4B /* Model */,
+				A402D6D21C71BB1000F11B4B /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		A402D6CE1C71BB1000F11B4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6CF1C71BB1000F11B4B /* YGMeViewController.h */,
+				A402D6D01C71BB1000F11B4B /* YGMeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A402D6D11C71BB1000F11B4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A402D6D21C71BB1000F11B4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A402D6D31C71BB1000F11B4B /* New */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6D41C71BB1000F11B4B /* Controller */,
+				A402D6D71C71BB1000F11B4B /* Model */,
+				A402D6D81C71BB1000F11B4B /* View */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		A402D6D41C71BB1000F11B4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6D51C71BB1000F11B4B /* YGNewViewController.h */,
+				A402D6D61C71BB1000F11B4B /* YGNewViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A402D6D71C71BB1000F11B4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A402D6D81C71BB1000F11B4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A402D6D91C71BB1000F11B4B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6DA1C71BB1000F11B4B /* AppDelegate.h */,
+				A402D6DB1C71BB1000F11B4B /* AppDelegate.m */,
+				A402D6DC1C71BB1000F11B4B /* Category */,
+				A402D6E11C71BB1000F11B4B /* Controller */,
+				A402D6E41C71BB1000F11B4B /* main.m */,
+				A402D6E51C71BB1000F11B4B /* Model */,
+				A402D6E61C71BB1000F11B4B /* PrefixHeader.pch */,
+				A402D6E71C71BB1000F11B4B /* View */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		A402D6DC1C71BB1000F11B4B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6DD1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.h */,
+				A402D6DE1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m */,
+				A402D6DF1C71BB1000F11B4B /* UIView+YGExtension.h */,
+				A402D6E01C71BB1000F11B4B /* UIView+YGExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		A402D6E11C71BB1000F11B4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6E21C71BB1000F11B4B /* YGTabBarController.h */,
+				A402D6E31C71BB1000F11B4B /* YGTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A402D6E51C71BB1000F11B4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A402D6E71C71BB1000F11B4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A402D6E81C71BB1000F11B4B /* YGTabBar.h */,
+				A402D6E91C71BB1000F11B4B /* YGTabBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A47EF7701C6CCB4600AC9E6A = {
 			isa = PBXGroup;
 			children = (
@@ -119,25 +314,7 @@
 		A47EF77B1C6CCB4700AC9E6A /* 百思不得姐 */ = {
 			isa = PBXGroup;
 			children = (
-				A40768591C70ABBD00DE42BD /* YGEssenceViewController.h */,
-				A407685A1C70ABBD00DE42BD /* YGEssenceViewController.m */,
-				A407685C1C70ABD400DE42BD /* YGNewViewController.h */,
-				A407685D1C70ABD400DE42BD /* YGNewViewController.m */,
-				A407685F1C70ABFF00DE42BD /* YGFriendTrendsViewController.h */,
-				A40768601C70ABFF00DE42BD /* YGFriendTrendsViewController.m */,
-				A40768621C70AC0C00DE42BD /* YGMeViewController.h */,
-				A40768631C70AC0C00DE42BD /* YGMeViewController.m */,
-				A47EF77F1C6CCB4700AC9E6A /* AppDelegate.h */,
-				A47EF7801C6CCB4700AC9E6A /* AppDelegate.m */,
-				A40768561C70357A00DE42BD /* YGTabBarController.h */,
-				A40768571C70357A00DE42BD /* YGTabBarController.m */,
-				A402D6B41C71B17C00F11B4B /* UIBarButtonItem+YGExtension.h */,
-				A402D6B51C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m */,
-				A40768651C70AEE300DE42BD /* YGTabBar.h */,
-				A40768661C70AEE300DE42BD /* YGTabBar.m */,
-				A407686E1C70B85700DE42BD /* UIView+YGExtension.h */,
-				A407686F1C70B85700DE42BD /* UIView+YGExtension.m */,
-				A40768711C70B8BD00DE42BD /* PrefixHeader.pch */,
+				A402D6C01C71BB1000F11B4B /* Classes */,
 				A47EF77C1C6CCB4700AC9E6A /* Supporting Files */,
 			);
 			path = "百思不得姐";
@@ -148,7 +325,6 @@
 			children = (
 				A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */,
 				A47EF78D1C6CCB4700AC9E6A /* Info.plist */,
-				A47EF77D1C6CCB4700AC9E6A /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -301,16 +477,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A47EF7811C6CCB4700AC9E6A /* AppDelegate.m in Sources */,
-				A40768671C70AEE300DE42BD /* YGTabBar.m in Sources */,
-				A407685B1C70ABBD00DE42BD /* YGEssenceViewController.m in Sources */,
-				A40768641C70AC0C00DE42BD /* YGMeViewController.m in Sources */,
-				A402D6B61C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m in Sources */,
-				A407685E1C70ABD400DE42BD /* YGNewViewController.m in Sources */,
-				A47EF77E1C6CCB4700AC9E6A /* main.m in Sources */,
-				A40768701C70B85700DE42BD /* UIView+YGExtension.m in Sources */,
-				A40768611C70ABFF00DE42BD /* YGFriendTrendsViewController.m in Sources */,
-				A40768581C70357A00DE42BD /* YGTabBarController.m in Sources */,
+				A402D6EB1C71BB1000F11B4B /* YGFriendTrendsViewController.m in Sources */,
+				A402D6ED1C71BB1000F11B4B /* YGNewViewController.m in Sources */,
+				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
+				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,
+				A402D6EC1C71BB1000F11B4B /* YGMeViewController.m in Sources */,
+				A402D6EA1C71BB1000F11B4B /* YGEssenceViewController.m in Sources */,
+				A402D6EF1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m in Sources */,
+				A402D6EE1C71BB1000F11B4B /* AppDelegate.m in Sources */,
+				A402D6F21C71BB1000F11B4B /* main.m in Sources */,
+				A402D6F11C71BB1000F11B4B /* YGTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +608,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PREFIX_HEADER = "百思不得姐/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -448,7 +624,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PREFIX_HEADER = "百思不得姐/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
