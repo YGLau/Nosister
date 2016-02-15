@@ -19,10 +19,10 @@
 		A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E91C71BB1000F11B4B /* YGTabBar.m */; };
 		A402D6FC1C71C87D00F11B4B /* YGTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */; };
 		A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */; };
-		A402D7031C71DB7900F11B4B /* YGFriendTrendsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A402D7021C71DB7900F11B4B /* YGFriendTrendsView.xib */; };
 		A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */; };
 		A47EF7971C6CCB4700AC9E6A /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7961C6CCB4700AC9E6A /* _____Tests.m */; };
 		A47EF7A21C6CCB4700AC9E6A /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7A11C6CCB4700AC9E6A /* _____UITests.m */; };
+		A4ACBE6B1C7221CD002E26E3 /* YGFriendsTrendsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4ACBE6A1C7221CD002E26E3 /* YGFriendsTrendsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,6 @@
 		A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTestViewController.m; sourceTree = "<group>"; };
 		A402D6FD1C71CA8100F11B4B /* YGNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNavigationViewController.h; sourceTree = "<group>"; };
 		A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNavigationViewController.m; sourceTree = "<group>"; };
-		A402D7021C71DB7900F11B4B /* YGFriendTrendsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGFriendTrendsView.xib; sourceTree = "<group>"; };
 		A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47EF7791C6CCB4700AC9E6A /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47EF78D1C6CCB4700AC9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		A47EF79D1C6CCB4700AC9E6A /* 百思不得姐UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47EF7A11C6CCB4700AC9E6A /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		A47EF7A31C6CCB4700AC9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4ACBE6A1C7221CD002E26E3 /* YGFriendsTrendsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGFriendsTrendsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				A402D6C11C71BB1000F11B4B /* Essence */,
+				A402D6D31C71BB1000F11B4B /* New */,
 				A402D6C71C71BB1000F11B4B /* FriendTrends */,
 				A402D6CD1C71BB1000F11B4B /* Me */,
-				A402D6D31C71BB1000F11B4B /* New */,
 				A402D6D91C71BB1000F11B4B /* Other */,
 			);
 			path = Classes;
@@ -164,7 +164,7 @@
 			children = (
 				A402D6C91C71BB1000F11B4B /* YGFriendTrendsViewController.h */,
 				A402D6CA1C71BB1000F11B4B /* YGFriendTrendsViewController.m */,
-				A402D7021C71DB7900F11B4B /* YGFriendTrendsView.xib */,
+				A4ACBE6A1C7221CD002E26E3 /* YGFriendsTrendsView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -465,7 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A402D7031C71DB7900F11B4B /* YGFriendTrendsView.xib in Resources */,
+				A4ACBE6B1C7221CD002E26E3 /* YGFriendsTrendsView.xib in Resources */,
 				A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
