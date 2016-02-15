@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A402D6B61C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6B51C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m */; };
 		A40768581C70357A00DE42BD /* YGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40768571C70357A00DE42BD /* YGTabBarController.m */; };
 		A407685B1C70ABBD00DE42BD /* YGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A407685A1C70ABBD00DE42BD /* YGEssenceViewController.m */; };
 		A407685E1C70ABD400DE42BD /* YGNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A407685D1C70ABD400DE42BD /* YGNewViewController.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A402D6B41C71B17C00F11B4B /* UIBarButtonItem+YGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+YGExtension.h"; sourceTree = "<group>"; };
+		A402D6B51C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+YGExtension.m"; sourceTree = "<group>"; };
 		A40768561C70357A00DE42BD /* YGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTabBarController.h; sourceTree = "<group>"; };
 		A40768571C70357A00DE42BD /* YGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTabBarController.m; sourceTree = "<group>"; };
 		A40768591C70ABBD00DE42BD /* YGEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEssenceViewController.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				A47EF7801C6CCB4700AC9E6A /* AppDelegate.m */,
 				A40768561C70357A00DE42BD /* YGTabBarController.h */,
 				A40768571C70357A00DE42BD /* YGTabBarController.m */,
+				A402D6B41C71B17C00F11B4B /* UIBarButtonItem+YGExtension.h */,
+				A402D6B51C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m */,
 				A40768651C70AEE300DE42BD /* YGTabBar.h */,
 				A40768661C70AEE300DE42BD /* YGTabBar.m */,
 				A407686E1C70B85700DE42BD /* UIView+YGExtension.h */,
@@ -300,6 +305,7 @@
 				A40768671C70AEE300DE42BD /* YGTabBar.m in Sources */,
 				A407685B1C70ABBD00DE42BD /* YGEssenceViewController.m in Sources */,
 				A40768641C70AC0C00DE42BD /* YGMeViewController.m in Sources */,
+				A402D6B61C71B17C00F11B4B /* UIBarButtonItem+YGExtension.m in Sources */,
 				A407685E1C70ABD400DE42BD /* YGNewViewController.m in Sources */,
 				A47EF77E1C6CCB4700AC9E6A /* main.m in Sources */,
 				A40768701C70B85700DE42BD /* UIView+YGExtension.m in Sources */,
