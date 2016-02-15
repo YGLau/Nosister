@@ -20,4 +20,8 @@
 
 #define YGLogFunc YGLog(@"%s", __func__)
 
+#define YGRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define YGGlobalBg YGRGBColor(223, 223, 223)
+
 #endif

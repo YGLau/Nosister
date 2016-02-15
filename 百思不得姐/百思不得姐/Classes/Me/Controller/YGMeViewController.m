@@ -23,6 +23,8 @@
     UIBarButtonItem *setingItem = [UIBarButtonItem itemWithImage:@"mine-setting-icon" highImage:@"mine-setting-icon-click" target:self action:@selector(settingClick)];
     UIBarButtonItem *moonItem = [UIBarButtonItem itemWithImage:@"mine-moon-icon" highImage:@"mine-moon-icon-click" target:self action:@selector(moonClick)];
     self.navigationItem.rightBarButtonItems = @[setingItem, moonItem];
+    
+    self.view.backgroundColor = YGGlobalBg;
 }
 
 - (void)settingClick

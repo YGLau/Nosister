@@ -19,6 +19,7 @@
 		A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E91C71BB1000F11B4B /* YGTabBar.m */; };
 		A402D6FC1C71C87D00F11B4B /* YGTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */; };
 		A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */; };
+		A402D7031C71DB7900F11B4B /* YGFriendTrendsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A402D7021C71DB7900F11B4B /* YGFriendTrendsView.xib */; };
 		A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */; };
 		A47EF7971C6CCB4700AC9E6A /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7961C6CCB4700AC9E6A /* _____Tests.m */; };
 		A47EF7A21C6CCB4700AC9E6A /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7A11C6CCB4700AC9E6A /* _____UITests.m */; };
@@ -66,6 +67,7 @@
 		A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTestViewController.m; sourceTree = "<group>"; };
 		A402D6FD1C71CA8100F11B4B /* YGNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNavigationViewController.h; sourceTree = "<group>"; };
 		A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNavigationViewController.m; sourceTree = "<group>"; };
+		A402D7021C71DB7900F11B4B /* YGFriendTrendsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGFriendTrendsView.xib; sourceTree = "<group>"; };
 		A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47EF7791C6CCB4700AC9E6A /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47EF78D1C6CCB4700AC9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				A402D6C91C71BB1000F11B4B /* YGFriendTrendsViewController.h */,
 				A402D6CA1C71BB1000F11B4B /* YGFriendTrendsViewController.m */,
+				A402D7021C71DB7900F11B4B /* YGFriendTrendsView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A402D7031C71DB7900F11B4B /* YGFriendTrendsView.xib in Resources */,
 				A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
