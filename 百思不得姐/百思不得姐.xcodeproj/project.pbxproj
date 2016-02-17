@@ -23,6 +23,8 @@
 		A47EF7971C6CCB4700AC9E6A /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7961C6CCB4700AC9E6A /* _____Tests.m */; };
 		A47EF7A21C6CCB4700AC9E6A /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7A11C6CCB4700AC9E6A /* _____UITests.m */; };
 		A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4ACBE6C1C7227B3002E26E3 /* YGFriendTrendsView.xib */; };
+		A4B08FFB1C74A979009DCA14 /* YGRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B08FF91C74A979009DCA14 /* YGRecommendViewController.m */; };
+		A4B08FFC1C74A979009DCA14 /* YGRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B08FFA1C74A979009DCA14 /* YGRecommendViewController.xib */; };
 		CA447F2F86AD378C4658944D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAF3404B389FD655BF642EF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,9 @@
 		A47EF7A11C6CCB4700AC9E6A /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		A47EF7A31C6CCB4700AC9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4ACBE6C1C7227B3002E26E3 /* YGFriendTrendsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGFriendTrendsView.xib; sourceTree = "<group>"; };
+		A4B08FF81C74A979009DCA14 /* YGRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGRecommendViewController.h; sourceTree = "<group>"; };
+		A4B08FF91C74A979009DCA14 /* YGRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGRecommendViewController.m; sourceTree = "<group>"; };
+		A4B08FFA1C74A979009DCA14 /* YGRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGRecommendViewController.xib; sourceTree = "<group>"; };
 		B3631F45F81BE48A37EB2845 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +183,9 @@
 				A402D6C91C71BB1000F11B4B /* YGFriendTrendsViewController.h */,
 				A402D6CA1C71BB1000F11B4B /* YGFriendTrendsViewController.m */,
 				A4ACBE6C1C7227B3002E26E3 /* YGFriendTrendsView.xib */,
+				A4B08FF81C74A979009DCA14 /* YGRecommendViewController.h */,
+				A4B08FF91C74A979009DCA14 /* YGRecommendViewController.m */,
+				A4B08FFA1C74A979009DCA14 /* YGRecommendViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -493,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */,
+				A4B08FFC1C74A979009DCA14 /* YGRecommendViewController.xib in Resources */,
 				A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A402D6EB1C71BB1000F11B4B /* YGFriendTrendsViewController.m in Sources */,
+				A4B08FFB1C74A979009DCA14 /* YGRecommendViewController.m in Sources */,
 				A402D6ED1C71BB1000F11B4B /* YGNewViewController.m in Sources */,
 				A402D6FC1C71C87D00F11B4B /* YGTestViewController.m in Sources */,
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
