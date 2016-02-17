@@ -16,12 +16,10 @@
     },
     {
       "idiom" : "ipad",
-      "filename" : "AppIcon40x40~ipad.png",
       "scale" : "1x"
     },
     {
       "idiom" : "ipad",
-      "filename" : "AppIcon40x40@2x~ipad.png",
       "scale" : "2x"
     }
   ],
