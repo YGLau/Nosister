@@ -7,7 +7,6 @@
 //
 
 #import "YGFriendTrendsViewController.h"
-#import "YGRecommendViewController.h"
 
 @interface YGFriendTrendsViewController ()
 
@@ -27,8 +26,7 @@
 
 - (void)friendClick
 {
-    YGRecommendViewController *recoVc = [[YGRecommendViewController alloc] init];
-    [self.navigationController pushViewController:recoVc animated:YES];
+    YGLogFunc;
 }
 
 @end
