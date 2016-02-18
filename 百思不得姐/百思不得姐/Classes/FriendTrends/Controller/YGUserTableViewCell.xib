@@ -23,8 +23,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50A-Un-cGv">
-                        <rect key="frame" x="78" y="6" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="78" y="6" width="154" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -59,6 +59,7 @@
                 <constraints>
                     <constraint firstItem="kAd-yL-4h3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CAZ-aT-9oT"/>
                     <constraint firstItem="keo-3q-wC8" firstAttribute="bottom" secondItem="kAd-yL-4h3" secondAttribute="bottom" id="E0A-MN-Y69"/>
+                    <constraint firstItem="dfP-KI-MxC" firstAttribute="leading" secondItem="50A-Un-cGv" secondAttribute="trailing" constant="10" id="Jct-0S-R9F"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dfP-KI-MxC" secondAttribute="trailing" constant="20" id="PrW-Df-rez"/>
                     <constraint firstItem="9b5-yC-3j6" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Y6Y-Vz-DHR"/>
                     <constraint firstItem="50A-Un-cGv" firstAttribute="top" secondItem="kAd-yL-4h3" secondAttribute="top" id="cG4-6N-8y4"/>

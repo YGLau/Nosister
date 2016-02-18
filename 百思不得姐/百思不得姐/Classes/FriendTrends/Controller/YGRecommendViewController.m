@@ -21,10 +21,7 @@
  *  左边的类别数据
  */
 @property (strong, nonatomic) NSArray *category;
-/**
- *  右边的类别数据
- */
-@property (strong, nonatomic) NSArray *userCategory;
+
 /**
  *  左边的tableView控件
  */
@@ -94,22 +91,25 @@ static NSString * const YGUserID = @"user";
     if (tableView == self.leftTableView) {
         return self.category.count;
     } else {
-        return self.userCategory.count;
+        // 左边被选中的类别
+        YGRecommendCategroy *c = self.category[self.leftTableView.indexPathForSelectedRow.row];
+        return c.users.count;
     }
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == self.leftTableView) {
+    if (tableView == self.leftTableView) { // 左边的类别表格
         YGRecommendViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YGCategoryID];
         
         cell.categroy = self.category[indexPath.row];
         
         return cell;
-    } else {
+    } else {  // 右边的类别表格
         YGUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YGUserID];
-        cell.userCategory = self.userCategory[indexPath.row];
+        YGRecommendCategroy *c = self.category[self.leftTableView.indexPathForSelectedRow.row];
+        cell.userCategory = c.users[indexPath.row];
 
         return cell;
     }
@@ -120,23 +120,31 @@ static NSString * const YGUserID = @"user";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YGRecommendCategroy * c = self.category[indexPath.row];
-    // 发送右边网络请求
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
-    params[@"c"] = @"subscribe";
-    params[@"category_id"] = @(c.id);
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        self.userCategory = [YGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
+    YGRecommendCategroy *c = self.category[indexPath.row];
+    if (c.users.count) {
+        // 显示曾经的数据
         [self.rightTableView reloadData];
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        YGLog(@"%@", error);
-        
-        
-    }];
+    } else {
+        // 发送右边网络请求
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"a"] = @"list";
+        params[@"c"] = @"subscribe";
+        params[@"category_id"] = @(c.id);
+        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+            // 字典 -> 模型
+            NSArray *user = [YGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            // 添加到当前对应的用户数据中
+            [c.users addObjectsFromArray:user];
+            
+            [self.rightTableView reloadData];
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            YGLog(@"%@", error);
+            
+            
+        }];
+    }
+    
 }
 
 @end

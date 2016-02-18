@@ -21,4 +21,9 @@
  *  名字
  */
 @property (copy, nonatomic) NSString *name;
+
+/**
+ *  这个类别对应的用户数据
+ */
+@property (strong, nonatomic) NSMutableArray *users;
 @end

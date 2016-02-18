@@ -34,6 +34,7 @@
 - (void)awakeFromNib {
     
     self.backgroundColor = YGRGBColor(244, 244, 244);
+    self.textLabel.font = [UIFont systemFontOfSize:13];
     self.selectedIndicator.backgroundColor = YGRGBColor(219, 21, 26);
 }
 
