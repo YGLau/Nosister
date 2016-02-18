@@ -25,6 +25,10 @@
 		A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4ACBE6C1C7227B3002E26E3 /* YGFriendTrendsView.xib */; };
 		A4B08FFB1C74A979009DCA14 /* YGRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B08FF91C74A979009DCA14 /* YGRecommendViewController.m */; };
 		A4B08FFC1C74A979009DCA14 /* YGRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B08FFA1C74A979009DCA14 /* YGRecommendViewController.xib */; };
+		A4B08FFF1C74B1C8009DCA14 /* YGRecommendCategroy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B08FFE1C74B1C8009DCA14 /* YGRecommendCategroy.m */; };
+		A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B090011C74B257009DCA14 /* YGRecommendViewCell.m */; };
+		A4B090041C74B257009DCA14 /* YGRecommendViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B090021C74B257009DCA14 /* YGRecommendViewCell.xib */; };
+		A4B090061C74B845009DCA14 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B090051C74B845009DCA14 /* Foundation+Log.m */; };
 		CA447F2F86AD378C4658944D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAF3404B389FD655BF642EF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +89,12 @@
 		A4B08FF81C74A979009DCA14 /* YGRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGRecommendViewController.h; sourceTree = "<group>"; };
 		A4B08FF91C74A979009DCA14 /* YGRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGRecommendViewController.m; sourceTree = "<group>"; };
 		A4B08FFA1C74A979009DCA14 /* YGRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGRecommendViewController.xib; sourceTree = "<group>"; };
+		A4B08FFD1C74B1C8009DCA14 /* YGRecommendCategroy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGRecommendCategroy.h; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendCategroy.h"; sourceTree = SOURCE_ROOT; };
+		A4B08FFE1C74B1C8009DCA14 /* YGRecommendCategroy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGRecommendCategroy.m; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendCategroy.m"; sourceTree = SOURCE_ROOT; };
+		A4B090001C74B257009DCA14 /* YGRecommendViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGRecommendViewCell.h; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendViewCell.h"; sourceTree = SOURCE_ROOT; };
+		A4B090011C74B257009DCA14 /* YGRecommendViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGRecommendViewCell.m; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendViewCell.m"; sourceTree = SOURCE_ROOT; };
+		A4B090021C74B257009DCA14 /* YGRecommendViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGRecommendViewCell.xib; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		A4B090051C74B845009DCA14 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		B3631F45F81BE48A37EB2845 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +203,8 @@
 		A402D6CB1C71BB1000F11B4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4B08FFD1C74B1C8009DCA14 /* YGRecommendCategroy.h */,
+				A4B08FFE1C74B1C8009DCA14 /* YGRecommendCategroy.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +212,9 @@
 		A402D6CC1C71BB1000F11B4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A4B090001C74B257009DCA14 /* YGRecommendViewCell.h */,
+				A4B090011C74B257009DCA14 /* YGRecommendViewCell.m */,
+				A4B090021C74B257009DCA14 /* YGRecommendViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,6 +298,7 @@
 				A402D6E61C71BB1000F11B4B /* PrefixHeader.pch */,
 				A402D6FA1C71C87D00F11B4B /* YGTestViewController.h */,
 				A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */,
+				A4B090051C74B845009DCA14 /* Foundation+Log.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -501,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */,
+				A4B090041C74B257009DCA14 /* YGRecommendViewCell.xib in Resources */,
 				A4B08FFC1C74A979009DCA14 /* YGRecommendViewController.xib in Resources */,
 				A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */,
 			);
@@ -580,14 +597,17 @@
 				A402D6ED1C71BB1000F11B4B /* YGNewViewController.m in Sources */,
 				A402D6FC1C71C87D00F11B4B /* YGTestViewController.m in Sources */,
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
+				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,
 				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,
 				A402D6EC1C71BB1000F11B4B /* YGMeViewController.m in Sources */,
 				A402D6EA1C71BB1000F11B4B /* YGEssenceViewController.m in Sources */,
 				A402D6EF1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m in Sources */,
 				A402D6EE1C71BB1000F11B4B /* AppDelegate.m in Sources */,
+				A4B08FFF1C74B1C8009DCA14 /* YGRecommendCategroy.m in Sources */,
 				A402D6F21C71BB1000F11B4B /* main.m in Sources */,
 				A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */,
 				A402D6F11C71BB1000F11B4B /* YGTabBarController.m in Sources */,
+				A4B090061C74B845009DCA14 /* Foundation+Log.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
