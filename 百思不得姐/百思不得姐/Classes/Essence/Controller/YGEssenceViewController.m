@@ -8,6 +8,7 @@
 
 #import "YGEssenceViewController.h"
 #import "YGTestViewController.h"
+#import "YGRecommendTagsController.h"
 
 @interface YGEssenceViewController ()
 
@@ -27,7 +28,8 @@
 
 - (void)tagClick
 {
-    YGLogFunc;
+    YGRecommendTagsController *RT = [[YGRecommendTagsController alloc] init];
+    [self.navigationController pushViewController:RT animated: YES];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
