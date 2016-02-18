@@ -12,6 +12,8 @@
 #import "YGRecommendViewCell.h"
 #import "YGRecommendCategroy.h"
 #import <MJExtension.h>
+#import "YGUserTableViewCell.h"
+#import "YGRecommendUser.h"
 
 
 @interface YGRecommendViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -20,21 +22,38 @@
  */
 @property (strong, nonatomic) NSArray *category;
 /**
+ *  右边的类别数据
+ */
+@property (strong, nonatomic) NSArray *userCategory;
+/**
  *  左边的tableView控件
  */
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
+/**
+ *  右侧的tableView控件
+ */
+@property (weak, nonatomic) IBOutlet UITableView *rightTableView;
 
 @end
 
 @implementation YGRecommendViewController
 
 static NSString * const YGCategoryID = @"category";
+static NSString * const YGUserID = @"user";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 注册cell
+    // 注册左边cell
     [self.leftTableView registerNib:[UINib nibWithNibName:NSStringFromClass([YGRecommendViewCell class]) bundle:nil] forCellReuseIdentifier:YGCategoryID];
+    // 注册右边cell
+    [self.rightTableView registerNib:[UINib nibWithNibName:NSStringFromClass([YGUserTableViewCell class]) bundle:nil] forCellReuseIdentifier:YGUserID];
+    
+    // 设置inset
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.leftTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.rightTableView.contentInset = self.leftTableView.contentInset;
+    self.rightTableView.rowHeight = 70;
     
     self.title = @"推荐关注";
     
@@ -44,7 +63,7 @@ static NSString * const YGCategoryID = @"category";
     // 显示指示器
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
-    // 发送请求
+    // 发送左边网络请求
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"category";
     params[@"c"] = @"subscribe";
@@ -72,16 +91,52 @@ static NSString * const YGCategoryID = @"category";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.category.count;
+    if (tableView == self.leftTableView) {
+        return self.category.count;
+    } else {
+        return self.userCategory.count;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YGRecommendViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YGCategoryID];
+    if (tableView == self.leftTableView) {
+        YGRecommendViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YGCategoryID];
+        
+        cell.categroy = self.category[indexPath.row];
+        
+        return cell;
+    } else {
+        YGUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YGUserID];
+        cell.userCategory = self.userCategory[indexPath.row];
+
+        return cell;
+    }
     
-    cell.categroy = self.category[indexPath.row];
-    
-    return cell;
+}
+
+#pragma mark - <UITableViewDelegate>
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YGRecommendCategroy * c = self.category[indexPath.row];
+    // 发送右边网络请求
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(c.id);
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        self.userCategory = [YGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        [self.rightTableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        YGLog(@"%@", error);
+        
+        
+    }];
 }
 
 @end

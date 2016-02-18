@@ -29,6 +29,9 @@
 		A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B090011C74B257009DCA14 /* YGRecommendViewCell.m */; };
 		A4B090041C74B257009DCA14 /* YGRecommendViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B090021C74B257009DCA14 /* YGRecommendViewCell.xib */; };
 		A4B090061C74B845009DCA14 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B090051C74B845009DCA14 /* Foundation+Log.m */; };
+		A4B0900A1C759420009DCA14 /* YGUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B090081C759420009DCA14 /* YGUserTableViewCell.m */; };
+		A4B0900B1C759420009DCA14 /* YGUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B090091C759420009DCA14 /* YGUserTableViewCell.xib */; };
+		A4B0900F1C7598B0009DCA14 /* YGRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B0900E1C7598B0009DCA14 /* YGRecommendUser.m */; };
 		CA447F2F86AD378C4658944D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAF3404B389FD655BF642EF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +98,11 @@
 		A4B090011C74B257009DCA14 /* YGRecommendViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGRecommendViewCell.m; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendViewCell.m"; sourceTree = SOURCE_ROOT; };
 		A4B090021C74B257009DCA14 /* YGRecommendViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGRecommendViewCell.xib; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		A4B090051C74B845009DCA14 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		A4B090071C759420009DCA14 /* YGUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGUserTableViewCell.h; path = "百思不得姐/Classes/FriendTrends/Controller/YGUserTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		A4B090081C759420009DCA14 /* YGUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGUserTableViewCell.m; path = "百思不得姐/Classes/FriendTrends/Controller/YGUserTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		A4B090091C759420009DCA14 /* YGUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGUserTableViewCell.xib; path = "百思不得姐/Classes/FriendTrends/Controller/YGUserTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		A4B0900D1C7598B0009DCA14 /* YGRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGRecommendUser.h; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendUser.h"; sourceTree = SOURCE_ROOT; };
+		A4B0900E1C7598B0009DCA14 /* YGRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGRecommendUser.m; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendUser.m"; sourceTree = SOURCE_ROOT; };
 		B3631F45F81BE48A37EB2845 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +213,8 @@
 			children = (
 				A4B08FFD1C74B1C8009DCA14 /* YGRecommendCategroy.h */,
 				A4B08FFE1C74B1C8009DCA14 /* YGRecommendCategroy.m */,
+				A4B0900D1C7598B0009DCA14 /* YGRecommendUser.h */,
+				A4B0900E1C7598B0009DCA14 /* YGRecommendUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,6 +225,9 @@
 				A4B090001C74B257009DCA14 /* YGRecommendViewCell.h */,
 				A4B090011C74B257009DCA14 /* YGRecommendViewCell.m */,
 				A4B090021C74B257009DCA14 /* YGRecommendViewCell.xib */,
+				A4B090071C759420009DCA14 /* YGUserTableViewCell.h */,
+				A4B090081C759420009DCA14 /* YGUserTableViewCell.m */,
+				A4B090091C759420009DCA14 /* YGUserTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,6 +486,7 @@
 		A47EF7711C6CCB4600AC9E6A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YG;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = liu;
 				TargetAttributes = {
@@ -516,6 +530,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B0900B1C759420009DCA14 /* YGUserTableViewCell.xib in Resources */,
 				A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */,
 				A4B090041C74B257009DCA14 /* YGRecommendViewCell.xib in Resources */,
 				A4B08FFC1C74A979009DCA14 /* YGRecommendViewController.xib in Resources */,
@@ -601,7 +616,9 @@
 				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,
 				A402D6EC1C71BB1000F11B4B /* YGMeViewController.m in Sources */,
 				A402D6EA1C71BB1000F11B4B /* YGEssenceViewController.m in Sources */,
+				A4B0900A1C759420009DCA14 /* YGUserTableViewCell.m in Sources */,
 				A402D6EF1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m in Sources */,
+				A4B0900F1C7598B0009DCA14 /* YGRecommendUser.m in Sources */,
 				A402D6EE1C71BB1000F11B4B /* AppDelegate.m in Sources */,
 				A4B08FFF1C74B1C8009DCA14 /* YGRecommendCategroy.m in Sources */,
 				A402D6F21C71BB1000F11B4B /* main.m in Sources */,
