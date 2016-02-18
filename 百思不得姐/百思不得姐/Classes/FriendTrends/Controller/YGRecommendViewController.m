@@ -117,10 +117,57 @@ static NSString * const YGUserID = @"user";
  */
 - (void)setupRefresh
 {
+    // 头部控件
+    self.rightTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
+    
+    
+    // 底部控件
     self.rightTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
     self.rightTableView.mj_footer.hidden = YES;
 }
-
+- (void)loadNewUsers
+{
+    YGRecommendCategroy *rc = YGSelectedCategory;
+    // 设置当前页码为1
+    rc.current_page = 1;
+    
+    // 发送右边网络请求
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(rc.id);
+    params[@"page"] = @(rc.current_page);
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        // 字典 -> 模型
+        NSArray *user = [YGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        // 清除所有旧数据
+        [rc.users removeAllObjects];
+        
+        // 添加到当前对应的用户数据中
+        [rc.users addObjectsFromArray:user];
+        
+        // 保存总数
+        rc.total = [responseObject[@"total"] integerValue];
+        
+        [self.rightTableView reloadData];
+        
+        [self.rightTableView.mj_header endRefreshing];
+        
+        // 检测底部控件状态
+        [self checkFooterStatus];
+     
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        // 提示
+        [SVProgressHUD showErrorWithStatus:@"加载用户数据失败"];
+        
+        // 结束刷新
+        [self.rightTableView.mj_header endRefreshing];
+        
+        
+    }];
+}
 /**
  *  加载更多数据
  */
@@ -143,32 +190,46 @@ static NSString * const YGUserID = @"user";
         
         [self.rightTableView reloadData];
         
+        // 检测底部控件
+        [self checkFooterStatus];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 提示
+        [SVProgressHUD showErrorWithStatus:@"加载用户数据失败"];
+        
         // 让底部控件结束刷新
         [self.rightTableView.mj_footer endRefreshing];
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        YGLog(@"%@", error);
-        
-        
     }];
     
+}
+/**
+ *  时刻监测footer的状态
+ */
+- (void)checkFooterStatus
+{
+    YGRecommendCategroy *rc = YGSelectedCategory;
+    // 每次刷新右边的数据时，都控制footer显示或者隐藏
+    self.rightTableView.mj_footer.hidden = (rc.users.count == 0);
+    
+    if (rc.users.count == rc.total) {
+        [self.rightTableView.mj_footer endRefreshingWithNoMoreData];
+    } else {
+        // 让底部控件结束刷新
+        [self.rightTableView.mj_footer endRefreshing];
+    }
 }
 #pragma mark - <UITableViewDataSource>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.leftTableView) {
-        return self.category.count;
-    } else { // 右边的用户表格
-        
-        NSInteger count = [YGSelectedCategory users].count;
-        
-        // 每次刷新右边的数据时，都控制footer显示或者隐藏
-        self.rightTableView.mj_footer.hidden = (count == 0);
-        return count;
-        
-        
-    }
+    // 左边的用户表格
+    if (tableView == self.leftTableView) return self.category.count;
+    // 监测footer状态
+    [self checkFooterStatus];
+    // 右边的用户表格
+    return [YGSelectedCategory users].count;
+
     
 }
 
@@ -205,35 +266,8 @@ static NSString * const YGUserID = @"user";
         [self.rightTableView reloadData];
         
         
-        // 设置当前页码为1
-        c.current_page = 1;
-        
-        // 发送右边网络请求
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        params[@"a"] = @"list";
-        params[@"c"] = @"subscribe";
-        params[@"category_id"] = @(c.id);
-        params[@"page"] = @(c.current_page);
-        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-            // 字典 -> 模型
-            NSArray *user = [YGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-            
-            // 添加到当前对应的用户数据中
-            [c.users addObjectsFromArray:user];
-            
-            // 保存总数
-            c.total = [responseObject[@"total"] integerValue];
-            
-            [self.rightTableView reloadData];
-            if (c.users.count == c.total) {
-                [self.rightTableView.mj_footer endRefreshingWithNoMoreData];
-            }
-            
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            YGLog(@"%@", error);
-            
-            
-        }];
+        // 进入下拉刷新状态
+        [self.rightTableView.mj_header beginRefreshing];
     }
     
 }
