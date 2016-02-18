@@ -32,7 +32,15 @@
  *  右侧的tableView控件
  */
 @property (weak, nonatomic) IBOutlet UITableView *rightTableView;
+/**
+ *  请求参数
+ */
+@property (strong, nonatomic) NSMutableDictionary *params;
 
+/**
+ *  AFHTTPSessionManager的manager
+ */
+@property (strong, nonatomic) AFHTTPSessionManager *manager;
 @end
 
 @implementation YGRecommendViewController
@@ -40,13 +48,36 @@
 static NSString * const YGCategoryID = @"category";
 static NSString * const YGUserID = @"user";
 
+/**
+ *  懒加载 保留一个manager
+ */
+-(AFHTTPSessionManager *)manager
+{
+    if (_manager == nil) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 初始化tableView的一些信息
     [self setupTableView];
     
+    // 添加刷新控件
     [self setupRefresh];
     
+    // 加载左侧的类别数据
+    [self loadCategories];
+}
+
+
+/**
+ *  加载左侧的类别数据
+ */
+- (void)loadCategories
+{
     // 注册左边cell
     [self.leftTableView registerNib:[UINib nibWithNibName:NSStringFromClass([YGRecommendViewCell class]) bundle:nil] forCellReuseIdentifier:YGCategoryID];
     // 注册右边cell
@@ -70,10 +101,10 @@ static NSString * const YGUserID = @"user";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"category";
     params[@"c"] = @"subscribe";
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         // 隐藏指示器
         [SVProgressHUD dismiss];
-
+        
         
         // 服务器返回的JSON数据
         self.category = [YGRecommendCategroy mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
@@ -84,6 +115,9 @@ static NSString * const YGUserID = @"user";
         
         // 默认选中首行
         [self.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        // 让用户表格进入下拉状态
+        [self.rightTableView.mj_header beginRefreshing];
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // 显示失败信息
         [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败！"];
@@ -137,7 +171,10 @@ static NSString * const YGUserID = @"user";
     params[@"c"] = @"subscribe";
     params[@"category_id"] = @(rc.id);
     params[@"page"] = @(rc.current_page);
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    self.params = params;
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
         // 字典 -> 模型
         NSArray *user = [YGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
@@ -150,6 +187,10 @@ static NSString * const YGUserID = @"user";
         // 保存总数
         rc.total = [responseObject[@"total"] integerValue];
         
+        //如果两次请求不同，直接return
+        if (self.params != params) return;
+        
+        // 刷新右边的表格
         [self.rightTableView reloadData];
         
         [self.rightTableView.mj_header endRefreshing];
@@ -158,6 +199,9 @@ static NSString * const YGUserID = @"user";
         [self checkFooterStatus];
      
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        //如果两次请求不同，直接return
+        if (self.params != params) return;
         
         // 提示
         [SVProgressHUD showErrorWithStatus:@"加载用户数据失败"];
@@ -181,12 +225,16 @@ static NSString * const YGUserID = @"user";
     params[@"c"] = @"subscribe";
     params[@"category_id"] = @(category.id);
     params[@"page"] = @(++category.current_page);
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
+    self.params = params;
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         // 字典 -> 模型
         NSArray *user = [YGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         // 添加到当前对应的用户数据中
         [category.users addObjectsFromArray:user];
+        
+        //如果两次请求不同，直接return
+        if (self.params != params) return;
         
         [self.rightTableView reloadData];
         
@@ -194,6 +242,10 @@ static NSString * const YGUserID = @"user";
         [self checkFooterStatus];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        //如果两次请求不同，直接return
+        if (self.params != params) return;
+        
         // 提示
         [SVProgressHUD showErrorWithStatus:@"加载用户数据失败"];
         
@@ -254,6 +306,10 @@ static NSString * const YGUserID = @"user";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 先结束刷新
+    [self.rightTableView.mj_header endRefreshing];
+    [self.rightTableView.mj_footer endRefreshing];
+    
     YGRecommendCategroy *c = self.category[indexPath.row];
     
     [self.rightTableView.mj_footer endRefreshingWithNoMoreData];
@@ -270,6 +326,13 @@ static NSString * const YGUserID = @"user";
         [self.rightTableView.mj_header beginRefreshing];
     }
     
+}
+
+#pragma mark - 控制的销毁
+-(void)dealloc
+{
+    //停止所有请求
+    [self.manager.operationQueue cancelAllOperations];
 }
 
 @end
