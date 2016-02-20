@@ -32,6 +32,10 @@
 		A4B0900A1C759420009DCA14 /* YGUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B090081C759420009DCA14 /* YGUserTableViewCell.m */; };
 		A4B0900B1C759420009DCA14 /* YGUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B090091C759420009DCA14 /* YGUserTableViewCell.xib */; };
 		A4B0900F1C7598B0009DCA14 /* YGRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B0900E1C7598B0009DCA14 /* YGRecommendUser.m */; };
+		A4E91CBA1C787528006E4DCB /* YGLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E91CB81C787528006E4DCB /* YGLoginRegisterViewController.m */; };
+		A4E91CBB1C787528006E4DCB /* YGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E91CB91C787528006E4DCB /* YGLoginRegisterViewController.xib */; };
+		A4E91CBE1C78852B006E4DCB /* YGOtherLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E91CBD1C78852B006E4DCB /* YGOtherLoginButton.m */; };
+		A4E91CC11C78A4D6006E4DCB /* YGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E91CC01C78A4D6006E4DCB /* YGTextField.m */; };
 		A4EFE4461C76047500B0B2E5 /* YGRecommendTagsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE4451C76047500B0B2E5 /* YGRecommendTagsController.m */; };
 		A4EFE4491C76076B00B0B2E5 /* YGRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE4481C76076B00B0B2E5 /* YGRecommendTag.m */; };
 		A4EFE44D1C760A1800B0B2E5 /* YGRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE44B1C760A1800B0B2E5 /* YGRecommendTagCell.m */; };
@@ -107,6 +111,13 @@
 		A4B090091C759420009DCA14 /* YGUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGUserTableViewCell.xib; path = "百思不得姐/Classes/FriendTrends/Controller/YGUserTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		A4B0900D1C7598B0009DCA14 /* YGRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGRecommendUser.h; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendUser.h"; sourceTree = SOURCE_ROOT; };
 		A4B0900E1C7598B0009DCA14 /* YGRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGRecommendUser.m; path = "百思不得姐/Classes/FriendTrends/Controller/YGRecommendUser.m"; sourceTree = SOURCE_ROOT; };
+		A4E91CB71C787528006E4DCB /* YGLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGLoginRegisterViewController.h; sourceTree = "<group>"; };
+		A4E91CB81C787528006E4DCB /* YGLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGLoginRegisterViewController.m; sourceTree = "<group>"; };
+		A4E91CB91C787528006E4DCB /* YGLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		A4E91CBC1C78852B006E4DCB /* YGOtherLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGOtherLoginButton.h; path = "百思不得姐/Classes/FriendTrends/Controller/YGOtherLoginButton.h"; sourceTree = SOURCE_ROOT; };
+		A4E91CBD1C78852B006E4DCB /* YGOtherLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGOtherLoginButton.m; path = "百思不得姐/Classes/FriendTrends/Controller/YGOtherLoginButton.m"; sourceTree = SOURCE_ROOT; };
+		A4E91CBF1C78A4D6006E4DCB /* YGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGTextField.h; path = "百思不得姐/Classes/FriendTrends/Controller/YGTextField.h"; sourceTree = SOURCE_ROOT; };
+		A4E91CC01C78A4D6006E4DCB /* YGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGTextField.m; path = "百思不得姐/Classes/FriendTrends/Controller/YGTextField.m"; sourceTree = SOURCE_ROOT; };
 		A4EFE4441C76047500B0B2E5 /* YGRecommendTagsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGRecommendTagsController.h; sourceTree = "<group>"; };
 		A4EFE4451C76047500B0B2E5 /* YGRecommendTagsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGRecommendTagsController.m; sourceTree = "<group>"; };
 		A4EFE4471C76076B00B0B2E5 /* YGRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGRecommendTag.h; path = "百思不得姐/Classes/Essence/Controller/YGRecommendTag.h"; sourceTree = SOURCE_ROOT; };
@@ -222,6 +233,9 @@
 				A4B08FF81C74A979009DCA14 /* YGRecommendViewController.h */,
 				A4B08FF91C74A979009DCA14 /* YGRecommendViewController.m */,
 				A4B08FFA1C74A979009DCA14 /* YGRecommendViewController.xib */,
+				A4E91CB71C787528006E4DCB /* YGLoginRegisterViewController.h */,
+				A4E91CB81C787528006E4DCB /* YGLoginRegisterViewController.m */,
+				A4E91CB91C787528006E4DCB /* YGLoginRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -246,6 +260,10 @@
 				A4B090071C759420009DCA14 /* YGUserTableViewCell.h */,
 				A4B090081C759420009DCA14 /* YGUserTableViewCell.m */,
 				A4B090091C759420009DCA14 /* YGUserTableViewCell.xib */,
+				A4E91CBC1C78852B006E4DCB /* YGOtherLoginButton.h */,
+				A4E91CBD1C78852B006E4DCB /* YGOtherLoginButton.m */,
+				A4E91CBF1C78A4D6006E4DCB /* YGTextField.h */,
+				A4E91CC01C78A4D6006E4DCB /* YGTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -548,6 +566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E91CBB1C787528006E4DCB /* YGLoginRegisterViewController.xib in Resources */,
 				A4B0900B1C759420009DCA14 /* YGUserTableViewCell.xib in Resources */,
 				A4EFE44E1C760A1800B0B2E5 /* YGRecommendTagCell.xib in Resources */,
 				A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */,
@@ -629,12 +648,15 @@
 				A402D6EB1C71BB1000F11B4B /* YGFriendTrendsViewController.m in Sources */,
 				A4EFE4461C76047500B0B2E5 /* YGRecommendTagsController.m in Sources */,
 				A4B08FFB1C74A979009DCA14 /* YGRecommendViewController.m in Sources */,
+				A4E91CBE1C78852B006E4DCB /* YGOtherLoginButton.m in Sources */,
 				A402D6ED1C71BB1000F11B4B /* YGNewViewController.m in Sources */,
 				A402D6FC1C71C87D00F11B4B /* YGTestViewController.m in Sources */,
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
 				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,
 				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,
+				A4E91CC11C78A4D6006E4DCB /* YGTextField.m in Sources */,
 				A402D6EC1C71BB1000F11B4B /* YGMeViewController.m in Sources */,
+				A4E91CBA1C787528006E4DCB /* YGLoginRegisterViewController.m in Sources */,
 				A4EFE4491C76076B00B0B2E5 /* YGRecommendTag.m in Sources */,
 				A4EFE44D1C760A1800B0B2E5 /* YGRecommendTagCell.m in Sources */,
 				A402D6EA1C71BB1000F11B4B /* YGEssenceViewController.m in Sources */,

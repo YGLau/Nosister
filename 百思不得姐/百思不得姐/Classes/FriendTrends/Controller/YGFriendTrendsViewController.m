@@ -8,12 +8,21 @@
 
 #import "YGFriendTrendsViewController.h"
 #import "YGRecommendViewController.h"
+#import "YGLoginRegisterViewController.h"
 
 @interface YGFriendTrendsViewController ()
 
 @end
 
 @implementation YGFriendTrendsViewController
+/**
+ *  登录注册
+ */
+- (IBAction)LoginRegister:(UIButton *)button {
+    YGLoginRegisterViewController *loginVc = [[YGLoginRegisterViewController alloc] init];
+    [self.navigationController presentViewController:loginVc animated:YES completion:nil];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
