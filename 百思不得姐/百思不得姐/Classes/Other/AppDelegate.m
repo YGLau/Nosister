@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YGTabBarController.h"
+#import "YGPushGuideView.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,8 @@
     self.window.rootViewController = [[YGTabBarController alloc] init];
     // 显示窗口
     [self.window makeKeyAndVisible];
+    // 显示推送指南
+    [YGPushGuideView show];
     
     return YES;
 }
