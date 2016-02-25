@@ -9,11 +9,7 @@
 #import "YGEssenceViewController.h"
 #import "YGTestViewController.h"
 #import "YGRecommendTagsController.h"
-#import "YGAllTableViewController.h"
-#import "YGVideoTableViewController.h"
-#import "YGVoiceTableViewController.h"
-#import "YGPictureTableViewController.h"
-#import "YGWordTableViewController.h"
+#import "YGBaseViewController.h"
 
 @interface YGEssenceViewController () <UIScrollViewDelegate>
 /**
@@ -169,26 +165,30 @@
 - (void)setupChildVces
 {
     
-    YGWordTableViewController *word = [[YGWordTableViewController alloc] init];
-    word.title = @"段子";
-    [self addChildViewController:word];
-    
-    YGAllTableViewController *all = [[YGAllTableViewController alloc] init];
+    YGBaseViewController *all = [[YGBaseViewController alloc] init];
+    all.type = YGBaseTopicTypeAll;
     all.title = @"全部";
     [self addChildViewController:all];
     
-    YGVideoTableViewController *video = [[YGVideoTableViewController alloc] init];
+    YGBaseViewController *video = [[YGBaseViewController alloc] init];
+    video.type = YGBaseTopicTypeVideo;
     video.title = @"视频";
     [self addChildViewController:video];
     
-    YGVoiceTableViewController *voice = [[YGVoiceTableViewController alloc] init];
+    YGBaseViewController *voice = [[YGBaseViewController alloc] init];
+    voice.type = YGBaseTopicTypeVoice;
     voice.title = @"声音";
     [self addChildViewController:voice];
     
-    YGPictureTableViewController *picture = [[YGPictureTableViewController alloc] init];
+    YGBaseViewController *picture = [[YGBaseViewController alloc] init];
+    picture.type = YGBaseTopicTypePicture;
     picture.title = @"图片";
     [self addChildViewController:picture];
     
+    YGBaseViewController *word = [[YGBaseViewController alloc] init];
+    word.type = YGBaseTopicTypeWord;
+    word.title = @"段子";
+    [self addChildViewController:word];
 }
 
 - (void)tagClick

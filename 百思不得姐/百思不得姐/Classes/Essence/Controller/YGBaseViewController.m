@@ -1,12 +1,13 @@
 //
-//  YGWordTableViewController.m
+//  YGBaseViewController.m
 //  百思不得姐
 //
 //  Created by 刘勇刚 on 16/2/25.
 //  Copyright © 2016年 liu. All rights reserved.
 //
 
-#import "YGWordTableViewController.h"
+#import "YGBaseViewController.h"
+
 #import <AFNetworking.h>
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>
@@ -14,7 +15,7 @@
 #import "YGTopic.h"
 #import "YGTopicCell.h"
 
-@interface YGWordTableViewController ()
+@interface YGBaseViewController ()
 /**
  *  帖子数据
  */
@@ -33,7 +34,7 @@
 @property (strong, nonatomic) NSDictionary *params;
 @end
 
-@implementation YGWordTableViewController
+@implementation YGBaseViewController
 
 
 /**
@@ -90,7 +91,7 @@ static NSString * const YGTopicCellID = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.type);
     self.params = params;
     // 发送请求
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -128,7 +129,7 @@ static NSString * const YGTopicCellID = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.type);
     params[@"page"] = @(self.page);
     params[@"maxtime"] = self.maxtime;
     self.params = params;
@@ -180,7 +181,7 @@ static NSString * const YGTopicCellID = @"topic";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     YGTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:YGTopicCellID];
     
     cell.topic = self.topics[indexPath.row];
@@ -192,6 +193,4 @@ static NSString * const YGTopicCellID = @"topic";
 {
     return 200;
 }
-
-
 @end
