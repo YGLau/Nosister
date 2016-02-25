@@ -11,6 +11,7 @@
 
 #import "UIView+YGExtension.h"
 #import "UIBarButtonItem+YGExtension.h"
+#import "YGConst.h"
 
 #ifdef DEBUG
 #define YGLog(...) NSLog(__VA_ARGS__)

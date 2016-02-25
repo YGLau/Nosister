@@ -40,6 +40,7 @@
 		A4B8674C1C7EB0C600C28154 /* YGPictureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B8674B1C7EB0C600C28154 /* YGPictureTableViewController.m */; };
 		A4B8674F1C7EB0CE00C28154 /* YGWordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B8674E1C7EB0CE00C28154 /* YGWordTableViewController.m */; };
 		A4B867521C7ED96B00C28154 /* YGTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B867511C7ED96B00C28154 /* YGTopic.m */; };
+		A4B867551C7EF06C00C28154 /* YGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B867541C7EF06C00C28154 /* YGConst.m */; };
 		A4E91CBA1C787528006E4DCB /* YGLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E91CB81C787528006E4DCB /* YGLoginRegisterViewController.m */; };
 		A4E91CBB1C787528006E4DCB /* YGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E91CB91C787528006E4DCB /* YGLoginRegisterViewController.xib */; };
 		A4E91CBE1C78852B006E4DCB /* YGOtherLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E91CBD1C78852B006E4DCB /* YGOtherLoginButton.m */; };
@@ -134,6 +135,8 @@
 		A4B8674E1C7EB0CE00C28154 /* YGWordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGWordTableViewController.m; sourceTree = "<group>"; };
 		A4B867501C7ED96B00C28154 /* YGTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGTopic.h; path = "百思不得姐/Classes/Essence/Controller/YGTopic.h"; sourceTree = SOURCE_ROOT; };
 		A4B867511C7ED96B00C28154 /* YGTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGTopic.m; path = "百思不得姐/Classes/Essence/Controller/YGTopic.m"; sourceTree = SOURCE_ROOT; };
+		A4B867531C7EF06C00C28154 /* YGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGConst.h; sourceTree = "<group>"; };
+		A4B867541C7EF06C00C28154 /* YGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGConst.m; sourceTree = "<group>"; };
 		A4E91CB71C787528006E4DCB /* YGLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGLoginRegisterViewController.h; sourceTree = "<group>"; };
 		A4E91CB81C787528006E4DCB /* YGLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGLoginRegisterViewController.m; sourceTree = "<group>"; };
 		A4E91CB91C787528006E4DCB /* YGLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				A402D6FA1C71C87D00F11B4B /* YGTestViewController.h */,
 				A402D6FB1C71C87D00F11B4B /* YGTestViewController.m */,
 				A4B090051C74B845009DCA14 /* Foundation+Log.m */,
+				A4B867531C7EF06C00C28154 /* YGConst.h */,
+				A4B867541C7EF06C00C28154 /* YGConst.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 				A4B867491C7EB0BE00C28154 /* YGVoiceTableViewController.m in Sources */,
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
 				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,
+				A4B867551C7EF06C00C28154 /* YGConst.m in Sources */,
 				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,
 				A4E91CC11C78A4D6006E4DCB /* YGTextField.m in Sources */,
 				A4B867521C7ED96B00C28154 /* YGTopic.m in Sources */,

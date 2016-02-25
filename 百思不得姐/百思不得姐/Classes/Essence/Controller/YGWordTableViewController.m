@@ -51,12 +51,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //加载新的段子内容
-    [self loadNewTopics];
+    // 初始化表格
+    [self setupTableView];
     
     // 添加舒心控件
     [self setupRefresh];
     
+}
+
+- (void)setupTableView
+{
+    // 设置内边距
+    CGFloat top = YGTitleViewH +YGTitleViewY;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    // 滚动条的内边距
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
 #pragma mark - 数据处理
 /**
@@ -151,11 +161,11 @@
     
     // 尾部刷新控件
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
-//    self.tableView.mj_footer.hidden = YES;
 }
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    self.tableView.mj_footer.hidden = (self.topics.count == 0);
     return self.topics.count;
 }
 

@@ -62,8 +62,8 @@
     UIView *titlesView = [[UIView alloc] init];
     titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     titlesView.width = self.view.width;
-    titlesView.height = 35;
-    titlesView.y = 64;
+    titlesView.height = YGTitleViewH;
+    titlesView.y = YGTitleViewY;
     [self.view addSubview:titlesView];
     self.titlesView = titlesView;
     
@@ -199,17 +199,12 @@
     
     // 当前的索引
     NSInteger index = scrollView.contentOffset.x / scrollView.width;
-    UITableViewController *vc = self.childViewControllers[index];
+    UIViewController *vc = self.childViewControllers[index];
     vc.view.x = scrollView.contentOffset.x;
     vc.view.y = 0;
     vc.view.height = scrollView.height;
     
-    // 设置内边距
-    CGFloat top = CGRectGetMaxY(self.titlesView.frame);
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    // 滚动条的内边距
-    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
+    
     [scrollView addSubview:vc.view];
 }
 

@@ -157,7 +157,6 @@ static NSString * const YGUserID = @"user";
     
     // 底部控件
     self.rightTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
-    self.rightTableView.mj_footer.hidden = YES;
 }
 - (void)loadNewUsers
 {
