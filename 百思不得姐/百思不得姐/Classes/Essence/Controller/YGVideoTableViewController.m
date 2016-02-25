@@ -40,6 +40,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell.backgroundColor = [UIColor blueColor];
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@-----%zd",[self class], indexPath.row];
     return cell;

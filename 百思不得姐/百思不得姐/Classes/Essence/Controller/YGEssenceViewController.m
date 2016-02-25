@@ -193,7 +193,6 @@
 }
 
 #pragma mark - tableView一些代理方法
-
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
     // 添加子控制器的view
@@ -202,11 +201,15 @@
     NSInteger index = scrollView.contentOffset.x / scrollView.width;
     UITableViewController *vc = self.childViewControllers[index];
     vc.view.x = scrollView.contentOffset.x;
+    vc.view.y = 0;
+    vc.view.height = scrollView.height;
     
     // 设置内边距
     CGFloat top = CGRectGetMaxY(self.titlesView.frame);
     CGFloat bottom = self.tabBarController.tabBar.height;
     vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    // 滚动条的内边距
+    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
     [scrollView addSubview:vc.view];
 }
 
