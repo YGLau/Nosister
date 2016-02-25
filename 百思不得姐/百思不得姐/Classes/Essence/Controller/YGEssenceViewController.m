@@ -19,6 +19,10 @@
  *  当前选中按钮
  */
 @property (weak, nonatomic) UIButton *selectedBtn;
+/**
+ *  导航栏
+ */
+@property (weak, nonatomic) UIView *titlesView;
 @end
 
 @implementation YGEssenceViewController
@@ -27,9 +31,12 @@
     [super viewDidLoad];
     // 初始化导航控制器
     [self setupNav];
-    
     // 初始化导航栏
     [self setupTitlesView];
+    
+    // 创建底部的scrollView
+    [self setupContentView];
+    
 }
 
 /**
@@ -43,6 +50,7 @@
     titlesView.height = 35;
     titlesView.y = 64;
     [self.view addSubview:titlesView];
+    self.titlesView = titlesView;
     
     // 添加红色指示器View
     UIView *indicatorView = [[UIView alloc] init];
@@ -98,6 +106,9 @@
     }];
     
 }
+/**
+ *  初始化导航栏
+ */
 - (void)setupNav
 {
     // 设置导航栏标题
@@ -107,6 +118,30 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(tagClick)];
     self.view.backgroundColor = YGGlobalBg;
     
+}
+/**
+ *  滚动ScrollView
+ */
+- (void)setupContentView
+{
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    UIScrollView *contentView = [[UIScrollView alloc] init];
+    
+    contentView.frame = self.view.bounds;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    CGFloat top = CGRectGetMaxY(self.titlesView.frame);
+    contentView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    [self.view insertSubview:contentView atIndex:0];
+    
+    [contentView addSubview:[UIButton buttonWithType:UIButtonTypeContactAdd]];
+    
+//    UISwitch *s = [[UISwitch alloc] init];
+//    s.y = 800 - s.height;
+//    [contentView addSubview:s];
+////    [self.view addSubview:contentView];
+    
+//    contentView.contentSize = CGSizeMake(0, 800);
 }
 
 - (void)tagClick
