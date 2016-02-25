@@ -16,7 +16,7 @@
 /**
  *  发帖时间
  */
-@property (copy, nonatomic) NSString *creatTime;
+@property (copy, nonatomic) NSString *create_time;
 /**
  *  头像
  */

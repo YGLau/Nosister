@@ -76,17 +76,16 @@
     self.indicatorView = indicatorView;
     
     // 内部5个按钮
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
-    CGFloat buttonW = titlesView.width / titles.count;
+    CGFloat buttonW = titlesView.width / self.childViewControllers.count;
     CGFloat buttonH = titlesView.height;
-    for (NSInteger i = 0; i < titles.count; i++) {
+    for (NSInteger i = 0; i < self.childViewControllers.count; i++) {
         UIButton *button = [[UIButton alloc] init];
         button.tag = i;
         button.width = buttonW;
         button.height = buttonH;
         button.x = i * buttonW;
-        
-        [button setTitle:titles[i] forState:UIControlStateNormal];
+        UIViewController *vc = self.childViewControllers[i];
+        [button setTitle:vc.title forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -169,20 +168,26 @@
  */
 - (void)setupChildVces
 {
+    
+    YGWordTableViewController *word = [[YGWordTableViewController alloc] init];
+    word.title = @"段子";
+    [self addChildViewController:word];
+    
     YGAllTableViewController *all = [[YGAllTableViewController alloc] init];
+    all.title = @"全部";
     [self addChildViewController:all];
     
     YGVideoTableViewController *video = [[YGVideoTableViewController alloc] init];
+    video.title = @"视频";
     [self addChildViewController:video];
     
     YGVoiceTableViewController *voice = [[YGVoiceTableViewController alloc] init];
+    voice.title = @"声音";
     [self addChildViewController:voice];
     
     YGPictureTableViewController *picture = [[YGPictureTableViewController alloc] init];
+    picture.title = @"图片";
     [self addChildViewController:picture];
-    
-    YGWordTableViewController *word = [[YGWordTableViewController alloc] init];
-    [self addChildViewController:word];
     
 }
 
