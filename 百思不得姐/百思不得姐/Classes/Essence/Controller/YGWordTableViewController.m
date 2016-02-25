@@ -26,6 +26,10 @@
  * 加载下一页数据
  */
 @property (copy, nonatomic) NSString *maxtime;
+/**
+ *  上一次请求的参数
+ */
+@property (strong, nonatomic) NSDictionary *params;
 @end
 
 @implementation YGWordTableViewController
@@ -60,15 +64,20 @@
  */
 - (void)loadNewTopics
 {
-    self.page = 0;
+    // 结束上拉刷新
+    [self.tableView.mj_footer endRefreshing];
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
     params[@"type"] = @"29";
+    self.params = params;
     // 发送请求
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (self.params != params) return;
+        
         // 字典 ——> 模型
         self.topics = [YGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         // 刷新表格
@@ -76,6 +85,9 @@
         
         // 结束刷新
         [self.tableView.mj_header endRefreshing];
+        
+        // 成功后再将页码清空为零
+        self.page = 0;
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // 结束刷新
@@ -89,6 +101,9 @@
 - (void)loadMoreTopics
 {
     
+    // 结束下拉刷新
+    [self.tableView.mj_header endRefreshing];
+    
     self.page++;
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -97,8 +112,11 @@
     params[@"type"] = @"29";
     params[@"page"] = @(self.page);
     params[@"maxtime"] = self.maxtime;
+    self.params = params;
     // 发送请求
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        // 请求参数过期，直接返回
+        if (self.params != params) return;
         
         // 存储maxtime
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -112,8 +130,13 @@
         [self.tableView.mj_footer endRefreshing];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        if (self.params != params) return;
+        
         // 结束刷新
         [self.tableView.mj_footer endRefreshing];
+        // 恢复页码
+        self.page--;
         
     }];
 }
