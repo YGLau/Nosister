@@ -12,6 +12,7 @@
 #import <MJExtension.h>
 #import <MJRefresh.h>
 #import "YGTopic.h"
+#import "YGTopicCell.h"
 
 @interface YGWordTableViewController ()
 /**
@@ -59,6 +60,7 @@
     
 }
 
+static NSString * const YGTopicCellID = @"topic";
 - (void)setupTableView
 {
     // 设置内边距
@@ -67,6 +69,13 @@
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     // 滚动条的内边距
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    // 去除分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // 清除表格颜色
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    // 注册
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YGTopicCell class]) bundle:nil] forCellReuseIdentifier:YGTopicCellID];
 }
 #pragma mark - 数据处理
 /**
@@ -171,18 +180,18 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    YGTopic *topic = self.topics[indexPath.row];
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+
+    YGTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:YGTopicCellID];
+    
+    cell.topic = self.topics[indexPath.row];
     return cell;
 }
 
+#pragma mark - 代理方法
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
 
 
 @end
