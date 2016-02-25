@@ -39,6 +39,7 @@
         subNum = [NSString stringWithFormat:@"%.1f万人订阅", recommendTag.sub_number / 10000.0];
     }
     self.subCount.text = subNum;
+    
 }
 
 -(void)setFrame:(CGRect)frame

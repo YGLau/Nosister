@@ -67,6 +67,8 @@
     [self setButtonTitle:self.caiBtn count:topic.cai placeholder:@"踩"];
     [self setButtonTitle:self.repostBtn count:topic.repost placeholder:@"分享"];
     [self setButtonTitle:self.commentBtn count:topic.comment placeholder:@"评论"];
+    
+    
 }
 
 - (void)setButtonTitle:(UIButton *)buttton count:(NSInteger)count placeholder:(NSString *)placeholder
