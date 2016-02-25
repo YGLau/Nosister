@@ -9,8 +9,13 @@
 #import "YGEssenceViewController.h"
 #import "YGTestViewController.h"
 #import "YGRecommendTagsController.h"
+#import "YGAllTableViewController.h"
+#import "YGVideoTableViewController.h"
+#import "YGVoiceTableViewController.h"
+#import "YGPictureTableViewController.h"
+#import "YGWordTableViewController.h"
 
-@interface YGEssenceViewController ()
+@interface YGEssenceViewController () <UIScrollViewDelegate>
 /**
  *  红色指示器View
  */
@@ -23,6 +28,10 @@
  *  导航栏
  */
 @property (weak, nonatomic) UIView *titlesView;
+/**
+ *  ScrollView
+ */
+@property (weak, nonatomic) UIScrollView *contentView;
 @end
 
 @implementation YGEssenceViewController
@@ -31,11 +40,17 @@
     [super viewDidLoad];
     // 初始化导航控制器
     [self setupNav];
+    
+    // 创建自控制器
+    [self setupChildVces];
+    
     // 初始化导航栏
     [self setupTitlesView];
     
     // 创建底部的scrollView
     [self setupContentView];
+    
+    
     
 }
 
@@ -55,9 +70,9 @@
     // 添加红色指示器View
     UIView *indicatorView = [[UIView alloc] init];
     indicatorView.backgroundColor = [UIColor redColor];
+    indicatorView.tag = -1;
     indicatorView.height = 2;
     indicatorView.y  = titlesView.height - indicatorView.height;
-    [titlesView addSubview:indicatorView];
     self.indicatorView = indicatorView;
     
     // 内部5个按钮
@@ -66,6 +81,7 @@
     CGFloat buttonH = titlesView.height;
     for (NSInteger i = 0; i < titles.count; i++) {
         UIButton *button = [[UIButton alloc] init];
+        button.tag = i;
         button.width = buttonW;
         button.height = buttonH;
         button.x = i * buttonW;
@@ -88,6 +104,9 @@
         }
     }
     
+    // 放到最后添加，保证按钮是先被添加进去的
+    [titlesView addSubview:indicatorView];
+    
     
 }
 
@@ -96,15 +115,21 @@
  */
 - (void)buttonClick:(UIButton *)button
 {
+    // 修改按钮状态
     self.selectedBtn.enabled = YES;
     button.enabled = NO;
     self.selectedBtn = button;
     
+    // 动画
     [UIView animateWithDuration:0.25 animations:^{
         self.indicatorView.width = button.titleLabel.width;
         self.indicatorView.centerX = button.centerX;
     }];
     
+    // 滚动
+    CGPoint offset = self.contentView.contentOffset;
+    offset.x = button.tag * self.contentView.width;
+    [self.contentView setContentOffset:offset animated:YES];
 }
 /**
  *  初始化导航栏
@@ -126,22 +151,39 @@
 {
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
     UIScrollView *contentView = [[UIScrollView alloc] init];
-    
     contentView.frame = self.view.bounds;
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    CGFloat top = CGRectGetMaxY(self.titlesView.frame);
-    contentView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     [self.view insertSubview:contentView atIndex:0];
+    contentView.contentSize = CGSizeMake(contentView.width * self.childViewControllers.count, 0);
+    // 分页
+    contentView.pagingEnabled = YES;
+    self.contentView = contentView;
+    contentView.delegate = self;
     
-    [contentView addSubview:[UIButton buttonWithType:UIButtonTypeContactAdd]];
+    // 创建第一个控制器view
+    [self scrollViewDidEndScrollingAnimation:contentView];
+}
+/**
+ *  创建子控制器
+ */
+- (void)setupChildVces
+{
+    YGAllTableViewController *all = [[YGAllTableViewController alloc] init];
+    [self addChildViewController:all];
     
-//    UISwitch *s = [[UISwitch alloc] init];
-//    s.y = 800 - s.height;
-//    [contentView addSubview:s];
-////    [self.view addSubview:contentView];
+    YGVideoTableViewController *video = [[YGVideoTableViewController alloc] init];
+    [self addChildViewController:video];
     
-//    contentView.contentSize = CGSizeMake(0, 800);
+    YGVoiceTableViewController *voice = [[YGVoiceTableViewController alloc] init];
+    [self addChildViewController:voice];
+    
+    YGPictureTableViewController *picture = [[YGPictureTableViewController alloc] init];
+    [self addChildViewController:picture];
+    
+    YGWordTableViewController *word = [[YGWordTableViewController alloc] init];
+    [self addChildViewController:word];
+    
 }
 
 - (void)tagClick
@@ -150,5 +192,30 @@
     [self.navigationController pushViewController:RT animated: YES];
 }
 
+#pragma mark - tableView一些代理方法
 
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    // 添加子控制器的view
+    
+    // 当前的索引
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    UITableViewController *vc = self.childViewControllers[index];
+    vc.view.x = scrollView.contentOffset.x;
+    
+    // 设置内边距
+    CGFloat top = CGRectGetMaxY(self.titlesView.frame);
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    [scrollView addSubview:vc.view];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+    
+    // 点击按钮
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    [self buttonClick:self.titlesView.subviews[index]];
+}
 @end
