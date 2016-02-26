@@ -22,6 +22,8 @@
 		A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */; };
 		A46E20CA1C798A6300E9758B /* YGPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = A46E20C91C798A6300E9758B /* YGPushGuideView.m */; };
 		A46E20CC1C798A8F00E9758B /* YGPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46E20CB1C798A8F00E9758B /* YGPushGuideView.xib */; };
+		A4766E321C802E0C00A4E048 /* YGPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4766E311C802E0C00A4E048 /* YGPictureView.m */; };
+		A4766E341C802E3800A4E048 /* YGPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4766E331C802E3800A4E048 /* YGPictureView.xib */; };
 		A47EF7971C6CCB4700AC9E6A /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7961C6CCB4700AC9E6A /* _____Tests.m */; };
 		A47EF7A21C6CCB4700AC9E6A /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A47EF7A11C6CCB4700AC9E6A /* _____UITests.m */; };
 		A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4ACBE6C1C7227B3002E26E3 /* YGFriendTrendsView.xib */; };
@@ -99,6 +101,9 @@
 		A46E20C81C798A6300E9758B /* YGPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGPushGuideView.h; sourceTree = "<group>"; };
 		A46E20C91C798A6300E9758B /* YGPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGPushGuideView.m; sourceTree = "<group>"; };
 		A46E20CB1C798A8F00E9758B /* YGPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGPushGuideView.xib; sourceTree = "<group>"; };
+		A4766E301C802E0C00A4E048 /* YGPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGPictureView.h; path = "百思不得姐/Classes/Essence/Controller/YGPictureView.h"; sourceTree = SOURCE_ROOT; };
+		A4766E311C802E0C00A4E048 /* YGPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGPictureView.m; path = "百思不得姐/Classes/Essence/Controller/YGPictureView.m"; sourceTree = SOURCE_ROOT; };
+		A4766E331C802E3800A4E048 /* YGPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGPictureView.xib; path = "百思不得姐/Classes/Essence/Controller/YGPictureView.xib"; sourceTree = SOURCE_ROOT; };
 		A47EF7791C6CCB4700AC9E6A /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47EF78D1C6CCB4700AC9E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A47EF7921C6CCB4700AC9E6A /* 百思不得姐Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +244,9 @@
 				A4B867561C7EF40A00C28154 /* YGTopicCell.h */,
 				A4B867571C7EF40A00C28154 /* YGTopicCell.m */,
 				A4B867581C7EF40A00C28154 /* YGTopicCell.xib */,
+				A4766E301C802E0C00A4E048 /* YGPictureView.h */,
+				A4766E311C802E0C00A4E048 /* YGPictureView.m */,
+				A4766E331C802E3800A4E048 /* YGPictureView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -603,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4E91CBB1C787528006E4DCB /* YGLoginRegisterViewController.xib in Resources */,
+				A4766E341C802E3800A4E048 /* YGPictureView.xib in Resources */,
 				A4B0900B1C759420009DCA14 /* YGUserTableViewCell.xib in Resources */,
 				A4EFE44E1C760A1800B0B2E5 /* YGRecommendTagCell.xib in Resources */,
 				A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */,
@@ -693,6 +702,7 @@
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
 				A4B8675D1C7F39D000C28154 /* NSDate+Extension.m in Sources */,
 				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,
+				A4766E321C802E0C00A4E048 /* YGPictureView.m in Sources */,
 				A4B867551C7EF06C00C28154 /* YGConst.m in Sources */,
 				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,
 				A4E91CC11C78A4D6006E4DCB /* YGTextField.m in Sources */,

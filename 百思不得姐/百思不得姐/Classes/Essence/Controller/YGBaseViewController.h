@@ -9,15 +9,7 @@
 // 	1为全部，10为图片，29为段子，31为音频，41为视频，默认为1
 
 #import <UIKit/UIKit.h>
-typedef enum {
-    YGBaseTopicTypeAll = 1,
-    YGBaseTopicTypeVideo = 41,
-    YGBaseTopicTypeVoice = 31,
-    YGBaseTopicTypePicture = 10,
-    YGBaseTopicTypeWord = 29
-    
-    
-} YGBaseTopicType;
+
 
 @interface YGBaseViewController : UITableViewController
 

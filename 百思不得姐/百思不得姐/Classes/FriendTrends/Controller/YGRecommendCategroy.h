@@ -12,7 +12,7 @@
 /**
  *  id
  */
-@property (assign, nonatomic) NSInteger id;
+@property (assign, nonatomic) NSInteger ID;
 /**
  *  总数
  */

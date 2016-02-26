@@ -96,6 +96,8 @@ static NSString * const YGTopicCellID = @"topic";
     // 发送请求
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
+        [responseObject writeToFile:@"/Users/liuyonggang/Desktop/a.plist" atomically:YES];
+        
         if (self.params != params) return;
         
         // 字典 ——> 模型
@@ -134,7 +136,7 @@ static NSString * const YGTopicCellID = @"topic";
     params[@"maxtime"] = self.maxtime;
     self.params = params;
     // 发送请求
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *responseObject) {
         // 请求参数过期，直接返回
         if (self.params != params) return;
         

@@ -9,8 +9,19 @@
 #import "YGTopic.h"
 
 @implementation YGTopic
+
 {
     CGFloat _cellHeight;
+    CGRect _picFrame;
+}
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{
+             @"large_image" : @"image1",
+             @"meddle_image" : @"image2",
+             @"small_image" : @"image0"
+             };
 }
 
 - (NSString *)create_time
@@ -46,15 +57,30 @@
     
     if (!_cellHeight) { //计算Cell的高度
         //文字最大Y值
-        CGFloat textY= 2 * YGTopicCellMargin + YGTopicCellIconH;
-        
-        CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4 * YGTopicCellMargin, MAXFLOAT);
+        CGFloat textY = 2 * YGTopicCellMargin + YGTopicCellIconH;
+        CGFloat textW = [UIScreen mainScreen].bounds.size.width - 4 * YGTopicCellMargin;
+        CGSize size = CGSizeMake(textW, MAXFLOAT);
         CGFloat textH = [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
-        _cellHeight = textY + textH + YGTopicCellBottomToolH + 2 * YGTopicCellMargin;
+        // 文字的高度
+        _cellHeight = textY + textH + YGTopicCellMargin;
+        
+        if (self.type == YGBaseTopicTypePicture) { // 图片
+            
+            CGFloat imageW = textW;
+            //
+            CGFloat imageH = imageW * self.width / self.height;
+            
+            // 计算图片控件的frame
+            CGFloat pictureY = textY + textH + YGTopicCellMargin;
+            _picFrame = CGRectMake(YGTopicCellMargin, pictureY, imageW, imageH);
+            
+            // 图片的高度
+            _cellHeight += imageH + YGTopicCellMargin;
+            
+        }
+        // 底部按钮的高度
+        _cellHeight += YGTopicCellBottomToolH + YGTopicCellMargin;
     }
-    
-    
-    
     
     return _cellHeight;
 }

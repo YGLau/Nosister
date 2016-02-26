@@ -1,6 +1,16 @@
 
 
 #import <UIKit/UIKit.h>
+
+typedef enum {
+    YGBaseTopicTypeAll = 1,
+    YGBaseTopicTypeVideo = 41,
+    YGBaseTopicTypeVoice = 31,
+    YGBaseTopicTypePicture = 10,
+    YGBaseTopicTypeWord = 29
+    
+    
+} YGBaseTopicType;
 /**
  *  精华-导航栏高度
  */

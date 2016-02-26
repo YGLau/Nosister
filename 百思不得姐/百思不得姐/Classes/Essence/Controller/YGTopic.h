@@ -41,12 +41,40 @@
  *  评论数量
  */
 @property (assign, nonatomic) NSInteger comment;
+/**
+ *  图片的高度
+ */
+@property (assign, nonatomic) CGFloat height;
+/**
+ *  图片的宽度
+ */
+@property (assign, nonatomic) CGFloat width;
 
+/**
+ *  大图
+ */
+@property (copy, nonatomic) NSString *large_image;
+/**
+ *  中图
+ */
+@property (copy, nonatomic) NSString *meddle_image;
+/**
+ *  小图
+ */
+@property (copy, nonatomic) NSString *small_image;
+/**
+ *  段子的类型
+ */
+@property (assign, nonatomic) YGBaseTopicType type;
 /*** **************/
 /**
  *  Cell的高度
  */
 @property (assign, nonatomic, readonly) CGFloat cellHeight;
+/**
+ *  图片控件的frame
+ */
+@property (assign, nonatomic, readonly) CGRect picFrame;
 
 
 @end

@@ -9,8 +9,10 @@
 #import "YGTopicCell.h"
 #import "YGTopic.h"
 #import <UIImageView+WebCache.h>
+#import "YGPictureView.h"
 
 @interface YGTopicCell ()
+
 /**
  *  头像
  */
@@ -43,14 +45,27 @@
  *  文字内容
  */
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
-
-
+/**
+ *  图片帖子中间的View
+ */
+@property (weak, nonatomic) YGPictureView *picView;
 
 
 @end
 
 
 @implementation YGTopicCell
+
+-(YGPictureView *)picView
+{
+    if (!_picView) {
+        YGPictureView *picView = [YGPictureView pictureView];
+        [self.contentView addSubview:picView];
+        _picView = picView;
+    }
+    
+    return _picView;
+}
 
 
 
@@ -77,6 +92,12 @@
     [self setButtonTitle:self.caiBtn count:topic.cai placeholder:@"踩"];
     [self setButtonTitle:self.repostBtn count:topic.repost placeholder:@"分享"];
     [self setButtonTitle:self.commentBtn count:topic.comment placeholder:@"评论"];
+    
+    // 根据模型的内容，将对应的内容添加到Cell中
+    if (topic.type == YGBaseTopicTypePicture) {
+        self.picView.topic = topic; // 将topic模型传递给图片view的topic模型
+        self.picView.frame = topic.picFrame;
+    }
     
     
 }
