@@ -189,8 +189,22 @@ static NSString * const YGTopicCellID = @"topic";
 }
 
 #pragma mark - 代理方法
+/**
+ *  返回Cell的高度
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    
+    // 取出模型
+    YGTopic *topic = self.topics[indexPath.row];
+    //文字最大Y值
+    CGFloat textY= 2 * YGTopicCellMargin + YGTopicCellIconH;
+    
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4 * YGTopicCellMargin, MAXFLOAT);
+    CGFloat textH = [topic.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+    
+    CGFloat cellH = textY + textH + YGTopicCellBottomToolH + 10 + 10;
+    
+    return cellH;
 }
 @end

@@ -39,7 +39,10 @@
  *  评论按钮
  */
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
-
+/**
+ *  文字内容
+ */
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
 
@@ -62,6 +65,8 @@
     self.nicknameLabe.text = topic.name;
     // 发帖时间
     self.createTimeLabel.text = topic.create_time;
+    // 文字内容
+    self.contentLabel.text = topic.text;
     
     [self setButtonTitle:self.dingBtn count:topic.ding placeholder:@"顶"];
     [self setButtonTitle:self.caiBtn count:topic.cai placeholder:@"踩"];
@@ -83,10 +88,10 @@
 
 -(void)setFrame:(CGRect)frame
 {
-    frame.origin.x = 10;
-    frame.size.width -= 2 * frame.origin.x;
-    frame.size.height -= 10;
-    frame.origin.y += 10;
+    frame.origin.x = YGTopicCellMargin;
+    frame.size.width -= 2 * YGTopicCellMargin;
+    frame.size.height -= YGTopicCellMargin;
+    frame.origin.y += YGTopicCellMargin;
     [super setFrame:frame];
 }
 
