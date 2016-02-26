@@ -9,6 +9,9 @@
 #import "YGTopic.h"
 
 @implementation YGTopic
+{
+    CGFloat _cellHeight;
+}
 
 - (NSString *)create_time
 {
@@ -36,6 +39,24 @@
     } else { // 去年
         return _create_time;
     }
+}
+
+-(CGFloat)cellHeight
+{
+    
+    if (!_cellHeight) { //计算Cell的高度
+        //文字最大Y值
+        CGFloat textY= 2 * YGTopicCellMargin + YGTopicCellIconH;
+        
+        CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4 * YGTopicCellMargin, MAXFLOAT);
+        CGFloat textH = [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+        _cellHeight = textY + textH + YGTopicCellBottomToolH + 2 * YGTopicCellMargin;
+    }
+    
+    
+    
+    
+    return _cellHeight;
 }
 
 @end

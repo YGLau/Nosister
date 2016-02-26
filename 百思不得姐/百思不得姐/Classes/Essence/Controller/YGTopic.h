@@ -42,5 +42,11 @@
  */
 @property (assign, nonatomic) NSInteger comment;
 
+/*** **************/
+/**
+ *  Cell的高度
+ */
+@property (assign, nonatomic, readonly) CGFloat cellHeight;
+
 
 @end

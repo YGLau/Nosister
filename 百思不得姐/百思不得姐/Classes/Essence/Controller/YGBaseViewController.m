@@ -197,14 +197,7 @@ static NSString * const YGTopicCellID = @"topic";
     
     // 取出模型
     YGTopic *topic = self.topics[indexPath.row];
-    //文字最大Y值
-    CGFloat textY= 2 * YGTopicCellMargin + YGTopicCellIconH;
-    
-    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4 * YGTopicCellMargin, MAXFLOAT);
-    CGFloat textH = [topic.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
-    
-    CGFloat cellH = textY + textH + YGTopicCellBottomToolH + 10 + 10;
-    
-    return cellH;
+    // 返回cell的高度
+    return topic.cellHeight;
 }
 @end

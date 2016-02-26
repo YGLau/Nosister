@@ -44,10 +44,15 @@
  */
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
+
+
+
 @end
 
 
 @implementation YGTopicCell
+
+
 
 -(void)awakeFromNib
 {
