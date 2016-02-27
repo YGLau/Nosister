@@ -41,7 +41,7 @@
     // 调整图片
     self.imageView.x = 0;
     self.imageView.y = 0;
-    self.imageView.width = 70;
+    self.imageView.width = 72;
     self.imageView.height = self.imageView.width;
     
     // 调整文字

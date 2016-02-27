@@ -7,7 +7,6 @@
 //
 
 #import "YGEssenceViewController.h"
-#import "YGTestViewController.h"
 #import "YGRecommendTagsController.h"
 #import "YGBaseViewController.h"
 

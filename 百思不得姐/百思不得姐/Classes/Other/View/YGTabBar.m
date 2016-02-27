@@ -7,6 +7,7 @@
 //
 
 #import "YGTabBar.h"
+#import "YGPublishController.h"
 
 @interface YGTabBar ()
 /**
@@ -20,14 +21,23 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        // 添加发布按钮
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        [button addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         self.publishButton = button;
     }
     
     return self;
+}
+
+- (void)publishClick
+{
+    YGPublishController *pub = [[YGPublishController alloc] init];
+    // 利用跟控制器modal出控制器
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:pub animated:YES completion:nil];
 }
 
 -(void)layoutSubviews
