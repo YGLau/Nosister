@@ -23,7 +23,9 @@
              @"small_image" : @"image0"
              };
 }
-
+/**
+ *  时间处理
+ */
 - (NSString *)create_time
 {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
@@ -67,8 +69,7 @@
         if (self.type == YGBaseTopicTypePicture) { // 图片
             
             CGFloat imageW = textW;
-            //
-            CGFloat imageH = imageW * self.width / self.height;
+            CGFloat imageH = imageW * self.height / self.width;
             
             // 计算图片控件的frame
             CGFloat pictureY = textY + textH + YGTopicCellMargin;
@@ -77,6 +78,18 @@
             // 图片的高度
             _cellHeight += imageH + YGTopicCellMargin;
             
+        }
+        
+        if (self.type == YGBaseTopicTypeVoice) { // 声音
+            CGFloat voiceW = textW;
+            CGFloat voiceH = voiceW * self.height / self.width;
+            
+            // 计算图片控件的frame
+            CGFloat voiceY = textY + textH + YGTopicCellMargin;
+            _voiceF = CGRectMake(YGTopicCellMargin, voiceY, voiceW, voiceH);
+            
+            // 图片的高度
+            _cellHeight += voiceH + YGTopicCellMargin;
         }
         // 底部按钮的高度
         _cellHeight += YGTopicCellBottomToolH + YGTopicCellMargin;

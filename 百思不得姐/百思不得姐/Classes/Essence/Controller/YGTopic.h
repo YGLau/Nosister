@@ -42,16 +42,17 @@
  */
 @property (assign, nonatomic) NSInteger comment;
 /**
- *  图片的高度
+ *  段子的类型
  */
-@property (assign, nonatomic) CGFloat height;
+@property (assign, nonatomic) YGBaseTopicType type;
 /**
- *  图片的宽度
+ *  Cell的高度
  */
-@property (assign, nonatomic) CGFloat width;
+@property (assign, nonatomic, readonly) CGFloat cellHeight;
 
+/***************** 图片 **************/
 /**
- *  大图
+ *  大图 -  声音 图片 视频 - 共用图片
  */
 @property (copy, nonatomic) NSString *large_image;
 /**
@@ -63,18 +64,31 @@
  */
 @property (copy, nonatomic) NSString *small_image;
 /**
- *  段子的类型
+ *  图片的高度
  */
-@property (assign, nonatomic) YGBaseTopicType type;
-/*** **************/
+@property (assign, nonatomic) CGFloat height;
 /**
- *  Cell的高度
+ *  图片的宽度
  */
-@property (assign, nonatomic, readonly) CGFloat cellHeight;
+@property (assign, nonatomic) CGFloat width;
 /**
  *  图片控件的frame
  */
 @property (assign, nonatomic, readonly) CGRect picFrame;
 
+/***************** 声音 **************/
+/**
+ *  声音时长
+ */
+@property (assign, nonatomic) NSInteger voicetime;
+
+/**
+ *  播放次数 - 声音和视频 共用
+ */
+@property (assign, nonatomic) NSInteger playcount;
+/**
+ *  声音view的frame
+ */
+@property (assign, nonatomic) CGRect voiceF;
 
 @end

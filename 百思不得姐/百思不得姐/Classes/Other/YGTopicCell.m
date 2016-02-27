@@ -10,6 +10,7 @@
 #import "YGTopic.h"
 #import <UIImageView+WebCache.h>
 #import "YGPictureView.h"
+#import "YGVoiceView.h"
 
 @interface YGTopicCell ()
 
@@ -50,13 +51,17 @@
  */
 @property (weak, nonatomic) YGPictureView *picView;
 
+/**
+ *  声音帖子中间的View
+ */
+@property (weak, nonatomic) YGVoiceView *VoiceView;
 
 @end
 
 
 @implementation YGTopicCell
 
--(YGPictureView *)picView
+- (YGPictureView *)picView
 {
     if (!_picView) {
         YGPictureView *picView = [YGPictureView pictureView];
@@ -67,7 +72,15 @@
     return _picView;
 }
 
-
+- (YGVoiceView *)VoiceView
+{
+    if (!_VoiceView) {
+        YGVoiceView *voiceView = [YGVoiceView voiceView];
+        [self.contentView addSubview:voiceView];
+        _VoiceView = voiceView;
+    }
+    return _VoiceView;
+}
 
 -(void)awakeFromNib
 {
@@ -94,9 +107,12 @@
     [self setButtonTitle:self.commentBtn count:topic.comment placeholder:@"评论"];
     
     // 根据模型的内容，将对应的内容添加到Cell中
-    if (topic.type == YGBaseTopicTypePicture) {
+    if (topic.type == YGBaseTopicTypePicture) { // 图片
         self.picView.topic = topic; // 将topic模型传递给图片view的topic模型
         self.picView.frame = topic.picFrame;
+    } if (topic.type == YGBaseTopicTypeVoice) {  // 声音
+        self.VoiceView.topic = topic; // 拿到数据
+        self.VoiceView.frame = topic.voiceF; // 将算好的frame传给voiceView
     }
     
     
