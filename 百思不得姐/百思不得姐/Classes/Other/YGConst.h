@@ -31,3 +31,11 @@ UIKIT_EXTERN CGFloat const YGTopicCellMargin;
  *  精华-cell头像高度 = 宽度
  */
 UIKIT_EXTERN CGFloat const YGTopicCellIconH;
+/**
+ *  大图的判断标准
+ */
+UIKIT_EXTERN CGFloat const YGTopicPictureMaxH;
+/**
+ *  裁剪后的高度
+ */
+UIKIT_EXTERN CGFloat const YGTopicPictureClipH;

@@ -76,6 +76,8 @@
  */
 @property (assign, nonatomic, readonly) CGRect picFrame;
 
+@property (assign, nonatomic,getter=isGif) BOOL is_gif;
+
 /***************** 声音 **************/
 /**
  *  声音时长
@@ -101,5 +103,9 @@
  *  视频时长
  */
 @property (assign, nonatomic) NSInteger videotime;
+/**
+ *  是否为大图
+ */
+@property (assign, nonatomic, getter=isBigPicture) BOOL bigPicture;
 
 @end

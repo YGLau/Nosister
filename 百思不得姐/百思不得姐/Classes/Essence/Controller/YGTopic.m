@@ -68,15 +68,20 @@
             
         if (self.type == YGBaseTopicTypePicture) { // 图片
             
-            CGFloat imageW = textW;
-            CGFloat imageH = imageW * self.height / self.width;
+            CGFloat pictureW = textW;
+            CGFloat pictureH = pictureW * self.height / self.width;
             
             // 计算图片控件的frame
             CGFloat pictureY = textY + textH + YGTopicCellMargin;
-            _picFrame = CGRectMake(YGTopicCellMargin, pictureY, imageW, imageH);
+            if (pictureH >= YGTopicPictureMaxH) {  // 大图
+                pictureH = YGTopicPictureClipH;
+                self.bigPicture = YES; // 标记为大图
+                
+            }
+            _picFrame = CGRectMake(YGTopicCellMargin, pictureY, pictureW, pictureH);
             
             // 图片的高度
-            _cellHeight += imageH + YGTopicCellMargin;
+            _cellHeight += pictureH + YGTopicCellMargin;
             
         } else if (self.type == YGBaseTopicTypeVoice){ // 声音
             CGFloat voiceW = textW;
