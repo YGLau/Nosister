@@ -58,7 +58,7 @@
                 <outlet property="playTimes" destination="GPa-wR-4M7" id="FXc-IK-8B9"/>
                 <outlet property="voiceLength" destination="4F3-gG-W2J" id="Zvb-Qr-jlp"/>
             </connections>
-            <point key="canvasLocation" x="482.5" y="325.5"/>
+            <point key="canvasLocation" x="740.5" y="339.5"/>
         </view>
     </objects>
     <resources>

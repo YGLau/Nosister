@@ -11,6 +11,7 @@
 #import <UIImageView+WebCache.h>
 #import "YGPictureView.h"
 #import "YGVoiceView.h"
+#import "YGVideoView.h"
 
 @interface YGTopicCell ()
 
@@ -54,12 +55,20 @@
 /**
  *  声音帖子中间的View
  */
-@property (weak, nonatomic) YGVoiceView *VoiceView;
+@property (weak, nonatomic) YGVoiceView *voiceView;
+
+/**
+ *  视频帖子中间的View
+ */
+@property (weak, nonatomic) YGVideoView *videoView;
 
 @end
 
 
 @implementation YGTopicCell
+
+
+#pragma mark - 懒加载
 
 - (YGPictureView *)picView
 {
@@ -72,16 +81,28 @@
     return _picView;
 }
 
-- (YGVoiceView *)VoiceView
+- (YGVoiceView *)voiceView
 {
-    if (!_VoiceView) {
+    if (!_voiceView) {
         YGVoiceView *voiceView = [YGVoiceView voiceView];
         [self.contentView addSubview:voiceView];
-        _VoiceView = voiceView;
+        _voiceView = voiceView;
     }
-    return _VoiceView;
+    return _voiceView;
+}
+- (YGVideoView *)videoView
+{
+    if (!_videoView) {
+        YGVideoView *videoView = [YGVideoView videoView];
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+        
+    }
+    
+    return _videoView;
 }
 
+#pragma mark - 初始化
 -(void)awakeFromNib
 {
     UIImageView *bg = [[UIImageView alloc] init];
@@ -89,6 +110,16 @@
     self.backgroundView = bg;
 }
 
+-(void)setFrame:(CGRect)frame
+{
+    frame.origin.x = YGTopicCellMargin;
+    frame.size.width -= 2 * YGTopicCellMargin;
+    frame.size.height -= YGTopicCellMargin;
+    frame.origin.y += YGTopicCellMargin;
+    
+    [super setFrame:frame];
+}
+#pragma mark - 重写setter
 -(void)setTopic:(YGTopic *)topic
 {
     _topic = topic;
@@ -108,11 +139,32 @@
     
     // 根据模型的内容，将对应的内容添加到Cell中
     if (topic.type == YGBaseTopicTypePicture) { // 图片
+        self.picView.hidden = NO;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
         self.picView.topic = topic; // 将topic模型传递给图片view的topic模型
         self.picView.frame = topic.picFrame;
-    } if (topic.type == YGBaseTopicTypeVoice) {  // 声音
-        self.VoiceView.topic = topic; // 拿到数据
-        self.VoiceView.frame = topic.voiceF; // 将算好的frame传给voiceView
+        
+    } else if (topic.type == YGBaseTopicTypeVoice) {  // 声音
+        self.picView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = NO;
+        self.voiceView.topic = topic; // 拿到数据
+        self.voiceView.frame = topic.voiceF; // 将算好的frame传给voiceView
+        
+    } else if (topic.type == YGBaseTopicTypeVideo) { // 视频
+        self.picView.hidden = YES;
+        self.videoView.hidden = NO;
+        self.voiceView.hidden = YES;
+        self.videoView.topic = topic;
+        self.videoView.frame = topic.videoF;
+        
+        
+    } else if (topic.type == YGBaseTopicTypeWord) {
+        self.picView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
+        
     }
     
     
@@ -121,20 +173,13 @@
 - (void)setButtonTitle:(UIButton *)buttton count:(NSInteger)count placeholder:(NSString *)placeholder
 {
     if (count > 10000) {
-        placeholder = [NSString stringWithFormat:@".1%f万",count / 10000.0];
+        placeholder = [NSString stringWithFormat:@"%.1f万", count / 10000.0];
     } else if (count > 0 ) {
         placeholder = [NSString stringWithFormat:@"%zd", count];
     }
     [buttton setTitle:placeholder forState:UIControlStateNormal];
 }
 
--(void)setFrame:(CGRect)frame
-{
-    frame.origin.x = YGTopicCellMargin;
-    frame.size.width -= 2 * YGTopicCellMargin;
-    frame.size.height -= YGTopicCellMargin;
-    frame.origin.y += YGTopicCellMargin;
-    [super setFrame:frame];
-}
+
 
 @end

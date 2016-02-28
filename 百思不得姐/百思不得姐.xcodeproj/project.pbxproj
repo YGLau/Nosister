@@ -45,6 +45,8 @@
 		A4B8675A1C7EF40A00C28154 /* YGTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B867581C7EF40A00C28154 /* YGTopicCell.xib */; };
 		A4B8675D1C7F39D000C28154 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B8675C1C7F39D000C28154 /* NSDate+Extension.m */; };
 		A4B867601C7F4AA100C28154 /* YGBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B8675F1C7F4AA100C28154 /* YGBaseViewController.m */; };
+		A4C1BBB01C82BC880059C3D1 /* YGVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1BBAF1C82BC880059C3D1 /* YGVideoView.m */; };
+		A4C1BBB41C82CB650059C3D1 /* YGVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C1BBB31C82CB650059C3D1 /* YGVideoView.xib */; };
 		A4E91CBA1C787528006E4DCB /* YGLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E91CB81C787528006E4DCB /* YGLoginRegisterViewController.m */; };
 		A4E91CBB1C787528006E4DCB /* YGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E91CB91C787528006E4DCB /* YGLoginRegisterViewController.xib */; };
 		A4E91CBE1C78852B006E4DCB /* YGOtherLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E91CBD1C78852B006E4DCB /* YGOtherLoginButton.m */; };
@@ -145,6 +147,9 @@
 		A4B8675C1C7F39D000C28154 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		A4B8675E1C7F4AA100C28154 /* YGBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGBaseViewController.h; sourceTree = "<group>"; };
 		A4B8675F1C7F4AA100C28154 /* YGBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBaseViewController.m; sourceTree = "<group>"; };
+		A4C1BBAE1C82BC880059C3D1 /* YGVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGVideoView.h; path = "百思不得姐/Classes/Other/Controller/YGVideoView.h"; sourceTree = SOURCE_ROOT; };
+		A4C1BBAF1C82BC880059C3D1 /* YGVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGVideoView.m; path = "百思不得姐/Classes/Other/Controller/YGVideoView.m"; sourceTree = SOURCE_ROOT; };
+		A4C1BBB31C82CB650059C3D1 /* YGVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGVideoView.xib; path = "百思不得姐/Classes/Other/Controller/YGVideoView.xib"; sourceTree = SOURCE_ROOT; };
 		A4E91CB71C787528006E4DCB /* YGLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGLoginRegisterViewController.h; sourceTree = "<group>"; };
 		A4E91CB81C787528006E4DCB /* YGLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGLoginRegisterViewController.m; sourceTree = "<group>"; };
 		A4E91CB91C787528006E4DCB /* YGLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -257,6 +262,9 @@
 				A4290E4D1C81EDFA00475C24 /* YGVoiceView.h */,
 				A4290E4E1C81EDFA00475C24 /* YGVoiceView.m */,
 				A4290E501C81EE1800475C24 /* YGVoiceView.xib */,
+				A4C1BBAE1C82BC880059C3D1 /* YGVideoView.h */,
+				A4C1BBAF1C82BC880059C3D1 /* YGVideoView.m */,
+				A4C1BBB31C82CB650059C3D1 /* YGVideoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -627,6 +635,7 @@
 				A4EFE44E1C760A1800B0B2E5 /* YGRecommendTagCell.xib in Resources */,
 				A4ACBE6D1C7227B3002E26E3 /* YGFriendTrendsView.xib in Resources */,
 				A4290E511C81EE1800475C24 /* YGVoiceView.xib in Resources */,
+				A4C1BBB41C82CB650059C3D1 /* YGVideoView.xib in Resources */,
 				A4B090041C74B257009DCA14 /* YGRecommendViewCell.xib in Resources */,
 				A46E20CC1C798A8F00E9758B /* YGPushGuideView.xib in Resources */,
 				A4290E4C1C81696500475C24 /* YGPublishController.xib in Resources */,
@@ -723,6 +732,7 @@
 				A4B867601C7F4AA100C28154 /* YGBaseViewController.m in Sources */,
 				A402D6EC1C71BB1000F11B4B /* YGMeViewController.m in Sources */,
 				A4E91CBA1C787528006E4DCB /* YGLoginRegisterViewController.m in Sources */,
+				A4C1BBB01C82BC880059C3D1 /* YGVideoView.m in Sources */,
 				A4EFE4491C76076B00B0B2E5 /* YGRecommendTag.m in Sources */,
 				A4EFE44D1C760A1800B0B2E5 /* YGRecommendTagCell.m in Sources */,
 				A402D6EA1C71BB1000F11B4B /* YGEssenceViewController.m in Sources */,

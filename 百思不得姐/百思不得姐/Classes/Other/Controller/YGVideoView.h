@@ -1,22 +1,20 @@
 //
-//  YGVoiceView.h
+//  YGVideoView.h
 //  百思不得姐
 //
-//  Created by 刘勇刚 on 16/2/27.
+//  Created by 刘勇刚 on 16/2/28.
 //  Copyright © 2016年 liu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 @class YGTopic;
 
-@interface YGVoiceView : UIView
+@interface YGVideoView : UIView
 /**
- *  段子模型
+ *  帖子模型
  */
 @property (strong, nonatomic) YGTopic *topic;
-/**
- *  返回一个创建好的声音xib
- */
-+ (instancetype)voiceView;
+
++ (instancetype)videoView;
 
 @end

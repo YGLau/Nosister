@@ -8,6 +8,7 @@
 
 #import "YGVoiceView.h"
 #import <UIImageView+WebCache.h>
+#import "YGTopic.h"
 
 @interface YGVoiceView ()
 /**
@@ -53,7 +54,7 @@
 
 + (instancetype)voiceView
 {
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:0] lastObject];
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
 @end

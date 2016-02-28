@@ -164,6 +164,11 @@
 - (void)setupChildVces
 {
     
+    YGBaseViewController *video = [[YGBaseViewController alloc] init];
+    video.type = YGBaseTopicTypeVideo;
+    video.title = @"视频";
+    [self addChildViewController:video];
+    
     YGBaseViewController *voice = [[YGBaseViewController alloc] init];
     voice.type = YGBaseTopicTypeVoice;
     voice.title = @"声音";
@@ -173,12 +178,6 @@
     all.type = YGBaseTopicTypeAll;
     all.title = @"全部";
     [self addChildViewController:all];
-    
-    YGBaseViewController *video = [[YGBaseViewController alloc] init];
-    video.type = YGBaseTopicTypeVideo;
-    video.title = @"视频";
-    [self addChildViewController:video];
-    
     
     YGBaseViewController *picture = [[YGBaseViewController alloc] init];
     picture.type = YGBaseTopicTypePicture;

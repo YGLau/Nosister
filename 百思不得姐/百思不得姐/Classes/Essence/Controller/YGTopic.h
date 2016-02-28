@@ -89,6 +89,17 @@
 /**
  *  声音view的frame
  */
-@property (assign, nonatomic) CGRect voiceF;
+@property (assign, nonatomic, readonly) CGRect voiceF;
+
+/***************** 视频 **************/
+
+/**
+ *  视频view的frame
+ */
+@property (assign, nonatomic, readonly) CGRect videoF;
+/**
+ *  视频时长
+ */
+@property (assign, nonatomic) NSInteger videotime;
 
 @end

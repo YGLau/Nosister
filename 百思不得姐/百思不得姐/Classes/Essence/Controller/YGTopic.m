@@ -12,7 +12,6 @@
 
 {
     CGFloat _cellHeight;
-    CGRect _picFrame;
 }
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
@@ -61,11 +60,12 @@
         //文字最大Y值
         CGFloat textY = 2 * YGTopicCellMargin + YGTopicCellIconH;
         CGFloat textW = [UIScreen mainScreen].bounds.size.width - 4 * YGTopicCellMargin;
-        CGSize size = CGSizeMake(textW, MAXFLOAT);
-        CGFloat textH = [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+        CGSize maxSize = CGSizeMake(textW, MAXFLOAT);
+        CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+        
         // 文字的高度
         _cellHeight = textY + textH + YGTopicCellMargin;
-        
+            
         if (self.type == YGBaseTopicTypePicture) { // 图片
             
             CGFloat imageW = textW;
@@ -78,9 +78,7 @@
             // 图片的高度
             _cellHeight += imageH + YGTopicCellMargin;
             
-        }
-        
-        if (self.type == YGBaseTopicTypeVoice) { // 声音
+        } else if (self.type == YGBaseTopicTypeVoice){ // 声音
             CGFloat voiceW = textW;
             CGFloat voiceH = voiceW * self.height / self.width;
             
@@ -90,6 +88,17 @@
             
             // 图片的高度
             _cellHeight += voiceH + YGTopicCellMargin;
+            
+        } else if (self.type == YGBaseTopicTypeVideo) { // 视频
+            CGFloat videoW = textW;
+            CGFloat videoH = videoW * self.height / self.width;
+            
+            // 计算图片控件的frame
+            CGFloat videoY = textY + textH + YGTopicCellMargin;
+            _videoF = CGRectMake(YGTopicCellMargin, videoY, videoW, videoH);
+            
+            // 图片的高度
+            _cellHeight += videoH + YGTopicCellMargin;
         }
         // 底部按钮的高度
         _cellHeight += YGTopicCellBottomToolH + YGTopicCellMargin;

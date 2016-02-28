@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *seeBigPicBtn;
 
 @end
+
 @implementation YGPictureView
 + (instancetype)pictureView
 {
