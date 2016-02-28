@@ -9,6 +9,7 @@
 #import "YGVideoView.h"
 #import "YGTopic.h"
 #import <UIImageView+WebCache.h>
+#import "YGBigPictureController.h"
 
 @interface YGVideoView ()
 @property (weak, nonatomic) IBOutlet UIImageView *videoBgView;
@@ -20,6 +21,14 @@
 
 @implementation YGVideoView
 
+- (void)showBigPicture
+{
+    YGBigPictureController *picVc = [[YGBigPictureController alloc] init];
+    // 将模型数据传给控制器的topic模型
+    picVc.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:picVc animated:YES completion:nil];
+}
+
 + (instancetype)videoView
 {
     
@@ -29,6 +38,10 @@
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    // 给图片添加监听器
+    self.videoBgView.userInteractionEnabled = YES;
+    [self.videoBgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBigPicture)]];
 }
 - (void)setTopic:(YGTopic *)topic
 {

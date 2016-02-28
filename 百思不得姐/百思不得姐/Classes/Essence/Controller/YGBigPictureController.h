@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YGTopic;
 
 @interface YGBigPictureController : UIViewController
+@property (strong, nonatomic) YGTopic *topic;
 
 @end

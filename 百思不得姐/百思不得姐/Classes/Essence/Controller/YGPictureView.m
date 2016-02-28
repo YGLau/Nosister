@@ -32,6 +32,8 @@
 - (void)showBigPicture
 {
     YGBigPictureController *picVc = [[YGBigPictureController alloc] init];
+    // 将模型数据传给控制器的topic模型
+    picVc.topic = self.topic;
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:picVc animated:YES completion:nil];
 }
 

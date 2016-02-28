@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YGBigPictureController">
             <connections>
+                <outlet property="scrollView" destination="sRO-5j-eL2" id="Nnp-XO-uyC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,12 +27,12 @@
                     </constraints>
                     <state key="normal" backgroundImage="show_image_back_icon"/>
                     <connections>
-                        <action selector="close:" destination="-1" eventType="touchUpInside" id="UUu-bz-gFG"/>
+                        <action selector="close" destination="-1" eventType="touchUpInside" id="RUN-JC-IIQ"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsf-fP-6PM">
                     <rect key="frame" x="460" y="545" width="50" height="25"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="R9o-bd-q3l"/>
                         <constraint firstAttribute="width" constant="50" id="uMg-yX-izV"/>
@@ -42,7 +43,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTG-j4-gvI">
                     <rect key="frame" x="530" y="545" width="50" height="25"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="SEb-Rj-t8F"/>
                         <constraint firstAttribute="height" constant="25" id="e4i-FI-zuM"/>
@@ -50,9 +51,12 @@
                     <state key="normal" title="保存">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="save" destination="-1" eventType="touchUpInside" id="m4T-FR-S5n"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="sRO-5j-eL2" secondAttribute="bottom" id="FeO-IO-uOg"/>
                 <constraint firstItem="z8q-9Q-5lE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="FgL-2C-dqJ"/>

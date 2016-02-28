@@ -9,12 +9,14 @@
 #import "YGVoiceView.h"
 #import <UIImageView+WebCache.h>
 #import "YGTopic.h"
+#import "YGBigPictureController.h"
+
 
 @interface YGVoiceView ()
 /**
  *  声音背景图片
  */
-@property (weak, nonatomic) IBOutlet UIImageView *VoiceBgPic;
+@property (weak, nonatomic) IBOutlet UIImageView *voiceBgPic;
 /**
  *  播放次数
  */
@@ -28,10 +30,21 @@
 
 @implementation YGVoiceView
 
+- (void)showBigPicture
+{
+    YGBigPictureController *picVc = [[YGBigPictureController alloc] init];
+    // 将模型数据传给控制器的topic模型
+    picVc.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:picVc animated:YES completion:nil];
+}
 
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    // 给图片添加监听器
+    self.voiceBgPic.userInteractionEnabled = YES;
+    [self.voiceBgPic addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBigPicture)]];
+
 }
 /**
  *  setter
@@ -40,7 +53,7 @@
 {
     _topic = topic;
     // 设置图片
-    [self.VoiceBgPic sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    [self.voiceBgPic sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
     // 设置播放次数
     self.playTimes.text = [NSString stringWithFormat:@"%zd播放", topic.playcount];
     // 设置时长
