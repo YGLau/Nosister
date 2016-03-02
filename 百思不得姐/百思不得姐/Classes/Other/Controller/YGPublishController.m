@@ -21,9 +21,9 @@ static CGFloat const YGSpringfactor = 10;
 /**
  *  取消按钮
  */
-- (IBAction)close:(id)sender {
+- (IBAction)close{
+    [self canelWithBlock:nil];
     
-    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)viewDidLoad {
@@ -38,8 +38,11 @@ static CGFloat const YGSpringfactor = 10;
         YGOtherLoginButton *button = [[YGOtherLoginButton alloc] init];
         [self.view addSubview:button];
         [button setTitle:btnName[i] forState:UIControlStateNormal];
+        button.tag = i;
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:picArr[i]] forState:UIControlStateNormal];
+        // 添加监听
+        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         // 计算行号和列号
         CGFloat row = i / 3;
         CGFloat col = i % 3;
@@ -85,7 +88,46 @@ static CGFloat const YGSpringfactor = 10;
     
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self close];
+}
 
+- (void)buttonClick:(UIButton *)button
+{
+    [self canelWithBlock:^{
+        if (button.tag == 0) {
+            YGLog(@"发视频");
+        }
+        
+    }];
+}
 
-
+- (void)canelWithBlock:(void (^)())block
+{
+    self.view.userInteractionEnabled = NO;
+    NSInteger beginIndex = 2;
+    for (NSInteger i = beginIndex; i < self.view.subviews.count; i++) {
+        UIView *subviews = self.view.subviews[i];
+        // 标语动画
+        CGFloat centerX = subviews.x;
+        CGFloat centerbeginY = YGmainScreenH * 0.2;
+        CGFloat centerendY = centerbeginY + YGmainScreenH;
+        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+        anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerbeginY)];
+        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerendY)];
+        anim.beginTime = CACurrentMediaTime() + (i -beginIndex) * YGAnimationDelay;
+        [subviews pop_addAnimation:anim forKey:nil];
+        
+        //监听最后一个控件的结束
+        if (i == self.view.subviews.count - 1) {
+            [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                if (block == nil) return;
+                block();
+            }];
+        }
+    }
+    
+}
 @end
