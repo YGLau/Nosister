@@ -8,6 +8,10 @@
 
 #import "YGPublishController.h"
 #import "YGOtherLoginButton.h"
+#import <POP.h>
+
+static CGFloat const YGAnimationDelay = 0.05;
+static CGFloat const YGSpringfactor = 10;
 
 @interface YGPublishController ()
 
@@ -25,16 +29,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 添加标语
-    UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
-    sloganView.y = YGmainScreenH * 0.2;
-    sloganView.centerX = YGmainScreenW * 0.5;
-    [self.view addSubview:sloganView];
+    // 让view不能被点击
+    self.view.userInteractionEnabled = NO;
     
     NSArray *btnName = @[@"发视频", @"发图片", @"发段子", @"发声音", @"审帖", @"离线下载"];
     NSArray *picArr = @[@"publish-video", @"publish-picture", @"publish-text", @"publish-audio", @"publish-review", @"publish-offline"];
     for (NSInteger i = 0; i < btnName.count; i++) {
         YGOtherLoginButton *button = [[YGOtherLoginButton alloc] init];
+        [self.view addSubview:button];
         [button setTitle:btnName[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:picArr[i]] forState:UIControlStateNormal];
@@ -50,9 +52,35 @@
         CGFloat btnX= (btnmarginX + btnW) * col + btnmarginX;
         CGFloat btnY= (YGmainScreenH - 2 * btnH - btnmarginY) * 0.5 + row * (btnH + btnmarginY);
         
-        button.frame = CGRectMake(btnX, btnY, btnW, btnH);
-        [self.view addSubview:button];
+        // 添加动画
+        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+        anim.fromValue = [NSValue valueWithCGRect:CGRectMake(btnX, btnY - YGmainScreenH, btnW, btnH)];
+        anim.toValue = [NSValue valueWithCGRect:CGRectMake(btnX, btnY, btnW, btnH)];
+        anim.springBounciness = YGSpringfactor;
+        anim.springSpeed = YGSpringfactor;
+        anim.beginTime = CACurrentMediaTime() + YGAnimationDelay * i;
+        [button pop_addAnimation:anim forKey:nil];
+        
     }
+    
+    // 添加标语
+    UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
+    [self.view addSubview:sloganView];
+    // 标语动画
+    CGFloat centerX = YGmainScreenW * 0.5;
+    CGFloat centerendY = YGmainScreenH * 0.2;
+    CGFloat centerbeginY = centerendY - YGmainScreenH;
+    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+    anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerbeginY)];
+    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerendY)];
+    anim.beginTime = CACurrentMediaTime() + picArr.count * YGAnimationDelay;
+    anim.springBounciness = YGSpringfactor;
+    anim.springSpeed = YGSpringfactor;
+    [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        // 恢复能点击
+        self.view.userInteractionEnabled = YES;
+    }];
+    [sloganView pop_addAnimation:anim forKey:nil];
     
     
 }
