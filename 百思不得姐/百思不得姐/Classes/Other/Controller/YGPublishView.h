@@ -10,4 +10,6 @@
 
 @interface YGPublishView : UIView
 + (instancetype)publishView;
+
++ (void)show;
 @end

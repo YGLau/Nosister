@@ -32,13 +32,11 @@
     
     return self;
 }
-
+UIWindow *window;
 - (void)publishClick
 {
-    YGPublishView *pub = [YGPublishView publishView];
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    pub.frame = window.bounds;
-    [window addSubview:pub];
+    [YGPublishView show];
+    
 }
 
 -(void)layoutSubviews

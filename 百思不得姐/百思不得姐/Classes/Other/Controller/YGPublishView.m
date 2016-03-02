@@ -9,7 +9,6 @@
 #import "YGPublishView.h"
 #import "YGOtherLoginButton.h"
 #import <POP.h>
-#define YGRootView [UIApplication sharedApplication].keyWindow.rootViewController.view
 
 static CGFloat const YGAnimationDelay = 0.05;
 static CGFloat const YGSpringfactor = 10;
@@ -19,6 +18,17 @@ static CGFloat const YGSpringfactor = 10;
 @end
 
 @implementation YGPublishView
+UIWindow *window_;
++ (void)show
+{
+    window_ = [[UIWindow alloc] init];
+    window_.frame = [UIScreen mainScreen].bounds;
+    window_.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+    window_.hidden = NO;
+    YGPublishView *pub = [YGPublishView publishView];
+    [window_ addSubview:pub];
+}
+
 +(instancetype)publishView
 {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
@@ -34,7 +44,6 @@ static CGFloat const YGSpringfactor = 10;
 - (void)awakeFromNib {
     
     // 让view不能被点击
-    YGRootView.userInteractionEnabled = NO;
     self.userInteractionEnabled = NO;
     
     NSArray *btnName = @[@"发视频", @"发图片", @"发段子", @"发声音", @"审帖", @"离线下载"];
@@ -86,7 +95,6 @@ static CGFloat const YGSpringfactor = 10;
     anim.springSpeed = YGSpringfactor;
     [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
         // 恢复能点击
-        YGRootView.userInteractionEnabled = YES;
         self.userInteractionEnabled = YES;
     }];
     [sloganView pop_addAnimation:anim forKey:nil];
@@ -111,9 +119,10 @@ static CGFloat const YGSpringfactor = 10;
 
 - (void)canelWithBlock:(void (^)())block
 {
-    YGRootView.userInteractionEnabled = NO;
     self.userInteractionEnabled = NO;
+    
     NSInteger beginIndex = 1;
+    
     for (NSInteger i = beginIndex; i < self.subviews.count; i++) {
         UIView *subviews = self.subviews[i];
         // 标语动画
@@ -129,8 +138,7 @@ static CGFloat const YGSpringfactor = 10;
         //监听最后一个控件的结束
         if (i == self.subviews.count - 1) {
             [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
-                YGRootView.userInteractionEnabled = YES;
-                [self removeFromSuperview];
+                window_ = nil;
                 if (block == nil) return;
                 block();
             }];
