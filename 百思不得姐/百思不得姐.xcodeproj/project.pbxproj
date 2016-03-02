@@ -19,8 +19,8 @@
 		A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6E91C71BB1000F11B4B /* YGTabBar.m */; };
 		A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */; };
 		A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */; };
-		A4290E4B1C81696500475C24 /* YGPublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4290E491C81696500475C24 /* YGPublishController.m */; };
-		A4290E4C1C81696500475C24 /* YGPublishController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4290E4A1C81696500475C24 /* YGPublishController.xib */; };
+		A4290E4B1C81696500475C24 /* YGPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4290E491C81696500475C24 /* YGPublishView.m */; };
+		A4290E4C1C81696500475C24 /* YGPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4290E4A1C81696500475C24 /* YGPublishView.xib */; };
 		A4290E4F1C81EDFA00475C24 /* YGVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4290E4E1C81EDFA00475C24 /* YGVoiceView.m */; };
 		A4290E511C81EE1800475C24 /* YGVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4290E501C81EE1800475C24 /* YGVoiceView.xib */; };
 		A44C891A1C86BBDA009E9DAF /* YGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C89191C86BBDA009E9DAF /* YGProgressView.m */; };
@@ -104,9 +104,9 @@
 		A402D6FD1C71CA8100F11B4B /* YGNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNavigationViewController.h; sourceTree = "<group>"; };
 		A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGNavigationViewController.m; sourceTree = "<group>"; };
 		A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A4290E481C81696500475C24 /* YGPublishController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGPublishController.h; sourceTree = "<group>"; };
-		A4290E491C81696500475C24 /* YGPublishController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGPublishController.m; sourceTree = "<group>"; };
-		A4290E4A1C81696500475C24 /* YGPublishController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGPublishController.xib; sourceTree = "<group>"; };
+		A4290E481C81696500475C24 /* YGPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGPublishView.h; sourceTree = "<group>"; };
+		A4290E491C81696500475C24 /* YGPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGPublishView.m; sourceTree = "<group>"; };
+		A4290E4A1C81696500475C24 /* YGPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGPublishView.xib; sourceTree = "<group>"; };
 		A4290E4D1C81EDFA00475C24 /* YGVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGVoiceView.h; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.h"; sourceTree = SOURCE_ROOT; };
 		A4290E4E1C81EDFA00475C24 /* YGVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGVoiceView.m; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.m"; sourceTree = SOURCE_ROOT; };
 		A4290E501C81EE1800475C24 /* YGVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGVoiceView.xib; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.xib"; sourceTree = SOURCE_ROOT; };
@@ -440,9 +440,9 @@
 				A402D6E31C71BB1000F11B4B /* YGTabBarController.m */,
 				A402D6FD1C71CA8100F11B4B /* YGNavigationViewController.h */,
 				A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */,
-				A4290E481C81696500475C24 /* YGPublishController.h */,
-				A4290E491C81696500475C24 /* YGPublishController.m */,
-				A4290E4A1C81696500475C24 /* YGPublishController.xib */,
+				A4290E481C81696500475C24 /* YGPublishView.h */,
+				A4290E491C81696500475C24 /* YGPublishView.m */,
+				A4290E4A1C81696500475C24 /* YGPublishView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -652,7 +652,7 @@
 				A4C1BBB41C82CB650059C3D1 /* YGVideoView.xib in Resources */,
 				A4B090041C74B257009DCA14 /* YGRecommendViewCell.xib in Resources */,
 				A46E20CC1C798A8F00E9758B /* YGPushGuideView.xib in Resources */,
-				A4290E4C1C81696500475C24 /* YGPublishController.xib in Resources */,
+				A4290E4C1C81696500475C24 /* YGPublishView.xib in Resources */,
 				A4B8675A1C7EF40A00C28154 /* YGTopicCell.xib in Resources */,
 				A4B08FFC1C74A979009DCA14 /* YGRecommendViewController.xib in Resources */,
 				A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */,
@@ -738,7 +738,7 @@
 				A4B8675D1C7F39D000C28154 /* NSDate+Extension.m in Sources */,
 				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,
 				A4766E321C802E0C00A4E048 /* YGPictureView.m in Sources */,
-				A4290E4B1C81696500475C24 /* YGPublishController.m in Sources */,
+				A4290E4B1C81696500475C24 /* YGPublishView.m in Sources */,
 				A4B867551C7EF06C00C28154 /* YGConst.m in Sources */,
 				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,
 				A4E91CC11C78A4D6006E4DCB /* YGTextField.m in Sources */,

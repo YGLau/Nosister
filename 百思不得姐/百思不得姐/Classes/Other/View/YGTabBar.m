@@ -7,7 +7,7 @@
 //
 
 #import "YGTabBar.h"
-#import "YGPublishController.h"
+#import "YGPublishView.h"
 
 @interface YGTabBar ()
 /**
@@ -35,9 +35,10 @@
 
 - (void)publishClick
 {
-    YGPublishController *pub = [[YGPublishController alloc] init];
-    // 利用跟控制器modal出控制器
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:pub animated:YES completion:nil];
+    YGPublishView *pub = [YGPublishView publishView];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    pub.frame = window.bounds;
+    [window addSubview:pub];
 }
 
 -(void)layoutSubviews

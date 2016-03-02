@@ -1,23 +1,28 @@
 //
-//  YGPublishController.m
+//  YGPublishView.m
 //  百思不得姐
 //
 //  Created by 刘勇刚 on 16/2/27.
 //  Copyright © 2016年 liu. All rights reserved.
 //
 
-#import "YGPublishController.h"
+#import "YGPublishView.h"
 #import "YGOtherLoginButton.h"
 #import <POP.h>
+#define YGRootView [UIApplication sharedApplication].keyWindow.rootViewController.view
 
 static CGFloat const YGAnimationDelay = 0.05;
 static CGFloat const YGSpringfactor = 10;
 
-@interface YGPublishController ()
+@interface YGPublishView ()
 
 @end
 
-@implementation YGPublishController
+@implementation YGPublishView
++(instancetype)publishView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
 /**
  *  取消按钮
  */
@@ -26,17 +31,17 @@ static CGFloat const YGSpringfactor = 10;
     
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)awakeFromNib {
     
     // 让view不能被点击
-    self.view.userInteractionEnabled = NO;
+    YGRootView.userInteractionEnabled = NO;
+    self.userInteractionEnabled = NO;
     
     NSArray *btnName = @[@"发视频", @"发图片", @"发段子", @"发声音", @"审帖", @"离线下载"];
     NSArray *picArr = @[@"publish-video", @"publish-picture", @"publish-text", @"publish-audio", @"publish-review", @"publish-offline"];
     for (NSInteger i = 0; i < btnName.count; i++) {
         YGOtherLoginButton *button = [[YGOtherLoginButton alloc] init];
-        [self.view addSubview:button];
+        [self addSubview:button];
         [button setTitle:btnName[i] forState:UIControlStateNormal];
         button.tag = i;
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -68,7 +73,7 @@ static CGFloat const YGSpringfactor = 10;
     
     // 添加标语
     UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
-    [self.view addSubview:sloganView];
+    [self addSubview:sloganView];
     // 标语动画
     CGFloat centerX = YGmainScreenW * 0.5;
     CGFloat centerendY = YGmainScreenH * 0.2;
@@ -81,7 +86,8 @@ static CGFloat const YGSpringfactor = 10;
     anim.springSpeed = YGSpringfactor;
     [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
         // 恢复能点击
-        self.view.userInteractionEnabled = YES;
+        YGRootView.userInteractionEnabled = YES;
+        self.userInteractionEnabled = YES;
     }];
     [sloganView pop_addAnimation:anim forKey:nil];
     
@@ -90,7 +96,7 @@ static CGFloat const YGSpringfactor = 10;
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self close];
+    [self canelWithBlock:nil];
 }
 
 - (void)buttonClick:(UIButton *)button
@@ -105,10 +111,11 @@ static CGFloat const YGSpringfactor = 10;
 
 - (void)canelWithBlock:(void (^)())block
 {
-    self.view.userInteractionEnabled = NO;
-    NSInteger beginIndex = 2;
-    for (NSInteger i = beginIndex; i < self.view.subviews.count; i++) {
-        UIView *subviews = self.view.subviews[i];
+    YGRootView.userInteractionEnabled = NO;
+    self.userInteractionEnabled = NO;
+    NSInteger beginIndex = 1;
+    for (NSInteger i = beginIndex; i < self.subviews.count; i++) {
+        UIView *subviews = self.subviews[i];
         // 标语动画
         CGFloat centerX = subviews.x;
         CGFloat centerbeginY = YGmainScreenH * 0.2;
@@ -116,13 +123,14 @@ static CGFloat const YGSpringfactor = 10;
         POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
         anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerbeginY)];
         anim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerendY)];
-        anim.beginTime = CACurrentMediaTime() + (i -beginIndex) * YGAnimationDelay;
+        anim.beginTime = CACurrentMediaTime() + (i - beginIndex) * YGAnimationDelay;
         [subviews pop_addAnimation:anim forKey:nil];
         
         //监听最后一个控件的结束
-        if (i == self.view.subviews.count - 1) {
+        if (i == self.subviews.count - 1) {
             [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
-                [self dismissViewControllerAnimated:YES completion:nil];
+                YGRootView.userInteractionEnabled = YES;
+                [self removeFromSuperview];
                 if (block == nil) return;
                 block();
             }];
