@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YGBigPictureController">
             <connections>
+                <outlet property="progressView" destination="kIR-rC-7FR" id="xJq-Nv-1X1"/>
                 <outlet property="scrollView" destination="sRO-5j-eL2" id="Nnp-XO-uyC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,6 +20,14 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRO-5j-eL2">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </scrollView>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIR-rC-7FR" customClass="YGProgressView">
+                    <rect key="frame" x="250" y="250" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="pYZ-vv-vku"/>
+                        <constraint firstAttribute="height" constant="100" id="pnr-WG-2VO"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8q-9Q-5lE" userLabel="返回">
                     <rect key="frame" x="30" y="40" width="35" height="35"/>
                     <constraints>
@@ -58,9 +67,11 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="kIR-rC-7FR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="2LC-WS-bm5"/>
                 <constraint firstAttribute="bottom" secondItem="sRO-5j-eL2" secondAttribute="bottom" id="FeO-IO-uOg"/>
                 <constraint firstItem="z8q-9Q-5lE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="FgL-2C-dqJ"/>
                 <constraint firstItem="fsf-fP-6PM" firstAttribute="trailing" secondItem="wTG-j4-gvI" secondAttribute="leading" constant="-20" id="LI3-Np-k7D"/>
+                <constraint firstItem="kIR-rC-7FR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YSm-aT-G6U"/>
                 <constraint firstItem="sRO-5j-eL2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cqL-N0-7Gz"/>
                 <constraint firstItem="sRO-5j-eL2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dNh-NK-hTc"/>
                 <constraint firstAttribute="bottom" secondItem="fsf-fP-6PM" secondAttribute="bottom" constant="30" id="gqG-hh-vg3"/>

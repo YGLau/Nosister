@@ -10,6 +10,7 @@
 #import "YGTopic.h"
 #import <UIImageView+WebCache.h>
 #import "YGBigPictureController.h"
+#import "YGProgressView.h"
 
 @interface YGPictureView ()
 /**
@@ -24,6 +25,11 @@
  *  查看大图
  */
 @property (weak, nonatomic) IBOutlet UIButton *seeBigPicBtn;
+/**
+ *  进度条控件
+ */
+@property (weak, nonatomic) IBOutlet YGProgressView *progressView;
+
 
 @end
 
@@ -54,9 +60,16 @@
 -(void)setTopic:(YGTopic *)topic
 {
     _topic = topic;
+    // 立马显示最新的进度值
+    [self.progressView setProgress:topic.pictureProgress animated:NO];
+    
     [self.picImageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        self.progressView.hidden = NO;
+        topic.pictureProgress = 1.0 * receivedSize / expectedSize;
+        [self.progressView setProgress:topic.pictureProgress animated:NO];
         
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.progressView.hidden = YES;
         // 开启图形上下文
         UIGraphicsBeginImageContextWithOptions(topic.picFrame.size, YES, 0.0);
 

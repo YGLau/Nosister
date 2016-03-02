@@ -13,6 +13,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z4H-A5-dCy" userLabel="图片">
                     <rect key="frame" x="0.0" y="0.0" width="285" height="200"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="0kV-iW-GGg" userLabel="gif标志">
                     <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
@@ -28,16 +29,24 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <state key="normal" title="点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
                 </button>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsz-1z-zGe" customClass="YGProgressView">
+                    <rect key="frame" x="93" y="50" width="100" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="10e-GP-sGC"/>
+                        <constraint firstAttribute="height" constant="100" id="iaJ-pQ-KLh"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="lsz-1z-zGe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="12q-AA-5Yc"/>
                 <constraint firstItem="0kV-iW-GGg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="44g-Qb-pYM"/>
                 <constraint firstAttribute="bottom" secondItem="Sh7-h0-ft6" secondAttribute="bottom" id="4ro-pc-9pv"/>
                 <constraint firstItem="z4H-A5-dCy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5AU-el-gpr"/>
+                <constraint firstItem="lsz-1z-zGe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JTX-MC-iib"/>
                 <constraint firstItem="z4H-A5-dCy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Mct-BY-VH7"/>
                 <constraint firstAttribute="trailing" secondItem="Sh7-h0-ft6" secondAttribute="trailing" id="Paw-x4-Hea"/>
                 <constraint firstItem="Sh7-h0-ft6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="S9M-Sd-o2S"/>
@@ -50,6 +59,7 @@
             <connections>
                 <outlet property="gifView" destination="0kV-iW-GGg" id="gdI-Yl-zjZ"/>
                 <outlet property="picImageView" destination="z4H-A5-dCy" id="OmL-fY-Bgl"/>
+                <outlet property="progressView" destination="lsz-1z-zGe" id="WbM-bW-D1h"/>
                 <outlet property="seeBigPicBtn" destination="Sh7-h0-ft6" id="3QP-mR-FRJ"/>
             </connections>
             <point key="canvasLocation" x="484.5" y="408"/>

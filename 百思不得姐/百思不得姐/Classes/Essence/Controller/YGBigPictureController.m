@@ -10,10 +10,12 @@
 #import "YGTopic.h"
 #import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
+#import "YGProgressView.h"
 
 @interface YGBigPictureController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet YGProgressView *progressView;
 
 @end
 
@@ -47,8 +49,17 @@
         imageView.centerY = YGmainScreenH * 0.5;
     }
     
+    // 马上显示最新的进度值
+    [self.progressView setProgress:self.topic.pictureProgress animated:YES];
     // 填充图片
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        self.progressView.hidden = NO;
+        [self.progressView setProgress:1.0 * receivedSize / expectedSize animated:NO];
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.progressView.hidden = YES;
+        
+    }];
 }
 
 - (IBAction)save {

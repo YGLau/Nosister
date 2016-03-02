@@ -50,7 +50,11 @@
  */
 @property (assign, nonatomic, readonly) CGFloat cellHeight;
 
+/** 图片的下载进度值 */
+@property (assign, nonatomic) CGFloat pictureProgress;
+
 /***************** 图片 **************/
+
 /**
  *  大图 -  声音 图片 视频 - 共用图片
  */
