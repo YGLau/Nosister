@@ -75,6 +75,10 @@
 
 
 @implementation YGTopicCell
++ (instancetype)cell
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
 
 
 #pragma mark - 懒加载
@@ -123,7 +127,7 @@
 {
     frame.origin.x = YGTopicCellMargin;
     frame.size.width -= 2 * YGTopicCellMargin;
-    frame.size.height -= YGTopicCellMargin;
+    frame.size.height = self.topic.cellHeight - YGTopicCellMargin;
     frame.origin.y += YGTopicCellMargin;
     
     [super setFrame:frame];

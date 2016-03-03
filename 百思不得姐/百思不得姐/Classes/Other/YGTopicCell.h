@@ -15,4 +15,6 @@
  *  topic模型
  */
 @property (strong, nonatomic) YGTopic *topic;
+
++ (instancetype)cell;
 @end

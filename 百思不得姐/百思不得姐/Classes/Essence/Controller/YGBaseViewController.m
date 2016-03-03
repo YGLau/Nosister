@@ -207,6 +207,7 @@ static NSString * const YGTopicCellID = @"topic";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     YGCommentViewController *cmtVc = [[YGCommentViewController alloc] init];
+    cmtVc.topic = self.topics[indexPath.row]; // 将数据传递到下一个控制器
     [self.navigationController pushViewController:cmtVc animated:YES];
 }
 @end

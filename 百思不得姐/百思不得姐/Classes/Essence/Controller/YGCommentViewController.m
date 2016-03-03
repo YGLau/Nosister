@@ -7,12 +7,18 @@
 //
 
 #import "YGCommentViewController.h"
+#import "YGTopic.h"
+#import "YGTopicCell.h"
 
 @interface YGCommentViewController () <UITableViewDelegate>
 /**
  *  底部工具条间距
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLine;
+/**
+ *  tableView
+ */
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -22,7 +28,8 @@
     [super viewDidLoad];
     
     [self setupBasic];
-    
+    // 设置头部
+    [self setupHeader];
     
 }
 /**
@@ -36,7 +43,16 @@
     // 监听键盘的弹出或隐藏
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
-
+/**
+ *  设置头部cell
+ */
+- (void)setupHeader
+{
+    YGTopicCell *cell = [YGTopicCell cell];
+    cell.topic = self.topic;
+    cell.height = self.topic.cellHeight;
+    self.tableView.tableHeaderView = cell;
+}
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
     // 键盘最终显示/隐藏完毕后的frame

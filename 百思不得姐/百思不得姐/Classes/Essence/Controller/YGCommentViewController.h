@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YGTopic;
 
 @interface YGCommentViewController : UIViewController
+/**
+ *  帖子模型
+ */
+@property (strong, nonatomic) YGTopic *topic;
 
 @end
