@@ -12,6 +12,8 @@
 #import "YGPictureView.h"
 #import "YGVoiceView.h"
 #import "YGVideoView.h"
+#import "YGComment.h"
+#import "YGUser.h"
 
 @interface YGTopicCell ()
 
@@ -61,7 +63,14 @@
  *  视频帖子中间的View
  */
 @property (weak, nonatomic) YGVideoView *videoView;
-
+/**
+ *  最热评论
+ */
+@property (weak, nonatomic) IBOutlet UIView *commentLabel;
+/**
+ *  评论内容
+ */
+@property (weak, nonatomic) IBOutlet UILabel *cmtcontentLabel;
 @end
 
 
@@ -167,6 +176,14 @@
         
     }
     
+    // 处理最热评论
+    YGComment *cmt = [topic.top_cmt firstObject];
+    if (cmt) {
+        self.commentLabel.hidden = NO;
+        self.cmtcontentLabel.text = [NSString stringWithFormat:@"%@ : %@",cmt.user.username, cmt.content];
+    } else {
+        self.commentLabel.hidden = YES;
+    }
     
 }
 

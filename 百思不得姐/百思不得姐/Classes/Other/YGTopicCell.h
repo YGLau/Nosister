@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class YGTopic;
+@class YGComment;
 
 @interface YGTopicCell : UITableViewCell
 /**

@@ -52,6 +52,10 @@
 
 /** 图片的下载进度值 */
 @property (assign, nonatomic) CGFloat pictureProgress;
+/**
+ *  最热评论
+ */
+@property (strong, nonatomic) NSArray *top_cmt;
 
 /***************** 图片 **************/
 

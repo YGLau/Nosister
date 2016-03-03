@@ -24,6 +24,8 @@
 		A4290E4F1C81EDFA00475C24 /* YGVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4290E4E1C81EDFA00475C24 /* YGVoiceView.m */; };
 		A4290E511C81EE1800475C24 /* YGVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4290E501C81EE1800475C24 /* YGVoiceView.xib */; };
 		A44C891A1C86BBDA009E9DAF /* YGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C89191C86BBDA009E9DAF /* YGProgressView.m */; };
+		A46C22F31C880E66002CD6A2 /* YGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F21C880E66002CD6A2 /* YGUser.m */; };
+		A46C22F61C88107D002CD6A2 /* YGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F51C88107D002CD6A2 /* YGComment.m */; };
 		A46E20CA1C798A6300E9758B /* YGPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = A46E20C91C798A6300E9758B /* YGPushGuideView.m */; };
 		A46E20CC1C798A8F00E9758B /* YGPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46E20CB1C798A8F00E9758B /* YGPushGuideView.xib */; };
 		A4766E321C802E0C00A4E048 /* YGPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4766E311C802E0C00A4E048 /* YGPictureView.m */; };
@@ -112,6 +114,10 @@
 		A4290E501C81EE1800475C24 /* YGVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGVoiceView.xib; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.xib"; sourceTree = SOURCE_ROOT; };
 		A44C89181C86BBDA009E9DAF /* YGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGProgressView.h; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.h"; sourceTree = SOURCE_ROOT; };
 		A44C89191C86BBDA009E9DAF /* YGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGProgressView.m; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.m"; sourceTree = SOURCE_ROOT; };
+		A46C22F11C880E66002CD6A2 /* YGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGUser.h; path = "百思不得姐/Classes/Essence/Controller/YGUser.h"; sourceTree = SOURCE_ROOT; };
+		A46C22F21C880E66002CD6A2 /* YGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGUser.m; path = "百思不得姐/Classes/Essence/Controller/YGUser.m"; sourceTree = SOURCE_ROOT; };
+		A46C22F41C88107D002CD6A2 /* YGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGComment.h; path = "百思不得姐/Classes/Essence/Controller/YGComment.h"; sourceTree = SOURCE_ROOT; };
+		A46C22F51C88107D002CD6A2 /* YGComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGComment.m; path = "百思不得姐/Classes/Essence/Controller/YGComment.m"; sourceTree = SOURCE_ROOT; };
 		A46E20C81C798A6300E9758B /* YGPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGPushGuideView.h; sourceTree = "<group>"; };
 		A46E20C91C798A6300E9758B /* YGPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGPushGuideView.m; sourceTree = "<group>"; };
 		A46E20CB1C798A8F00E9758B /* YGPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGPushGuideView.xib; sourceTree = "<group>"; };
@@ -254,6 +260,10 @@
 				A4EFE4481C76076B00B0B2E5 /* YGRecommendTag.m */,
 				A4B867501C7ED96B00C28154 /* YGTopic.h */,
 				A4B867511C7ED96B00C28154 /* YGTopic.m */,
+				A46C22F11C880E66002CD6A2 /* YGUser.h */,
+				A46C22F21C880E66002CD6A2 /* YGUser.m */,
+				A46C22F41C88107D002CD6A2 /* YGComment.h */,
+				A46C22F51C88107D002CD6A2 /* YGComment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -730,6 +740,7 @@
 			files = (
 				A402D6EB1C71BB1000F11B4B /* YGFriendTrendsViewController.m in Sources */,
 				A4EFE4461C76047500B0B2E5 /* YGRecommendTagsController.m in Sources */,
+				A46C22F61C88107D002CD6A2 /* YGComment.m in Sources */,
 				A4B08FFB1C74A979009DCA14 /* YGRecommendViewController.m in Sources */,
 				A46E20CA1C798A6300E9758B /* YGPushGuideView.m in Sources */,
 				A4E91CBE1C78852B006E4DCB /* YGOtherLoginButton.m in Sources */,
@@ -762,6 +773,7 @@
 				A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */,
 				A402D6F11C71BB1000F11B4B /* YGTabBarController.m in Sources */,
 				A4B090061C74B845009DCA14 /* Foundation+Log.m in Sources */,
+				A46C22F31C880E66002CD6A2 /* YGUser.m in Sources */,
 				A4C1BBB81C82E8D90059C3D1 /* YGBigPictureController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

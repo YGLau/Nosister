@@ -39,3 +39,15 @@ UIKIT_EXTERN CGFloat const YGTopicPictureMaxH;
  *  裁剪后的高度
  */
 UIKIT_EXTERN CGFloat const YGTopicPictureClipH;
+/**
+ *  用户模型性别属性-女
+ */
+UIKIT_EXTERN NSString * const YGUserSexFemale;
+/**
+ *  用户模型性别属性-男
+ */
+UIKIT_EXTERN NSString * const YGUserSexMale;
+/**
+ *  最热评论标题的高度
+ */
+UIKIT_EXTERN CGFloat const YGTopicCellCommentTitleH;

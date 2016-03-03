@@ -7,6 +7,9 @@
 //
 
 #import "YGTopic.h"
+#import <MJExtension.h>
+#import "YGComment.h"
+#import "YGUser.h"
 
 @implementation YGTopic
 
@@ -22,6 +25,12 @@
              @"small_image" : @"image0"
              };
 }
+
++ (NSDictionary *)mj_objectClassInArray
+{
+    return @{@"top_cmt" : @"YGComment"};
+}
+
 /**
  *  时间处理
  */
@@ -105,6 +114,16 @@
             // 图片的高度
             _cellHeight += videoH + YGTopicCellMargin;
         }
+        
+        
+        YGComment *cmt = [self.top_cmt firstObject];
+        if (cmt) {
+            NSString *content = [NSString stringWithFormat:@"%@ : %@",cmt.user.username, cmt.content];
+            CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13]} context:nil].size.height;
+            _cellHeight += YGTopicCellCommentTitleH + contentH +YGTopicCellMargin;
+        }
+        
+        
         // 底部按钮的高度
         _cellHeight += YGTopicCellBottomToolH + YGTopicCellMargin;
     }
