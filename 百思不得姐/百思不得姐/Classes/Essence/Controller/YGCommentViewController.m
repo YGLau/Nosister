@@ -13,6 +13,8 @@
 #import <AFNetworking.h>
 #import "YGComment.h"
 #import <MJExtension.h>
+#import "YGCommentHeaderView.h"
+
 
 @interface YGCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 /**
@@ -176,19 +178,14 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *header = [[UIView alloc] init];
-    header.backgroundColor = YGGlobalBg;
-    UILabel *label = [[UILabel alloc] init];
-    label.textColor = YGRGBColor(67, 67, 67);
-    label.width = 200;
-    label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    [header addSubview:label];
-    label.x = YGTopicCellMargin;
+    YGCommentHeaderView *header = [YGCommentHeaderView headerViewWithTableView:tableView];
+    
+    // 设置文字
     NSInteger hotCount = self.hotComment.count;
     if (section == 0) {
-        label.text = hotCount ? @"最热评论" : @"最新评论";
+        header.title = hotCount ? @"最热评论" : @"最新评论";
     } else {
-        label.text = @"最新评论";
+        header.title = @"最新评论";
     }
     
     return header;

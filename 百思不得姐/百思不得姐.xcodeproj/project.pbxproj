@@ -23,6 +23,7 @@
 		A4290E4C1C81696500475C24 /* YGPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4290E4A1C81696500475C24 /* YGPublishView.xib */; };
 		A4290E4F1C81EDFA00475C24 /* YGVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4290E4E1C81EDFA00475C24 /* YGVoiceView.m */; };
 		A4290E511C81EE1800475C24 /* YGVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4290E501C81EE1800475C24 /* YGVoiceView.xib */; };
+		A42D5CE51C8858A500886B8F /* YGCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A42D5CE41C8858A500886B8F /* YGCommentHeaderView.m */; };
 		A44C891A1C86BBDA009E9DAF /* YGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C89191C86BBDA009E9DAF /* YGProgressView.m */; };
 		A46C22F31C880E66002CD6A2 /* YGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F21C880E66002CD6A2 /* YGUser.m */; };
 		A46C22F61C88107D002CD6A2 /* YGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F51C88107D002CD6A2 /* YGComment.m */; };
@@ -114,6 +115,8 @@
 		A4290E4D1C81EDFA00475C24 /* YGVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGVoiceView.h; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.h"; sourceTree = SOURCE_ROOT; };
 		A4290E4E1C81EDFA00475C24 /* YGVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGVoiceView.m; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.m"; sourceTree = SOURCE_ROOT; };
 		A4290E501C81EE1800475C24 /* YGVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGVoiceView.xib; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.xib"; sourceTree = SOURCE_ROOT; };
+		A42D5CE31C8858A500886B8F /* YGCommentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGCommentHeaderView.h; path = "百思不得姐/Classes/Essence/Controller/YGCommentHeaderView.h"; sourceTree = SOURCE_ROOT; };
+		A42D5CE41C8858A500886B8F /* YGCommentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGCommentHeaderView.m; path = "百思不得姐/Classes/Essence/Controller/YGCommentHeaderView.m"; sourceTree = SOURCE_ROOT; };
 		A44C89181C86BBDA009E9DAF /* YGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGProgressView.h; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.h"; sourceTree = SOURCE_ROOT; };
 		A44C89191C86BBDA009E9DAF /* YGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGProgressView.m; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.m"; sourceTree = SOURCE_ROOT; };
 		A46C22F11C880E66002CD6A2 /* YGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGUser.h; path = "百思不得姐/Classes/Essence/Controller/YGUser.h"; sourceTree = SOURCE_ROOT; };
@@ -296,6 +299,8 @@
 				A4C1BBB31C82CB650059C3D1 /* YGVideoView.xib */,
 				A44C89181C86BBDA009E9DAF /* YGProgressView.h */,
 				A44C89191C86BBDA009E9DAF /* YGProgressView.m */,
+				A42D5CE31C8858A500886B8F /* YGCommentHeaderView.h */,
+				A42D5CE41C8858A500886B8F /* YGCommentHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -758,6 +763,7 @@
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
 				A4B8675D1C7F39D000C28154 /* NSDate+Extension.m in Sources */,
 				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,
+				A42D5CE51C8858A500886B8F /* YGCommentHeaderView.m in Sources */,
 				A4766E321C802E0C00A4E048 /* YGPictureView.m in Sources */,
 				A4290E4B1C81696500475C24 /* YGPublishView.m in Sources */,
 				A4B867551C7EF06C00C28154 /* YGConst.m in Sources */,
