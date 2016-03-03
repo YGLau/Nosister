@@ -10,6 +10,10 @@
 
 @interface YGTopic : NSObject
 /**
+ *  帖子ID
+ */
+@property (copy, nonatomic) NSString *ID;
+/**
  *  昵称
  */
 @property (copy, nonatomic) NSString *name;

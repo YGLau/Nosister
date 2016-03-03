@@ -200,6 +200,14 @@
     }
     [buttton setTitle:placeholder forState:UIControlStateNormal];
 }
+/**
+ *  更多
+ */
+- (IBAction)more {
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"收藏", @"举报", nil];
+    [sheet showInView:self.window];
+}
 
 
 

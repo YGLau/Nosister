@@ -9,6 +9,10 @@
 #import "YGCommentViewController.h"
 #import "YGTopic.h"
 #import "YGTopicCell.h"
+#import <MJRefresh.h>
+#import <AFNetworking.h>
+#import "YGComment.h"
+#import <MJExtension.h>
 
 @interface YGCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 /**
@@ -19,10 +23,27 @@
  *  tableView
  */
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+/**
+ *  最热评论
+ */
+@property (strong, nonatomic) NSArray *hotComment;
+/**
+ *  最新评论
+ */
+@property (strong, nonatomic) NSMutableArray *latestComment;
 
 @end
 
 @implementation YGCommentViewController
+
+- (NSMutableArray *)latestComment
+{
+    if (!_latestComment) {
+        _latestComment = [NSMutableArray array];
+    }
+    
+    return _latestComment;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +51,9 @@
     [self setupBasic];
     // 设置头部
     [self setupHeader];
+    
+    // 刷新控件
+    [self setupRefresh];
     
 }
 /**
@@ -64,6 +88,35 @@
     self.tableView.tableHeaderView = header;
     
 }
+- (void)setupRefresh
+{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComment)];
+    [self.tableView.mj_header beginRefreshing]; // 一进来自动刷新
+}
+- (void)loadNewComment
+{
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"hot"] = @"1";
+    // 发送请求
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        // 最热评论
+        self.hotComment = [YGComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
+        // 最新评论
+        self.latestComment = [YGComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self.tableView.mj_header endRefreshing]; // 结束刷新
+        
+    }];
+}
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
     // 键盘最终显示/隐藏完毕后的frame
@@ -81,7 +134,13 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
+- (NSArray *)commentsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return self.hotComment.count ? self.hotComment : self.latestComment;
+    }
+    return self.latestComment;
+}
 #pragma mark - UITableViewDelegate方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -91,15 +150,28 @@
 #pragma mark - UITableViewDataSource方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    NSInteger hotCount = self.hotComment.count;
+    NSInteger latestCount = self.latestComment.count;
+    if (hotCount) return 2;
+    if (latestCount) return 1;
+    return 0;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    NSInteger hotCount = self.hotComment.count;
+    NSInteger latestCount = self.latestComment.count;
+    if (section == 0) {
+        return hotCount ? hotCount : latestCount;
+    }
+    return latestCount;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"评论";
+    NSInteger hotCount = self.hotComment.count;
+    if (section == 0) {
+        return hotCount ? @"最热评论" : @"最新评论";
+    }
+    return @"最新评论";
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -107,7 +179,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"comment"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd -- %zd", indexPath.section, indexPath.row];
+    YGComment *comment = [self commentsInSection:indexPath.section][indexPath.row];
+    cell.textLabel.text = comment.content;
     return cell;
 }
 @end
