@@ -11,6 +11,10 @@
 
 @interface YGComment : NSObject
 /**
+ *  帖子ID
+ */
+@property (copy, nonatomic) NSString *ID;
+/**
  *  音频播放时长
  */
 @property (assign, nonatomic) NSInteger voicetime;

@@ -55,8 +55,21 @@
         self.voiceBtn.hidden = YES;
     }
     
+}
+
+- (void)setFrame:(CGRect)frame
+{
+    frame.origin.x = YGTopicCellMargin;
+    frame.size.width -= 2 * YGTopicCellMargin;
     
-    
+    [super setFrame:frame];
+}
+
+-(void)awakeFromNib
+{
+    UIImageView *bg = [[UIImageView alloc] init];
+    bg.image = [UIImage imageNamed:@"mainCellBackground"];
+    self.backgroundView = bg;
 }
 
 @end
