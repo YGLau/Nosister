@@ -14,6 +14,7 @@
 #import <MJRefresh.h>
 #import "YGTopic.h"
 #import "YGTopicCell.h"
+#import "YGCommentViewController.h"
 
 @interface YGBaseViewController ()
 /**
@@ -201,5 +202,11 @@ static NSString * const YGTopicCellID = @"topic";
     YGTopic *topic = self.topics[indexPath.row];
     // 返回cell的高度
     return topic.cellHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YGCommentViewController *cmtVc = [[YGCommentViewController alloc] init];
+    [self.navigationController pushViewController:cmtVc animated:YES];
 }
 @end
