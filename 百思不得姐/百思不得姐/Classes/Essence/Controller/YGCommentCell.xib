@@ -25,9 +25,18 @@
                         <rect key="frame" x="45" y="10" width="13" height="13"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6k-J1-TS6" userLabel="昵称">
-                        <rect key="frame" x="58" y="10" width="36" height="17"/>
+                        <rect key="frame" x="58" y="10" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAm-zJ-Q0N" userLabel="评论内容">
+                        <rect key="frame" x="55" y="45" width="211" height="72"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="oam-7i-QR1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-gL-dy6" userLabel="点赞">
@@ -50,12 +59,20 @@
                         <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAm-zJ-Q0N">
-                        <rect key="frame" x="55" y="45" width="211" height="72"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rog-qS-LTK" userLabel="音频">
+                        <rect key="frame" x="55" y="45" width="62" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="62" id="Ytd-0i-I5m"/>
+                            <constraint firstAttribute="height" constant="22" id="gKY-Vf-fhD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="12''" image="play-voice-stop" backgroundImage="play-voice-bg">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" backgroundImage="play-voice-bg-select"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="oNh-d9-GK1" firstAttribute="top" secondItem="2jE-tg-qBa" secondAttribute="top" id="7tx-gF-kyB"/>
@@ -63,6 +80,8 @@
                     <constraint firstAttribute="bottom" secondItem="NAm-zJ-Q0N" secondAttribute="bottom" constant="10" id="DVm-no-xzE"/>
                     <constraint firstItem="Cmf-gL-dy6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Gfy-hA-O9S"/>
                     <constraint firstItem="Cmf-gL-dy6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Mp6-7a-e6E"/>
+                    <constraint firstItem="rog-qS-LTK" firstAttribute="leading" secondItem="NAm-zJ-Q0N" secondAttribute="leading" id="OwU-y9-k7w"/>
+                    <constraint firstItem="rog-qS-LTK" firstAttribute="top" secondItem="NAm-zJ-Q0N" secondAttribute="top" id="Q8P-M4-ehD"/>
                     <constraint firstItem="F6k-J1-TS6" firstAttribute="leading" secondItem="oNh-d9-GK1" secondAttribute="trailing" id="aw8-sM-5m4"/>
                     <constraint firstItem="Jpw-Hn-n21" firstAttribute="trailing" secondItem="Cmf-gL-dy6" secondAttribute="trailing" id="beR-ay-Y59"/>
                     <constraint firstItem="oNh-d9-GK1" firstAttribute="leading" secondItem="2jE-tg-qBa" secondAttribute="trailing" id="cQ8-pW-E0X"/>
@@ -82,6 +101,7 @@
                 <outlet property="profileImageView" destination="2jE-tg-qBa" id="opd-M3-qsw"/>
                 <outlet property="sex" destination="oNh-d9-GK1" id="edM-DR-CZP"/>
                 <outlet property="userName" destination="F6k-J1-TS6" id="bh5-0k-3Ej"/>
+                <outlet property="voiceBtn" destination="rog-qS-LTK" id="LSB-5S-ZPv"/>
             </connections>
             <point key="canvasLocation" x="325" y="332.5"/>
         </tableViewCell>
@@ -90,5 +110,8 @@
         <image name="Profile_manIcon" width="13" height="13"/>
         <image name="commentLikeButton" width="18" height="18"/>
         <image name="commentLikeButtonClick" width="19" height="19"/>
+        <image name="play-voice-bg" width="62" height="22"/>
+        <image name="play-voice-bg-select" width="74" height="24"/>
+        <image name="play-voice-stop" width="12" height="12"/>
     </resources>
 </document>

@@ -32,6 +32,7 @@
  *  赞数
  */
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *voiceBtn;
 
 @end
 
@@ -45,6 +46,14 @@
     self.cmtContent.text = comment.content;
     self.userName.text = comment.user.username;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%zd", comment.like_count];
+
+    if (comment.voiceuri.length) {
+        self.voiceBtn.hidden = NO;
+        [self.voiceBtn setTitle:[NSString stringWithFormat:@"%zd''", comment.voicetime] forState:UIControlStateNormal];
+        
+    } else {
+        self.voiceBtn.hidden = YES;
+    }
     
     
     

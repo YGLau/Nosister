@@ -15,6 +15,10 @@
  */
 @property (assign, nonatomic) NSInteger voicetime;
 /**
+ *  音频文件的路径
+ */
+@property (copy, nonatomic) NSString *voiceuri;
+/**
  *  点赞数
  */
 @property (assign, nonatomic) NSInteger like_count;
