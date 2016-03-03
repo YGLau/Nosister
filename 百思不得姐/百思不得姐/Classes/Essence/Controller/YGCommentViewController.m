@@ -14,7 +14,9 @@
 #import "YGComment.h"
 #import <MJExtension.h>
 #import "YGCommentHeaderView.h"
+#import "YGCommentCell.h"
 
+static NSString * const YGCommentCellID = @"comment"; // cell循环利用的标识
 
 @interface YGCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 /**
@@ -72,8 +74,17 @@
     
     // 监听键盘的弹出或隐藏
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // cell的高度
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    
     //tableView设置全局色
     self.tableView.backgroundColor = YGGlobalBg;
+    
+    // 注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YGCommentCell class]) bundle:nil] forCellReuseIdentifier:YGCommentCellID];
 }
 /**
  *  设置头部cell
@@ -154,12 +165,19 @@
     }
     
 }
+/**
+ *  返回第section组所有评论
+ */
 - (NSArray *)commentsInSection:(NSInteger)section
 {
     if (section == 0) {
         return self.hotComment.count ? self.hotComment : self.latestComment;
     }
     return self.latestComment;
+}
+- (YGComment *)commentInIndexPath:(NSIndexPath *)indexPath
+{
+    return [self commentsInSection:indexPath.section][indexPath.row];
 }
 #pragma mark - UITableViewDelegate方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -210,12 +228,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"comment"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"comment"];
-    }
-    YGComment *comment = [self commentsInSection:indexPath.section][indexPath.row];
-    cell.textLabel.text = comment.content;
+    YGCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:YGCommentCellID];
+    cell.comment = [self commentInIndexPath:indexPath];
     return cell;
 }
 @end
