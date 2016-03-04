@@ -11,7 +11,7 @@
 #import "YGPushGuideView.h"
 #import "YGTopWindow.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate>
 
 @end
 
@@ -24,7 +24,9 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     // 设置窗口的跟控制器
-    self.window.rootViewController = [[YGTabBarController alloc] init];
+    YGTabBarController *tabBarVc =  [[YGTabBarController alloc] init];
+    tabBarVc.delegate = self;
+    self.window.rootViewController = tabBarVc;
     // 显示窗口
     [self.window makeKeyAndVisible];
     // 显示推送指南
@@ -33,6 +35,13 @@
    
     
     return YES;
+}
+
+#pragma mark - UITabBarDelegate代理方法
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    // 发不出一个通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:YGTarBarDidSelectedNotification object:nil userInfo:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -33,6 +33,10 @@
  *  上一次请求的参数
  */
 @property (strong, nonatomic) NSDictionary *params;
+/**
+ *  上一次选中的控制器
+ */
+@property (assign, nonatomic) NSInteger lastSelectedIndex;
 @end
 
 @implementation YGBaseViewController
@@ -78,6 +82,19 @@ static NSString * const YGTopicCellID = @"topic";
     
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YGTopicCell class]) bundle:nil] forCellReuseIdentifier:YGTopicCellID];
+    
+    // 监听通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarSelected) name:YGTarBarDidSelectedNotification object:nil];
+}
+
+- (void)tabBarSelected
+{
+    // 如果连续点击两次，刷新
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex && self.view.isShowingOnWindow) {
+        [self.tableView.mj_header beginRefreshing];
+    }
+    // 记录一下这个索引
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
 }
 #pragma mark - 数据处理
 /**

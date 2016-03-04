@@ -27,3 +27,16 @@ NSString * const YGUserSexMale = @"m";
  *  最热评论标题的高度
  */
 CGFloat const YGTopicCellCommentTitleH = 20;
+
+/**
+ *  tabBar被选中的通知名字
+ */
+NSString * const YGTarBarDidSelectedNotification = @"YGTarBarDidSelectedNotification";
+/**
+ *  tabBar被选中的通知 - 被选中的控制器的index key
+ */
+NSString * const YGSelelctedControllerIndexKey = @"YGSelelctedControllerIndexKey";
+/**
+ *  tabBar被选中的通知 - 被选中的控制器的key
+ */
+NSString * const YGSelelctedControllerIndex = @"YGSelelctedControllerIndex";
