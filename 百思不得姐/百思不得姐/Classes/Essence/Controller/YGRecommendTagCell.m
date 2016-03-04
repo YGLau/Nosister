@@ -29,7 +29,9 @@
 -(void)setRecommendTag:(YGRecommendTag *)recommendTag
 {
     _recommendTag = recommendTag;
-    [self.imageList sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.imageList sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.imageList.image = [image circleImage];
+    }];
     self.nameLabel.text = recommendTag.theme_name;
     
     NSString *subNum = nil;
@@ -44,8 +46,6 @@
 
 -(void)setFrame:(CGRect)frame
 {
-    frame.origin.x = 10;
-    frame.size.width -= 2 * frame.origin.x;
     frame.size.height -= 1;
     [super setFrame:frame];
 }

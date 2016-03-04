@@ -69,7 +69,7 @@
     if (!_cellHeight) { //计算Cell的高度
         //文字最大Y值
         CGFloat textY = 2 * YGTopicCellMargin + YGTopicCellIconH;
-        CGFloat textW = [UIScreen mainScreen].bounds.size.width - 4 * YGTopicCellMargin;
+        CGFloat textW = [UIScreen mainScreen].bounds.size.width - 2 * YGTopicCellMargin;
         CGSize maxSize = CGSizeMake(textW, MAXFLOAT);
         CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
         
