@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "YGTabBarController.h"
 #import "YGPushGuideView.h"
+#import "YGTopWindow.h"
 
 @interface AppDelegate ()
 
@@ -29,6 +30,8 @@
     // 显示推送指南
     [YGPushGuideView show];
     
+   
+    
     return YES;
 }
 
@@ -48,6 +51,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // 显示Window
+//    [YGTopWindow show];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

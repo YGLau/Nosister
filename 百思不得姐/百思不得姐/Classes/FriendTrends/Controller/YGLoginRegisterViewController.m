@@ -22,6 +22,7 @@
  *  退出控制器
  */
 - (IBAction)close:(id)sender {
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -48,9 +49,11 @@
     
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self.view insertSubview:self.bg atIndex:0];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent; // 白色
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,12 +62,12 @@
 }
 
 
-/**
- *  控制状态栏颜色
- */
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent; // 显示白色
-}
+///**
+// *  控制状态栏颜色
+// */
+//-(UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleLightContent; // 显示白色
+//}
 
 @end

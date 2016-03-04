@@ -16,4 +16,8 @@
 @property (assign, nonatomic) CGFloat y;
 @property (assign, nonatomic) CGFloat centerX;
 @property (assign, nonatomic) CGFloat centerY;
+/**
+ *  判断一个控件是否真正显示在窗口上
+ */
+- (BOOL)isShowingOnWindow;
 @end
