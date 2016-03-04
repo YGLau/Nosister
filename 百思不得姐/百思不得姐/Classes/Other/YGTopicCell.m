@@ -135,10 +135,8 @@
 -(void)setTopic:(YGTopic *)topic
 {
     _topic = topic;
-    // 设置头像
-    [self.profile_image sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.profile_image.image = [image circleImage];
-    }];
+    // 设置圆形头像
+    [self.profile_image setCircleHeader:topic.profile_image];
     // 昵称
     self.nicknameLabe.text = topic.name;
     // 发帖时间

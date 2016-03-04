@@ -25,9 +25,7 @@
 -(void)setUserCategory:(YGRecommendUser *)userCategory
 {
     _userCategory = userCategory;
-    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:userCategory.header] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.headerImageView.image = [image circleImage];
-    }];
+    [self.headerImageView setCircleHeader:userCategory.header];
     self.screen_nameLabel.text = userCategory.screen_name;
     
     NSString *fansCount = nil;

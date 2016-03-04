@@ -51,9 +51,8 @@
 - (void)setComment:(YGComment *)comment
 {
     _comment = comment;
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.user.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.profileImageView.image = [image circleImage];
-    }];
+    // 设置圆形头像
+    [self.profileImageView setCircleHeader:comment.user.profile_image];
     self.sex.image = [comment.user.sex isEqualToString:YGUserSexMale] ? [UIImage imageNamed:@"Profile_manIcon"] : [UIImage imageNamed:@"Profile_womanIcon"];
     self.cmtContent.text = comment.content;
     self.userName.text = comment.user.username;
