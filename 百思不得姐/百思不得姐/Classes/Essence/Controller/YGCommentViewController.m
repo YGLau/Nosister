@@ -159,6 +159,10 @@ static NSString * const YGCommentCellID = @"comment"; // cell循环利用的标�
     params[@"hot"] = @"1";
     // 发送请求
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            [self.tableView.mj_header endRefreshing]; // 没有数据 头部结束刷新
+            return;
+        }
         // 最热评论
         self.hotComment = [YGComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         // 最新评论
@@ -201,6 +205,7 @@ static NSString * const YGCommentCellID = @"comment"; // cell循环利用的标�
     params[@"lastcid"] = cmt.ID;
     // 发送请求
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (![responseObject isKindOfClass:[NSDictionary class]]) return;
         // 最新评论
         NSArray *comments = [YGComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.latestComment addObjectsFromArray:comments];

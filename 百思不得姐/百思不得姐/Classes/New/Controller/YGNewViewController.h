@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YGEssenceViewController.h"
 
-@interface YGNewViewController : UIViewController
+@interface YGNewViewController : YGEssenceViewController
 
 @end

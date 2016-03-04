@@ -15,6 +15,7 @@
 #import "YGTopic.h"
 #import "YGTopicCell.h"
 #import "YGCommentViewController.h"
+#import "YGNewViewController.h"
 
 @interface YGBaseViewController ()
 /**
@@ -96,6 +97,11 @@ static NSString * const YGTopicCellID = @"topic";
     // 记录一下这个索引
     self.lastSelectedIndex = self.tabBarController.selectedIndex;
 }
+#pragma mark - a参数
+- (NSString *)a
+{
+    return [self.parentViewController isKindOfClass:[YGNewViewController class]] ? @"newlist" : @"list";
+}
 #pragma mark - 数据处理
 /**
  *  加载新的段子内容
@@ -107,14 +113,12 @@ static NSString * const YGTopicCellID = @"topic";
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     self.params = params;
     // 发送请求
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        [responseObject writeToFile:@"/Users/liuyonggang/Desktop/a.plist" atomically:YES];
         
         if (self.params != params) return;
         
@@ -147,7 +151,7 @@ static NSString * const YGTopicCellID = @"topic";
     self.page++;
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     params[@"page"] = @(self.page);
