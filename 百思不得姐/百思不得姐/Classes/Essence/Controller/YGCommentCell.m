@@ -38,6 +38,16 @@
 
 @implementation YGCommentCell
 
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return NO;
+}
+
 - (void)setComment:(YGComment *)comment
 {
     _comment = comment;
