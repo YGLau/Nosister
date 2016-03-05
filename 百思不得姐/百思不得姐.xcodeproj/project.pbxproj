@@ -31,6 +31,8 @@
 		A4478F691C8A857400B69ED2 /* YGMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F681C8A857400B69ED2 /* YGMeFooterView.m */; };
 		A4478F6C1C8A8F6800B69ED2 /* YGMeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F6B1C8A8F6800B69ED2 /* YGMeButton.m */; };
 		A4478F6F1C8A99E400B69ED2 /* YGSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F6E1C8A99E400B69ED2 /* YGSquare.m */; };
+		A4478F731C8ADEFF00B69ED2 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F711C8ADEFF00B69ED2 /* YGWebViewController.m */; };
+		A4478F741C8ADEFF00B69ED2 /* YGWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4478F721C8ADEFF00B69ED2 /* YGWebViewController.xib */; };
 		A44C891A1C86BBDA009E9DAF /* YGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C89191C86BBDA009E9DAF /* YGProgressView.m */; };
 		A46C22F31C880E66002CD6A2 /* YGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F21C880E66002CD6A2 /* YGUser.m */; };
 		A46C22F61C88107D002CD6A2 /* YGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F51C88107D002CD6A2 /* YGComment.m */; };
@@ -139,6 +141,9 @@
 		A4478F6B1C8A8F6800B69ED2 /* YGMeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGMeButton.m; path = "百思不得姐/Classes/Other/Category/YGMeButton.m"; sourceTree = SOURCE_ROOT; };
 		A4478F6D1C8A99E400B69ED2 /* YGSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGSquare.h; path = "百思不得姐/Classes/Other/Category/YGSquare.h"; sourceTree = SOURCE_ROOT; };
 		A4478F6E1C8A99E400B69ED2 /* YGSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGSquare.m; path = "百思不得姐/Classes/Other/Category/YGSquare.m"; sourceTree = SOURCE_ROOT; };
+		A4478F701C8ADEFF00B69ED2 /* YGWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGWebViewController.h; sourceTree = "<group>"; };
+		A4478F711C8ADEFF00B69ED2 /* YGWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGWebViewController.m; sourceTree = "<group>"; };
+		A4478F721C8ADEFF00B69ED2 /* YGWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGWebViewController.xib; sourceTree = "<group>"; };
 		A44C89181C86BBDA009E9DAF /* YGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGProgressView.h; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.h"; sourceTree = SOURCE_ROOT; };
 		A44C89191C86BBDA009E9DAF /* YGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGProgressView.m; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.m"; sourceTree = SOURCE_ROOT; };
 		A46C22F11C880E66002CD6A2 /* YGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGUser.h; path = "百思不得姐/Classes/Essence/Controller/YGUser.h"; sourceTree = SOURCE_ROOT; };
@@ -403,6 +408,9 @@
 			children = (
 				A402D6CF1C71BB1000F11B4B /* YGMeViewController.h */,
 				A402D6D01C71BB1000F11B4B /* YGMeViewController.m */,
+				A4478F701C8ADEFF00B69ED2 /* YGWebViewController.h */,
+				A4478F711C8ADEFF00B69ED2 /* YGWebViewController.m */,
+				A4478F721C8ADEFF00B69ED2 /* YGWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -723,6 +731,7 @@
 				A4290E4C1C81696500475C24 /* YGPublishView.xib in Resources */,
 				A4B8675A1C7EF40A00C28154 /* YGTopicCell.xib in Resources */,
 				A4B08FFC1C74A979009DCA14 /* YGRecommendViewController.xib in Resources */,
+				A4478F741C8ADEFF00B69ED2 /* YGWebViewController.xib in Resources */,
 				A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -809,6 +818,7 @@
 				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,
 				A42D5CE51C8858A500886B8F /* YGCommentHeaderView.m in Sources */,
 				A4766E321C802E0C00A4E048 /* YGPictureView.m in Sources */,
+				A4478F731C8ADEFF00B69ED2 /* YGWebViewController.m in Sources */,
 				A4290E4B1C81696500475C24 /* YGPublishView.m in Sources */,
 				A4B867551C7EF06C00C28154 /* YGConst.m in Sources */,
 				A402D6F31C71BB1000F11B4B /* YGTabBar.m in Sources */,

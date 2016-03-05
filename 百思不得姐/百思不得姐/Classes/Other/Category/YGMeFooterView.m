@@ -12,6 +12,7 @@
 #import "YGSquare.h"
 #import <MJExtension.h>
 #import <UIButton+WebCache.h>
+#import "YGWebViewController.h"
 
 @implementation YGMeFooterView
 
@@ -53,6 +54,9 @@
         button.height = btnH;
         [self addSubview:button];
         
+        // 监听按钮点击
+        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     
     NSInteger rows = (squares.count +cols - 1) / cols;
@@ -61,8 +65,17 @@
     [self setNeedsDisplay];
     
 }
-
-//- (void)drawRect:(CGRect)rect
+- (void)buttonClick:(YGMeButton *)button
+{
+    if (![button.Square.url hasPrefix:@"http"]) return;
+    YGWebViewController *web = [[YGWebViewController alloc] init];
+    web.url = button.Square.url;
+    web.title = button.Square.name;
+    UITabBarController *tabbarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *nav = (UINavigationController *)tabbarVc.selectedViewController;
+    [nav pushViewController:web animated:YES];
+}
+//- (void)drawRect:(CGRect)rect 
 //{
 //    [[UIImage imageNamed:@"mainCellBackground"] drawInRect:rect];
 //}
