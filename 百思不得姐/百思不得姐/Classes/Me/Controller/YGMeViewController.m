@@ -57,7 +57,9 @@ static NSString * const YGMeCellID = @"me";
     self.tableView.sectionHeaderHeight = 0;
     self.tableView.sectionFooterHeight = YGTopicCellMargin;
     // 设置内边距
-    self.tableView.contentInset = UIEdgeInsetsMake(YGTopicCellMargin - 35, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(YGTopicCellMargin - 35, 0, 547, 0);
+    self.tableView.contentSize = CGSizeMake(0, 1000);
+    YGLog(@"%f", self.tableView.height);
 
     
     // 设置footerView
