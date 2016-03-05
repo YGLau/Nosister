@@ -27,6 +27,10 @@
 		A42D5CE91C8876DF00886B8F /* YGCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A42D5CE71C8876DF00886B8F /* YGCommentCell.m */; };
 		A42D5CEA1C8876DF00886B8F /* YGCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42D5CE81C8876DF00886B8F /* YGCommentCell.xib */; };
 		A42D5CED1C889C7C00886B8F /* YGTopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A42D5CEC1C889C7C00886B8F /* YGTopWindow.m */; };
+		A4478F661C8A7EAA00B69ED2 /* YGMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F651C8A7EAA00B69ED2 /* YGMeCell.m */; };
+		A4478F691C8A857400B69ED2 /* YGMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F681C8A857400B69ED2 /* YGMeFooterView.m */; };
+		A4478F6C1C8A8F6800B69ED2 /* YGMeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F6B1C8A8F6800B69ED2 /* YGMeButton.m */; };
+		A4478F6F1C8A99E400B69ED2 /* YGSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F6E1C8A99E400B69ED2 /* YGSquare.m */; };
 		A44C891A1C86BBDA009E9DAF /* YGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C89191C86BBDA009E9DAF /* YGProgressView.m */; };
 		A46C22F31C880E66002CD6A2 /* YGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F21C880E66002CD6A2 /* YGUser.m */; };
 		A46C22F61C88107D002CD6A2 /* YGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F51C88107D002CD6A2 /* YGComment.m */; };
@@ -127,6 +131,14 @@
 		A42D5CE81C8876DF00886B8F /* YGCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YGCommentCell.xib; path = "百思不得姐/Classes/Essence/Controller/YGCommentCell.xib"; sourceTree = SOURCE_ROOT; };
 		A42D5CEB1C889C7C00886B8F /* YGTopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTopWindow.h; sourceTree = "<group>"; };
 		A42D5CEC1C889C7C00886B8F /* YGTopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTopWindow.m; sourceTree = "<group>"; };
+		A4478F641C8A7EAA00B69ED2 /* YGMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGMeCell.h; path = "百思不得姐/Classes/Other/Category/YGMeCell.h"; sourceTree = SOURCE_ROOT; };
+		A4478F651C8A7EAA00B69ED2 /* YGMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGMeCell.m; path = "百思不得姐/Classes/Other/Category/YGMeCell.m"; sourceTree = SOURCE_ROOT; };
+		A4478F671C8A857400B69ED2 /* YGMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGMeFooterView.h; path = "百思不得姐/Classes/Other/Category/YGMeFooterView.h"; sourceTree = SOURCE_ROOT; };
+		A4478F681C8A857400B69ED2 /* YGMeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGMeFooterView.m; path = "百思不得姐/Classes/Other/Category/YGMeFooterView.m"; sourceTree = SOURCE_ROOT; };
+		A4478F6A1C8A8F6800B69ED2 /* YGMeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGMeButton.h; path = "百思不得姐/Classes/Other/Category/YGMeButton.h"; sourceTree = SOURCE_ROOT; };
+		A4478F6B1C8A8F6800B69ED2 /* YGMeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGMeButton.m; path = "百思不得姐/Classes/Other/Category/YGMeButton.m"; sourceTree = SOURCE_ROOT; };
+		A4478F6D1C8A99E400B69ED2 /* YGSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGSquare.h; path = "百思不得姐/Classes/Other/Category/YGSquare.h"; sourceTree = SOURCE_ROOT; };
+		A4478F6E1C8A99E400B69ED2 /* YGSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGSquare.m; path = "百思不得姐/Classes/Other/Category/YGSquare.m"; sourceTree = SOURCE_ROOT; };
 		A44C89181C86BBDA009E9DAF /* YGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGProgressView.h; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.h"; sourceTree = SOURCE_ROOT; };
 		A44C89191C86BBDA009E9DAF /* YGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGProgressView.m; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.m"; sourceTree = SOURCE_ROOT; };
 		A46C22F11C880E66002CD6A2 /* YGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGUser.h; path = "百思不得姐/Classes/Essence/Controller/YGUser.h"; sourceTree = SOURCE_ROOT; };
@@ -398,6 +410,8 @@
 		A402D6D11C71BB1000F11B4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4478F6D1C8A99E400B69ED2 /* YGSquare.h */,
+				A4478F6E1C8A99E400B69ED2 /* YGSquare.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,6 +419,12 @@
 		A402D6D21C71BB1000F11B4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A4478F641C8A7EAA00B69ED2 /* YGMeCell.h */,
+				A4478F651C8A7EAA00B69ED2 /* YGMeCell.m */,
+				A4478F671C8A857400B69ED2 /* YGMeFooterView.h */,
+				A4478F681C8A857400B69ED2 /* YGMeFooterView.m */,
+				A4478F6A1C8A8F6800B69ED2 /* YGMeButton.h */,
+				A4478F6B1C8A8F6800B69ED2 /* YGMeButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -796,6 +816,7 @@
 				A4B867521C7ED96B00C28154 /* YGTopic.m in Sources */,
 				A4B867601C7F4AA100C28154 /* YGBaseViewController.m in Sources */,
 				A402D6EC1C71BB1000F11B4B /* YGMeViewController.m in Sources */,
+				A4478F6F1C8A99E400B69ED2 /* YGSquare.m in Sources */,
 				A4E91CBA1C787528006E4DCB /* YGLoginRegisterViewController.m in Sources */,
 				A42D5CE91C8876DF00886B8F /* YGCommentCell.m in Sources */,
 				A4C1BBB01C82BC880059C3D1 /* YGVideoView.m in Sources */,
@@ -803,6 +824,7 @@
 				A4EFE44D1C760A1800B0B2E5 /* YGRecommendTagCell.m in Sources */,
 				A42D5CED1C889C7C00886B8F /* YGTopWindow.m in Sources */,
 				A402D6EA1C71BB1000F11B4B /* YGEssenceViewController.m in Sources */,
+				A4478F661C8A7EAA00B69ED2 /* YGMeCell.m in Sources */,
 				A4B0900A1C759420009DCA14 /* YGUserTableViewCell.m in Sources */,
 				A44C891A1C86BBDA009E9DAF /* YGProgressView.m in Sources */,
 				A402D6EF1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m in Sources */,
@@ -811,8 +833,10 @@
 				A4290E4F1C81EDFA00475C24 /* YGVoiceView.m in Sources */,
 				A402D6EE1C71BB1000F11B4B /* AppDelegate.m in Sources */,
 				A4B08FFF1C74B1C8009DCA14 /* YGRecommendCategroy.m in Sources */,
+				A4478F691C8A857400B69ED2 /* YGMeFooterView.m in Sources */,
 				A402D6F21C71BB1000F11B4B /* main.m in Sources */,
 				A4DF68F01C89C1D500F9EFE4 /* UIImageView+YGExtension.m in Sources */,
+				A4478F6C1C8A8F6800B69ED2 /* YGMeButton.m in Sources */,
 				A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */,
 				A402D6F11C71BB1000F11B4B /* YGTabBarController.m in Sources */,
 				A4B090061C74B845009DCA14 /* Foundation+Log.m in Sources */,
