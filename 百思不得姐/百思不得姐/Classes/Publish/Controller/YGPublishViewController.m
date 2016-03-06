@@ -1,12 +1,12 @@
 //
-//  YGPublishView.m
+//  YGPublishViewController.m
 //  百思不得姐
 //
 //  Created by 刘勇刚 on 16/2/27.
 //  Copyright © 2016年 liu. All rights reserved.
 //
 
-#import "YGPublishView.h"
+#import "YGPublishViewController.h"
 #import "YGOtherLoginButton.h"
 #import <POP.h>
 #import "YGMeButton.h"
@@ -14,26 +14,13 @@
 static CGFloat const YGAnimationDelay = 0.05;
 static CGFloat const YGSpringfactor = 10;
 
-@interface YGPublishView ()
+@interface YGPublishViewController ()
 
 @end
 
-@implementation YGPublishView
-UIWindow *window_;
-+ (void)show
-{
-    window_ = [[UIWindow alloc] init];
-    window_.frame = [UIScreen mainScreen].bounds;
-    window_.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
-    window_.hidden = NO;
-    YGPublishView *pub = [YGPublishView publishView];
-    [window_ addSubview:pub];
-}
+@implementation YGPublishViewController
 
-+(instancetype)publishView
-{
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-}
+
 /**
  *  取消按钮
  */
@@ -42,16 +29,25 @@ UIWindow *window_;
     
 }
 
-- (void)awakeFromNib {
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
     
     // 让view不能被点击
-    self.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
     
     NSArray *btnName = @[@"发视频", @"发图片", @"发段子", @"发声音", @"审帖", @"离线下载"];
     NSArray *picArr = @[@"publish-video", @"publish-picture", @"publish-text", @"publish-audio", @"publish-review", @"publish-offline"];
+    
+    CGFloat btnW= 72;
+    CGFloat btnH= btnW + 30;
+    // 按钮间距
+    CGFloat btnmarginX =(YGmainScreenW - 3 * btnW) * 0.25;
+    CGFloat btnmarginY = 10;
+    
     for (NSInteger i = 0; i < btnName.count; i++) {
         YGOtherLoginButton *button = [[YGOtherLoginButton alloc] init];
-        [self addSubview:button];
+        [self.view addSubview:button];
         [button setTitle:btnName[i] forState:UIControlStateNormal];
         button.tag = i;
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -62,11 +58,6 @@ UIWindow *window_;
         CGFloat row = i / 3;
         CGFloat col = i % 3;
         
-        CGFloat btnW= 72;
-        CGFloat btnH= btnW + 30;
-        // 按钮间距
-        CGFloat btnmarginX =(YGmainScreenW - 3 * btnW) * 0.25;
-        CGFloat btnmarginY = 10;
         CGFloat btnX= (btnmarginX + btnW) * col + btnmarginX;
         CGFloat btnY= (YGmainScreenH - 2 * btnH - btnmarginY) * 0.5 + row * (btnH + btnmarginY);
         
@@ -83,7 +74,7 @@ UIWindow *window_;
     
     // 添加标语
     UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
-    [self addSubview:sloganView];
+    [self.view addSubview:sloganView];
     // 标语动画
     CGFloat centerX = YGmainScreenW * 0.5;
     CGFloat centerendY = YGmainScreenH * 0.2;
@@ -96,7 +87,7 @@ UIWindow *window_;
     anim.springSpeed = YGSpringfactor;
     [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
         // 恢复能点击
-        self.userInteractionEnabled = YES;
+        self.view.userInteractionEnabled = YES;
     }];
     [sloganView pop_addAnimation:anim forKey:nil];
     
@@ -120,12 +111,12 @@ UIWindow *window_;
 
 - (void)canelWithBlock:(void (^)())block
 {
-    self.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
     
     NSInteger beginIndex = 1;
     
-    for (NSInteger i = beginIndex; i < self.subviews.count; i++) {
-        UIView *subviews = self.subviews[i];
+    for (NSInteger i = beginIndex; i < self.view.subviews.count; i++) {
+        UIView *subviews = self.view.subviews[i];
         // 标语动画
         CGFloat centerX = subviews.x;
         CGFloat centerbeginY = YGmainScreenH * 0.2;
@@ -137,9 +128,10 @@ UIWindow *window_;
         [subviews pop_addAnimation:anim forKey:nil];
         
         //监听最后一个控件的结束
-        if (i == self.subviews.count - 1) {
+        if (i == self.view.subviews.count - 1) {
             [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
-                window_ = nil;
+                // 销毁控制
+                [self dismissViewControllerAnimated:NO completion:nil];
                 if (block == nil) return;
                 block();
             }];

@@ -1,5 +1,5 @@
 //
-//  YGPublishView.h
+//  YGPublishViewController.h
 //  百思不得姐
 //
 //  Created by 刘勇刚 on 16/2/27.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YGPublishView : UIView
-+ (instancetype)publishView;
+@interface YGPublishViewController : UIViewController
 
-+ (void)show;
 @end

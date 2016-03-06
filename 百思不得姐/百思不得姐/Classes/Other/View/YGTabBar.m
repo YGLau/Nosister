@@ -7,7 +7,7 @@
 //
 
 #import "YGTabBar.h"
-#import "YGPublishView.h"
+#import "YGPublishViewController.h"
 
 @interface YGTabBar ()
 /**
@@ -21,6 +21,8 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        // 设置tabbar的背景图片
+        [self setBackgroundImage:[UIImage imageNamed:@"tabbar-light"]];
         // 添加发布按钮
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
@@ -32,16 +34,21 @@
     
     return self;
 }
-UIWindow *window;
+/**
+ *  发布按钮点击
+ */
 - (void)publishClick
 {
-    [YGPublishView show];
-    
+    YGPublishViewController *publish = [[YGPublishViewController alloc] init];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:publish animated:YES completion:nil];
 }
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    // 标记按钮是否已经添加过监听
+    static BOOL added = NO;
     
     CGFloat width = self.width;
     CGFloat height = self.height;
@@ -54,7 +61,7 @@ UIWindow *window;
     CGFloat buttonH = height;
     
     NSInteger i = 0;
-    for (UIView *button in self.subviews) {
+    for (UIControl *button in self.subviews) {
         if (![button isKindOfClass:[UIControl class]] || button == self.publishButton) continue;
         
         // 计算按钮的x值
@@ -62,7 +69,22 @@ UIWindow *window;
         button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
         
         i++;
+        
+        if (added == NO) {
+            // 监听按钮点击
+            [button addTarget:self action:@selector(pubBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
     }
+    
+    added = YES;
 }
+
+- (void)pubBtnClick
+{
+    // 发布通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:YGTarBarDidSelectedNotification object:nil userInfo:nil];
+}
+
 
 @end
