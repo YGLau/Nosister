@@ -20,6 +20,16 @@
     [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     // 设置导航控制器的标题文字大小
     [bar setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:20]}];
+    
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:17];
+    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    
+    NSMutableDictionary *disAttrs = [NSMutableDictionary dictionary];
+    disAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    [item setTitleTextAttributes:disAttrs forState:UIControlStateDisabled];
 }
 
 - (void)viewDidLoad {

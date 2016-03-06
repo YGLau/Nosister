@@ -22,7 +22,12 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发表" style:UIBarButtonItemStyleDone target:self action:@selector(post)];
     
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [self.navigationController.navigationBar layoutIfNeeded]; // 强制刷新
+    
+    
 }
+
 #pragma mark - 导航控制器的取消和完成方法
 /**
  *  取消
