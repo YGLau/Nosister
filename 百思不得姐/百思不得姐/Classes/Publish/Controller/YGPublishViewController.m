@@ -10,6 +10,8 @@
 #import "YGOtherLoginButton.h"
 #import <POP.h>
 #import "YGMeButton.h"
+#import "YGNavigationViewController.h"
+#import "YGPostWordViewController.h"
 
 static CGFloat const YGAnimationDelay = 0.05;
 static CGFloat const YGSpringfactor = 10;
@@ -102,8 +104,14 @@ static CGFloat const YGSpringfactor = 10;
 - (void)btnClick:(YGOtherLoginButton *)button
 {
     [self canelWithBlock:^{
-        if (button.tag == 0) {
-            YGLog(@"发视频");
+        if (button.tag == 2) {
+            YGPostWordViewController *pWord = [[YGPostWordViewController alloc] init];
+            YGNavigationViewController *nav = [[YGNavigationViewController alloc] initWithRootViewController:pWord];
+            
+            UIViewController *rootVc = [UIApplication sharedApplication].keyWindow.rootViewController;
+            
+            [rootVc presentViewController:nav animated:YES completion:nil];
+            
         }
         
     }];
