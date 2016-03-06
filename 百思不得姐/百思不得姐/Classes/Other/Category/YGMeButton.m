@@ -37,6 +37,8 @@
 {
     [super layoutSubviews];
     // 图片
+    
+    
     self.imageView.y = self.height * 0.15;
     self.imageView.width = self.width * 0.5;
     self.imageView.height = self.imageView.width;

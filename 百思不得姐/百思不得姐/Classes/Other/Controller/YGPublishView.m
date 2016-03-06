@@ -9,6 +9,7 @@
 #import "YGPublishView.h"
 #import "YGOtherLoginButton.h"
 #import <POP.h>
+#import "YGMeButton.h"
 
 static CGFloat const YGAnimationDelay = 0.05;
 static CGFloat const YGSpringfactor = 10;
@@ -56,7 +57,7 @@ UIWindow *window_;
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:picArr[i]] forState:UIControlStateNormal];
         // 添加监听
-        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         // 计算行号和列号
         CGFloat row = i / 3;
         CGFloat col = i % 3;
@@ -107,7 +108,7 @@ UIWindow *window_;
     [self canelWithBlock:nil];
 }
 
-- (void)buttonClick:(UIButton *)button
+- (void)btnClick:(YGOtherLoginButton *)button
 {
     [self canelWithBlock:^{
         if (button.tag == 0) {
