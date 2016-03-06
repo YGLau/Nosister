@@ -20,6 +20,7 @@
 		A402D6FF1C71CA8100F11B4B /* YGNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A402D6FE1C71CA8100F11B4B /* YGNavigationViewController.m */; };
 		A408A7A21C8C619E00C71381 /* YGPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A408A79E1C8C619E00C71381 /* YGPublishViewController.m */; };
 		A408A7A31C8C619E00C71381 /* YGPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A408A79F1C8C619E00C71381 /* YGPublishViewController.xib */; };
+		A408A7A61C8C71FE00C71381 /* YGPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A408A7A51C8C71FE00C71381 /* YGPostWordViewController.m */; };
 		A426D1AC1C6DBDA3007A99E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */; };
 		A4290E4F1C81EDFA00475C24 /* YGVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4290E4E1C81EDFA00475C24 /* YGVoiceView.m */; };
 		A4290E511C81EE1800475C24 /* YGVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4290E501C81EE1800475C24 /* YGVoiceView.xib */; };
@@ -122,6 +123,8 @@
 		A408A79D1C8C619E00C71381 /* YGPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGPublishViewController.h; sourceTree = "<group>"; };
 		A408A79E1C8C619E00C71381 /* YGPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGPublishViewController.m; sourceTree = "<group>"; };
 		A408A79F1C8C619E00C71381 /* YGPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGPublishViewController.xib; sourceTree = "<group>"; };
+		A408A7A41C8C71FE00C71381 /* YGPostWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGPostWordViewController.h; sourceTree = "<group>"; };
+		A408A7A51C8C71FE00C71381 /* YGPostWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGPostWordViewController.m; sourceTree = "<group>"; };
 		A426D1AB1C6DBDA3007A99E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4290E4D1C81EDFA00475C24 /* YGVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGVoiceView.h; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.h"; sourceTree = SOURCE_ROOT; };
 		A4290E4E1C81EDFA00475C24 /* YGVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGVoiceView.m; path = "百思不得姐/Classes/Other/Controller/YGVoiceView.m"; sourceTree = SOURCE_ROOT; };
@@ -554,6 +557,8 @@
 				A408A79D1C8C619E00C71381 /* YGPublishViewController.h */,
 				A408A79E1C8C619E00C71381 /* YGPublishViewController.m */,
 				A408A79F1C8C619E00C71381 /* YGPublishViewController.xib */,
+				A408A7A41C8C71FE00C71381 /* YGPostWordViewController.h */,
+				A408A7A51C8C71FE00C71381 /* YGPostWordViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -869,6 +874,7 @@
 				A4478F661C8A7EAA00B69ED2 /* YGMeCell.m in Sources */,
 				A4B0900A1C759420009DCA14 /* YGUserTableViewCell.m in Sources */,
 				A44C891A1C86BBDA009E9DAF /* YGProgressView.m in Sources */,
+				A408A7A61C8C71FE00C71381 /* YGPostWordViewController.m in Sources */,
 				A402D6EF1C71BB1000F11B4B /* UIBarButtonItem+YGExtension.m in Sources */,
 				A4B867591C7EF40A00C28154 /* YGTopicCell.m in Sources */,
 				A4B0900F1C7598B0009DCA14 /* YGRecommendUser.m in Sources */,

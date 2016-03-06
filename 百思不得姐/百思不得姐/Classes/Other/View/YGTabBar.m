@@ -8,6 +8,7 @@
 
 #import "YGTabBar.h"
 #import "YGPublishViewController.h"
+#import "YGPostWordViewController.h"  // 为了调试方便
 
 @interface YGTabBar ()
 /**
@@ -39,8 +40,14 @@
  */
 - (void)publishClick
 {
-    YGPublishViewController *publish = [[YGPublishViewController alloc] init];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:publish animated:YES completion:nil];
+//    YGPublishViewController *publish = [[YGPublishViewController alloc] init];
+//    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:publish animated:YES completion:nil];
+    
+    YGPostWordViewController *pWordVc = [[YGPostWordViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pWordVc];
+    // 根控制器
+    UIViewController *rootVc = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [rootVc presentViewController:nav animated:YES completion:nil];
 }
 
 -(void)layoutSubviews
