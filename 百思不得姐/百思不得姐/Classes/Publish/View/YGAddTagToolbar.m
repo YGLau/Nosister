@@ -8,8 +8,25 @@
 
 #import "YGAddTagToolbar.h"
 
+@interface YGAddTagToolbar ()
+@property (weak, nonatomic) IBOutlet UIView *topView;
+
+@end
+
 @implementation YGAddTagToolbar
 
+- (void)awakeFromNib
+{
+    UIButton *addBtn = [[UIButton alloc] init];
+    [addBtn setImage:[UIImage imageNamed:@"tag_add_icon"] forState:UIControlStateNormal];
+    [addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    addBtn.size = addBtn.currentImage.size;
+    [self.topView addSubview:addBtn];
+}
 
+- (void)addBtnClick
+{
+    
+}
 
 @end

@@ -10,12 +10,16 @@
 #import "YGPlaceholderView.h"
 #import "YGAddTagToolbar.h"
 
-@interface YGPostWordViewController ()
+@interface YGPostWordViewController () <UITextViewDelegate>
 
 /**
  *  textView控件
  */
 @property (weak, nonatomic) YGPlaceholderView *textView;
+/**
+ *  工具条
+ */
+@property (weak, nonatomic) YGAddTagToolbar *toolBar;
 
 @end
 
@@ -27,6 +31,8 @@
     [self setupNav];
     
     [self setupTextView];
+    
+    [self setupToolbar];
     
 }
 /**
@@ -49,8 +55,34 @@
     textView.frame = self.view.bounds;
     textView.placeholder = @"把好玩的图片、好笑的段子或糗事发到这里，接受万千网友的膜拜吧！发布违法反国家内容的，我们将依法提交给有关部门处理";
     [self.view addSubview:textView];
-    textView.inputAccessoryView = [YGAddTagToolbar viewFromXib];
+    textView.delegate = self;
     self.textView = textView;
+    
+}
+
+- (void)setupToolbar
+{
+    YGAddTagToolbar *toolBar = [YGAddTagToolbar viewFromXib];
+    toolBar.width = self.view.width;
+    toolBar.y = self.view.height - toolBar.height;
+    [self.view addSubview:toolBar];
+    self.toolBar = toolBar;
+    
+    // 监听键盘的改变
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification
+{
+    // 键盘弹出后的最终的frame
+    CGRect keyboardF = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.toolBar.transform = CGAffineTransformMakeTranslation(0, keyboardF.origin.y - YGmainScreenH);
+    }];
+    
+    
 }
 
 #pragma mark - 导航控制器的取消和完成方法
@@ -64,6 +96,14 @@
 
 - (void)post
 {
+    
+}
+
+#pragma mark - UITextViewDelegate代理方法
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+    
     
 }
 
