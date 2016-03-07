@@ -8,6 +8,7 @@
 
 #import "YGPostWordViewController.h"
 #import "YGPlaceholderView.h"
+#import "YGAddTagToolbar.h"
 
 @interface YGPostWordViewController ()
 
@@ -48,6 +49,7 @@
     textView.frame = self.view.bounds;
     textView.placeholder = @"把好玩的图片、好笑的段子或糗事发到这里，接受万千网友的膜拜吧！发布违法反国家内容的，我们将依法提交给有关部门处理";
     [self.view addSubview:textView];
+    textView.inputAccessoryView = [YGAddTagToolbar toolBar];
     self.textView = textView;
 }
 
