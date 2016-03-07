@@ -11,6 +11,11 @@
 
 @interface YGPostWordViewController ()
 
+/**
+ *  textView控件
+ */
+@property (weak, nonatomic) YGPlaceholderView *textView;
+
 @end
 
 @implementation YGPostWordViewController
@@ -43,6 +48,7 @@
     textView.frame = self.view.bounds;
     textView.placeholder = @"把好玩的图片、好笑的段子或糗事发到这里，接受万千网友的膜拜吧！发布违法反国家内容的，我们将依法提交给有关部门处理";
     [self.view addSubview:textView];
+    self.textView = textView;
 }
 
 #pragma mark - 导航控制器的取消和完成方法

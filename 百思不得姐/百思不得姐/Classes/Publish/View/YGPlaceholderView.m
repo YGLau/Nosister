@@ -13,7 +13,10 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        // 默认字体
         self.font = [UIFont systemFontOfSize:15];
+        // 默认占位文字颜色
+        self.placeholderColor = [UIColor lightGrayColor];
         
         // 监听自己的文字改变通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:nil];
@@ -43,10 +46,40 @@
     
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = self.font;
-    attrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    attrs[NSForegroundColorAttributeName] = self.placeholderColor;
     
     [self.placeholder drawInRect:rect withAttributes:attrs];
 }
+#pragma mark - 重写stter
+- (void)setPlaceholder:(NSString *)placeholder
+{
+    _placeholder = placeholder;
+    [self setNeedsDisplay]; // 重写绘制
 
+}
+
+- (void)setPlaceholderColor:(UIColor *)placeholderColor
+{
+    _placeholderColor = [placeholderColor copy];
+    [self setNeedsDisplay];
+}
+
+- (void)setFont:(UIFont *)font
+{
+    [super setFont:font];
+    [self setNeedsDisplay];
+}
+
+- (void)setText:(NSString *)text
+{
+    [super setText:text];
+    [self setNeedsDisplay];
+}
+
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+    [super setAttributedText:attributedText];
+    [self setNeedsDisplay];
+}
 
 @end

@@ -13,5 +13,9 @@
  *  占位文字
  */
 @property (weak, nonatomic) NSString *placeholder;
+/**
+ *  占位文字颜色
+ */
+@property (strong, nonatomic) UIColor *placeholderColor;
 
 @end
