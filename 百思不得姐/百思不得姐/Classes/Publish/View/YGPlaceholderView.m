@@ -8,11 +8,35 @@
 
 #import "YGPlaceholderView.h"
 
+@interface YGPlaceholderView ()
+/**
+ *  占位文字Label
+ */
+@property (weak, nonatomic) UILabel *phLabel;
+
+@end
+
 @implementation YGPlaceholderView
+
+- (UILabel *)phLabel
+{
+    if (!_phLabel) {
+        UILabel *phLabel = [[UILabel alloc] init];
+        phLabel.numberOfLines = 0; // 文字换行
+        phLabel.x = 4;
+        phLabel.y = 7;
+        [self addSubview:phLabel];
+        self.phLabel = phLabel;
+    }
+    
+    return _phLabel;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        // 永远在竖直方向上有弹簧效果
+        self.alwaysBounceVertical = YES;
         // 默认字体
         self.font = [UIFont systemFontOfSize:15];
         // 默认占位文字颜色
@@ -25,61 +49,64 @@
     return self;
 }
 
+
+/**
+ *  更新label的尺寸
+ */
+- (void)updatePlaceholderlabelSize
+{
+    CGSize size = CGSizeMake(YGmainScreenW - 2 * self.phLabel.x, MAXFLOAT);
+    self.phLabel.size = [self.placeholder boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.font} context:nil].size;
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (void)textDidChange
 {
-    [self setNeedsDisplay];
+    // 有文字就隐藏
+    self.phLabel.hidden = self.hasText;
 }
-/**
- *  绘制占位文字
- */
-- (void)drawRect:(CGRect)rect {
-    // 如果有文字直接返回，不绘制占位文字
-    if (self.hasText) return;
-    
-    rect.origin.x = 3;
-    rect.origin.y = 7;
-    rect.size.width -= 2 * rect.origin.x;
-    
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = self.font;
-    attrs[NSForegroundColorAttributeName] = self.placeholderColor;
-    
-    [self.placeholder drawInRect:rect withAttributes:attrs];
-}
+
 #pragma mark - 重写stter
 - (void)setPlaceholder:(NSString *)placeholder
 {
     _placeholder = placeholder;
-    [self setNeedsDisplay]; // 重写绘制
+    
+    self.phLabel.text = placeholder;
+    
+    // 更新文字尺寸
+    [self updatePlaceholderlabelSize];
 
 }
 
 - (void)setPlaceholderColor:(UIColor *)placeholderColor
 {
     _placeholderColor = [placeholderColor copy];
-    [self setNeedsDisplay];
+    self.phLabel.textColor = placeholderColor;
 }
 
 - (void)setFont:(UIFont *)font
 {
     [super setFont:font];
-    [self setNeedsDisplay];
+    self.phLabel.font = font;
+    // 更新文字尺寸
+    [self updatePlaceholderlabelSize];
 }
 
 - (void)setText:(NSString *)text
 {
     [super setText:text];
-    [self setNeedsDisplay];
+    
+    [self textDidChange];
 }
 
 - (void)setAttributedText:(NSAttributedString *)attributedText
 {
     [super setAttributedText:attributedText];
-    [self setNeedsDisplay];
+    
+    [self textDidChange];
 }
 
 @end

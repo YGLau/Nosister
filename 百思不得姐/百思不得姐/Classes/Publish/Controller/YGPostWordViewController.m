@@ -57,7 +57,9 @@
  */
 - (void)cancel
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    self.textView.font = [UIFont systemFontOfSize:20];
 }
 
 - (void)post
