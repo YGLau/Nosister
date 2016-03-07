@@ -53,9 +53,10 @@
 /**
  *  更新label的尺寸
  */
-- (void)updatePlaceholderlabelSize
+- (void)layoutSubviews
 {
-    CGSize size = CGSizeMake(YGmainScreenW - 2 * self.phLabel.x, MAXFLOAT);
+    [super layoutSubviews];
+    CGSize size = CGSizeMake(self.width - 2 * self.phLabel.x, MAXFLOAT);
     self.phLabel.size = [self.placeholder boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.font} context:nil].size;
 }
 
@@ -77,7 +78,7 @@
     self.phLabel.text = placeholder;
     
     // 更新文字尺寸
-    [self updatePlaceholderlabelSize];
+    [self setNeedsLayout];
 
 }
 
@@ -92,7 +93,7 @@
     [super setFont:font];
     self.phLabel.font = font;
     // 更新文字尺寸
-    [self updatePlaceholderlabelSize];
+    [self setNeedsLayout];
 }
 
 - (void)setText:(NSString *)text
