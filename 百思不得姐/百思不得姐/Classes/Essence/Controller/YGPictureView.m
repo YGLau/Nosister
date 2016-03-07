@@ -43,10 +43,7 @@
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:picVc animated:YES completion:nil];
 }
 
-+ (instancetype)pictureView
-{
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-}
+
 
 - (void)awakeFromNib
 {

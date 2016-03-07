@@ -16,5 +16,4 @@
  */
 @property (strong, nonatomic) YGTopic *topic;
 
-+ (instancetype)cell;
 @end

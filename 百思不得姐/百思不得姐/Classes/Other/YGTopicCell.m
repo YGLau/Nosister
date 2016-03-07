@@ -75,10 +75,7 @@
 
 
 @implementation YGTopicCell
-+ (instancetype)cell
-{
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-}
+
 
 
 #pragma mark - 懒加载
@@ -86,7 +83,7 @@
 - (YGPictureView *)picView
 {
     if (!_picView) {
-        YGPictureView *picView = [YGPictureView pictureView];
+        YGPictureView *picView = [YGPictureView viewFromXib];
         [self.contentView addSubview:picView];
         _picView = picView;
     }
@@ -97,7 +94,7 @@
 - (YGVoiceView *)voiceView
 {
     if (!_voiceView) {
-        YGVoiceView *voiceView = [YGVoiceView voiceView];
+        YGVoiceView *voiceView = [YGVoiceView viewFromXib];
         [self.contentView addSubview:voiceView];
         _voiceView = voiceView;
     }
@@ -106,7 +103,7 @@
 - (YGVideoView *)videoView
 {
     if (!_videoView) {
-        YGVideoView *videoView = [YGVideoView videoView];
+        YGVideoView *videoView = [YGVideoView viewFromXib];
         [self.contentView addSubview:videoView];
         _videoView = videoView;
         

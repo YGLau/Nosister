@@ -14,9 +14,6 @@
  *  段子模型
  */
 @property (strong, nonatomic) YGTopic *topic;
-/**
- *  返回一个创建好的声音xib
- */
-+ (instancetype)voiceView;
+
 
 @end

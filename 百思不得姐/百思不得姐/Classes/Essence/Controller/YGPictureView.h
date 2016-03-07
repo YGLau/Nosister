@@ -12,9 +12,6 @@
 @interface YGPictureView : UIView
 
 @property (strong, nonatomic) YGTopic *topic;
-/**
- *  快速返回一个创建好的picture
- */
-+ (instancetype)pictureView;
+
 
 @end

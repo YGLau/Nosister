@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface YGPushGuideView : UIView
-+ (instancetype)guideView;
+
 + (void)show;
 @end

@@ -123,7 +123,7 @@ static NSString * const YGCommentCellID = @"comment"; // cell循环利用的标�
     
     
     
-    YGTopicCell *cell = [YGTopicCell cell];
+    YGTopicCell *cell = [YGTopicCell viewFromXib];
     cell.topic = self.topic;
     // Cell的高度
     cell.size = CGSizeMake(YGmainScreenW, self.topic.cellHeight);

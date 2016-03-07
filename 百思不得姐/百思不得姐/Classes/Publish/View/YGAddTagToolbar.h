@@ -10,5 +10,5 @@
 
 @interface YGAddTagToolbar : UIView
 
-+ (instancetype)toolBar;
+
 @end

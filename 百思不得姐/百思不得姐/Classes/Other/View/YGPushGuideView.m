@@ -14,13 +14,7 @@
     [self removeFromSuperview];
 }
 
-/**
- *  返回一个创建好的UIView
- */
-+ (instancetype)guideView
-{
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-}
+
 /**
  *  显示引导指南
  */
@@ -31,7 +25,7 @@
     NSString *sanboxVersion = [[NSUserDefaults standardUserDefaults] stringForKey:key];
     if (![currentVersion isEqualToString:sanboxVersion]) {
         UIWindow *window= [UIApplication sharedApplication].keyWindow;
-        YGPushGuideView *guide = [YGPushGuideView guideView];
+        YGPushGuideView *guide = [YGPushGuideView viewFromXib];
         guide.frame = window.frame;
         [window addSubview:guide];
         
