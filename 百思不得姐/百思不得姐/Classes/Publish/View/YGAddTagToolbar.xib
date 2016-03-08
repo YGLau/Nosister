@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kb3-ho-B6h" userLabel="顶部">
-                    <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
+                    <rect key="frame" x="5" y="0.0" width="354" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rW-mA-O7Q" userLabel="底部">
@@ -56,10 +56,10 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="7rW-mA-O7Q" secondAttribute="trailing" id="5wy-Ac-p8z"/>
                 <constraint firstItem="Kb3-ho-B6h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LCZ-aU-W3B"/>
-                <constraint firstItem="Kb3-ho-B6h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qhm-n4-HyM"/>
+                <constraint firstItem="Kb3-ho-B6h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Qhm-n4-HyM"/>
                 <constraint firstAttribute="bottom" secondItem="7rW-mA-O7Q" secondAttribute="bottom" id="kZz-Hf-ADh"/>
                 <constraint firstItem="7rW-mA-O7Q" firstAttribute="top" secondItem="Kb3-ho-B6h" secondAttribute="bottom" id="qVh-ku-y2v"/>
-                <constraint firstAttribute="trailing" secondItem="Kb3-ho-B6h" secondAttribute="trailing" id="qXZ-E0-aoq"/>
+                <constraint firstAttribute="trailing" secondItem="Kb3-ho-B6h" secondAttribute="trailing" constant="5" id="qXZ-E0-aoq"/>
                 <constraint firstItem="7rW-mA-O7Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="req-zh-ujF"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

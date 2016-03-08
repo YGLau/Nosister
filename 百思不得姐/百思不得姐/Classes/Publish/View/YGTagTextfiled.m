@@ -18,4 +18,14 @@
     [super deleteBackward];
 }
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        self.placeholder = @"多个标签逗号或回车分隔";
+        self.font = [UIFont systemFontOfSize:15];
+    }
+    
+    return self;
+}
+
 @end

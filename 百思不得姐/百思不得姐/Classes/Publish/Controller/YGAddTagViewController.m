@@ -9,6 +9,7 @@
 #import "YGAddTagViewController.h"
 #import "YGTagButton.h"
 #import "YGTagTextfiled.h"
+#import <SVProgressHUD.h>
 
 @interface YGAddTagViewController () <UITextFieldDelegate>
 
@@ -69,6 +70,8 @@
     // 设置输入框
     [self setupTextFiled];
     
+    [self setupTags];
+    
     
     
 }
@@ -102,8 +105,6 @@
     };
     txtFiled.width = self.contentView.width;
     txtFiled.height = 25;
-    txtFiled.placeholder = @"多个标签逗号或回车分隔";
-    txtFiled.font = [UIFont systemFontOfSize:15];
     [txtFiled addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:txtFiled];
     self.txtFiled = txtFiled;
@@ -113,9 +114,21 @@
 
 - (void)done
 {
+    // 传一些数据给前一个控制器
+    NSArray *tags = [self.tagBtnArr valueForKeyPath:@"currentTitle"];
     
+    !self.tagsBlock ? : self.tagsBlock(tags);
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)setupTags
+{
+    for (NSString *tag in self.tags) {
+        self.txtFiled.text = tag;
+        [self txtRemindBtnClick];
+    }
+}
 #pragma mark - 监听按钮点击
 /**
  *  监听textFiled的文字改变
@@ -152,6 +165,11 @@
  */
 - (void)txtRemindBtnClick
 {
+    
+    if (self.tagBtnArr.count == 5) {
+        [SVProgressHUD showErrorWithStatus:@"最多5个标签！"];
+        return;
+    }
     // 1.添加标签按钮
     YGTagButton *tagBtn = [YGTagButton buttonWithType:UIButtonTypeCustom];
     [tagBtn setTitle:self.txtFiled.text forState:UIControlStateNormal];

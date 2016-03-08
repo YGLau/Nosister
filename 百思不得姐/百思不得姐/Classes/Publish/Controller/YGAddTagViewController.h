@@ -10,4 +10,10 @@
 
 @interface YGAddTagViewController : UIViewController
 
+@property (copy, nonatomic) void (^tagsBlock) (NSArray *);
+/**
+ *  所有的标签属性
+ */
+@property (strong, nonatomic) NSArray *tags;
+
 @end
