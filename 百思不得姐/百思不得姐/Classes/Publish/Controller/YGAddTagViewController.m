@@ -120,6 +120,8 @@
         self.txtRemindBtn.hidden = YES;
     }
     
+    // 更新frame
+    [self updateTagBtnFrame];
 }
 
 /**
@@ -185,12 +187,19 @@
     // 更新textFiled的frame
     UIButton *lastBtn = [self.tagBtnArr lastObject];
     CGFloat leftMargin = self.contentView.width - CGRectGetMaxX(lastBtn.frame) - YGTagMargin;
-    if (leftMargin >= self.contentView.width / 3) { // 一行够显示
+    if (leftMargin >= [self textFiledWidth]) { // 一行够显示
         self.txtFiled.x = CGRectGetMaxX(lastBtn.frame) + YGTagMargin;
         self.txtFiled.y = lastBtn.y;
     } else { // 一行不够显示
         self.txtFiled.x = 0;
         self.txtFiled.y = CGRectGetMaxY(lastBtn.frame) + YGTagMargin;
     }
+}
+
+- (CGFloat)textFiledWidth
+{
+    CGFloat text = [self.txtFiled.text sizeWithAttributes:@{NSFontAttributeName : self.txtFiled.font}].width;
+    
+    return MAX(100, text);
 }
 @end
