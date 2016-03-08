@@ -35,6 +35,7 @@
 		A4478F731C8ADEFF00B69ED2 /* YGWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4478F711C8ADEFF00B69ED2 /* YGWebViewController.m */; };
 		A4478F741C8ADEFF00B69ED2 /* YGWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4478F721C8ADEFF00B69ED2 /* YGWebViewController.xib */; };
 		A44C891A1C86BBDA009E9DAF /* YGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C89191C86BBDA009E9DAF /* YGProgressView.m */; };
+		A44F4A1A1C8EC962004F2122 /* YGTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A44F4A191C8EC962004F2122 /* YGTagButton.m */; };
 		A46C22F31C880E66002CD6A2 /* YGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F21C880E66002CD6A2 /* YGUser.m */; };
 		A46C22F61C88107D002CD6A2 /* YGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F51C88107D002CD6A2 /* YGComment.m */; };
 		A46C22FA1C8822D7002CD6A2 /* YGCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C22F81C8822D7002CD6A2 /* YGCommentViewController.m */; };
@@ -153,6 +154,8 @@
 		A4478F721C8ADEFF00B69ED2 /* YGWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGWebViewController.xib; sourceTree = "<group>"; };
 		A44C89181C86BBDA009E9DAF /* YGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGProgressView.h; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.h"; sourceTree = SOURCE_ROOT; };
 		A44C89191C86BBDA009E9DAF /* YGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGProgressView.m; path = "百思不得姐/Classes/Essence/Controller/YGProgressView.m"; sourceTree = SOURCE_ROOT; };
+		A44F4A181C8EC962004F2122 /* YGTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGTagButton.h; sourceTree = "<group>"; };
+		A44F4A191C8EC962004F2122 /* YGTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGTagButton.m; sourceTree = "<group>"; };
 		A46C22F11C880E66002CD6A2 /* YGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGUser.h; path = "百思不得姐/Classes/Essence/Controller/YGUser.h"; sourceTree = SOURCE_ROOT; };
 		A46C22F21C880E66002CD6A2 /* YGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YGUser.m; path = "百思不得姐/Classes/Essence/Controller/YGUser.m"; sourceTree = SOURCE_ROOT; };
 		A46C22F41C88107D002CD6A2 /* YGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YGComment.h; path = "百思不得姐/Classes/Essence/Controller/YGComment.h"; sourceTree = SOURCE_ROOT; };
@@ -591,6 +594,8 @@
 				A4B3DC981C8DD10A00B3A54F /* YGAddTagToolbar.h */,
 				A4B3DC991C8DD10A00B3A54F /* YGAddTagToolbar.m */,
 				A4B3DC9B1C8DD13600B3A54F /* YGAddTagToolbar.xib */,
+				A44F4A181C8EC962004F2122 /* YGTagButton.h */,
+				A44F4A191C8EC962004F2122 /* YGTagButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -871,6 +876,7 @@
 				A4E91CBE1C78852B006E4DCB /* YGOtherLoginButton.m in Sources */,
 				A402D6ED1C71BB1000F11B4B /* YGNewViewController.m in Sources */,
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
+				A44F4A1A1C8EC962004F2122 /* YGTagButton.m in Sources */,
 				A4B8675D1C7F39D000C28154 /* NSDate+Extension.m in Sources */,
 				A4CDC0E11C8E6F030039B564 /* YGAddTagViewController.m in Sources */,
 				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,

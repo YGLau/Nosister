@@ -7,6 +7,7 @@
 //
 
 #import "YGAddTagViewController.h"
+#import "YGTagButton.h"
 
 @interface YGAddTagViewController ()
 
@@ -32,6 +33,8 @@
 {
     if (!_txtRemindBtn) {
         UIButton *txtRemindBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        txtRemindBtn.layer.cornerRadius = 5;
+        txtRemindBtn.layer.masksToBounds = YES;
         txtRemindBtn.width = self.contentView.width;
         txtRemindBtn.height = 30;
         txtRemindBtn.y = 100;
@@ -130,12 +133,10 @@
 - (void)txtRemindBtnClick
 {
     // 1.添加标签按钮
-    UIButton *tagBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [tagBtn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    YGTagButton *tagBtn = [YGTagButton buttonWithType:UIButtonTypeCustom];
     [tagBtn setTitle:self.txtFiled.text forState:UIControlStateNormal];
-    [tagBtn setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
-    [tagBtn sizeToFit];
-    tagBtn.backgroundColor = YGTagBg;
+    [tagBtn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    tagBtn.height = 25;
     [self.contentView addSubview:tagBtn];
     [self.tagBtnArr addObject:tagBtn];
     
@@ -147,7 +148,7 @@
     self.txtRemindBtn.hidden = YES;
 }
 
-- (void)tagBtnClick:(UIButton *)button
+- (void)tagBtnClick:(YGTagButton *)button
 {
     // 删除按钮
     [button removeFromSuperview];
@@ -167,7 +168,7 @@
 {
     // 更新标签按钮的frame
     for (int i = 0; i < self.tagBtnArr.count; i++) {
-        UIButton *tagBtn = self.tagBtnArr[i];
+        YGTagButton *tagBtn = self.tagBtnArr[i];
         if (i == 0) { // 第一个按钮
             tagBtn.x = 0;
             tagBtn.y = 0;
@@ -185,7 +186,7 @@
     }
     
     // 更新textFiled的frame
-    UIButton *lastBtn = [self.tagBtnArr lastObject];
+    YGTagButton *lastBtn = [self.tagBtnArr lastObject];
     CGFloat leftMargin = self.contentView.width - CGRectGetMaxX(lastBtn.frame) - YGTagMargin;
     if (leftMargin >= [self textFiledWidth]) { // 一行够显示
         self.txtFiled.x = CGRectGetMaxX(lastBtn.frame) + YGTagMargin;
@@ -195,7 +196,9 @@
         self.txtFiled.y = CGRectGetMaxY(lastBtn.frame) + YGTagMargin;
     }
 }
-
+/**
+ *  根据文字计算textFiled输入框的宽度
+ */
 - (CGFloat)textFiledWidth
 {
     CGFloat text = [self.txtFiled.text sizeWithAttributes:@{NSFontAttributeName : self.txtFiled.font}].width;
