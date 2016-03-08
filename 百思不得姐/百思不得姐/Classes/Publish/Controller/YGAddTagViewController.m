@@ -8,6 +8,7 @@
 
 #import "YGAddTagViewController.h"
 #import "YGTagButton.h"
+#import "YGTagTextfiled.h"
 
 @interface YGAddTagViewController () <UITextFieldDelegate>
 
@@ -15,7 +16,7 @@
 /**
  *  文本输入框
  */
-@property (weak, nonatomic) UITextField *txtFiled;
+@property (weak, nonatomic) YGTagTextfiled *txtFiled;
 /**
  *  文字提示按钮
  */
@@ -93,7 +94,12 @@
 
 - (void)setupTextFiled
 {
-    UITextField *txtFiled = [[UITextField alloc] init];
+    __weak typeof (self) weakSelf = self;
+    YGTagTextfiled *txtFiled = [[YGTagTextfiled alloc] init];
+    txtFiled.deleteBlock = ^ {
+        if (weakSelf.txtFiled.hasText) return;
+        [self tagBtnClick:[weakSelf.tagBtnArr lastObject]];
+    };
     txtFiled.width = self.contentView.width;
     txtFiled.height = 25;
     txtFiled.placeholder = @"多个标签逗号或回车分隔";
@@ -234,7 +240,7 @@
 /**
  *  监听换行按钮的点击
  */
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (BOOL)textFieldShouldReturn:(YGTagTextfiled *)textField
 {
     if (self.txtFiled.hasText) {
         [self txtRemindBtnClick];
