@@ -7,6 +7,7 @@
 //
 
 #import "YGAddTagToolbar.h"
+#import "YGAddTagViewController.h"
 
 @interface YGAddTagToolbar ()
 @property (weak, nonatomic) IBOutlet UIView *topView;
@@ -26,7 +27,10 @@
 
 - (void)addBtnClick
 {
-    
+    YGAddTagViewController *addTag = [[YGAddTagViewController alloc] init];
+    UITabBarController *root = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *nav = (UINavigationController *)root.presentedViewController;
+    [nav pushViewController:addTag animated:YES];
 }
 
 @end

@@ -68,6 +68,7 @@
 		A4C1BBB41C82CB650059C3D1 /* YGVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C1BBB31C82CB650059C3D1 /* YGVideoView.xib */; };
 		A4C1BBB81C82E8D90059C3D1 /* YGBigPictureController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1BBB61C82E8D90059C3D1 /* YGBigPictureController.m */; };
 		A4C1BBB91C82E8D90059C3D1 /* YGBigPictureController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C1BBB71C82E8D90059C3D1 /* YGBigPictureController.xib */; };
+		A4CDC0E11C8E6F030039B564 /* YGAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CDC0E01C8E6F030039B564 /* YGAddTagViewController.m */; };
 		A4DF68ED1C89BA6900F9EFE4 /* UIImage+YGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DF68EC1C89BA6900F9EFE4 /* UIImage+YGExtension.m */; };
 		A4DF68F01C89C1D500F9EFE4 /* UIImageView+YGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DF68EF1C89C1D500F9EFE4 /* UIImageView+YGExtension.m */; };
 		A4E91CBA1C787528006E4DCB /* YGLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E91CB81C787528006E4DCB /* YGLoginRegisterViewController.m */; };
@@ -210,6 +211,8 @@
 		A4C1BBB51C82E8D90059C3D1 /* YGBigPictureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGBigPictureController.h; sourceTree = "<group>"; };
 		A4C1BBB61C82E8D90059C3D1 /* YGBigPictureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBigPictureController.m; sourceTree = "<group>"; };
 		A4C1BBB71C82E8D90059C3D1 /* YGBigPictureController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YGBigPictureController.xib; sourceTree = "<group>"; };
+		A4CDC0DF1C8E6F030039B564 /* YGAddTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAddTagViewController.h; sourceTree = "<group>"; };
+		A4CDC0E01C8E6F030039B564 /* YGAddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAddTagViewController.m; sourceTree = "<group>"; };
 		A4DF68EB1C89BA6900F9EFE4 /* UIImage+YGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YGExtension.h"; sourceTree = "<group>"; };
 		A4DF68EC1C89BA6900F9EFE4 /* UIImage+YGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YGExtension.m"; sourceTree = "<group>"; };
 		A4DF68EE1C89C1D500F9EFE4 /* UIImageView+YGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YGExtension.h"; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 				A408A79F1C8C619E00C71381 /* YGPublishViewController.xib */,
 				A408A7A41C8C71FE00C71381 /* YGPostWordViewController.h */,
 				A408A7A51C8C71FE00C71381 /* YGPostWordViewController.m */,
+				A4CDC0DF1C8E6F030039B564 /* YGAddTagViewController.h */,
+				A4CDC0E01C8E6F030039B564 /* YGAddTagViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -867,6 +872,7 @@
 				A402D6ED1C71BB1000F11B4B /* YGNewViewController.m in Sources */,
 				A402D6F01C71BB1000F11B4B /* UIView+YGExtension.m in Sources */,
 				A4B8675D1C7F39D000C28154 /* NSDate+Extension.m in Sources */,
+				A4CDC0E11C8E6F030039B564 /* YGAddTagViewController.m in Sources */,
 				A4B090031C74B257009DCA14 /* YGRecommendViewCell.m in Sources */,
 				A42D5CE51C8858A500886B8F /* YGCommentHeaderView.m in Sources */,
 				A408A7A21C8C619E00C71381 /* YGPublishViewController.m in Sources */,

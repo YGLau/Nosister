@@ -58,6 +58,7 @@
     textView.delegate = self;
     self.textView = textView;
     
+    
 }
 
 - (void)setupToolbar
@@ -83,6 +84,13 @@
     }];
     
     
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.textView becomeFirstResponder];
 }
 
 #pragma mark - 导航控制器的取消和完成方法
