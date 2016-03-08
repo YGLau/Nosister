@@ -9,7 +9,7 @@
 #import "YGAddTagViewController.h"
 #import "YGTagButton.h"
 
-@interface YGAddTagViewController ()
+@interface YGAddTagViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) UIView *contentView;
 /**
@@ -58,7 +58,7 @@
     
     return _tagBtnArr;
 }
-
+#pragma mark - 初始化操作
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置导航属性
@@ -101,6 +101,7 @@
     [txtFiled addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:txtFiled];
     self.txtFiled = txtFiled;
+    txtFiled.delegate = self;
     [txtFiled becomeFirstResponder];
 }
 
@@ -108,23 +109,36 @@
 {
     
 }
+
+#pragma mark - 监听按钮点击
 /**
  *  监听textFiled的文字改变
  */
 - (void)textDidChange
 {
+    // 更新frame
+    [self updateTextFiledFrame];
+    
     if (self.txtFiled.hasText) {
         self.txtRemindBtn.hidden = NO;
         self.txtRemindBtn.titleLabel.text = self.txtFiled.text;
         self.txtRemindBtn.y = CGRectGetMaxY(self.txtFiled.frame) + YGTagMargin;
         [self.txtRemindBtn setTitle:[NSString stringWithFormat:@"添加标签：%@", self.txtFiled.text] forState:UIControlStateNormal];
         
+        
+        // 获得最后一个字符
+        NSString *text = self.txtFiled.text;
+        NSUInteger len = text.length;
+        NSString *lastLetter = [text substringFromIndex:len - 1];
+        if ([lastLetter isEqualToString:@","] || [lastLetter isEqualToString:@"，"]) {
+            // 去除逗号
+            self.txtFiled.text = [text substringToIndex:len - 1];
+            [self txtRemindBtnClick];
+        }
     } else {
         self.txtRemindBtn.hidden = YES;
     }
     
-    // 更新frame
-    [self updateTagBtnFrame];
 }
 
 /**
@@ -142,6 +156,8 @@
     
     // 更新按钮的frame
     [self updateTagBtnFrame];
+    // 更新textfiled的frame
+    [self updateTextFiledFrame];
     // 2.清空文字
     self.txtFiled.text = nil;
     // 隐藏添加按钮
@@ -158,9 +174,11 @@
     [UIView animateWithDuration:0.25 animations:^{
         // 更新frame
         [self updateTagBtnFrame];
+        [self updateTextFiledFrame];
     }];
     
 }
+#pragma mark - 更新frame
 /**
  *  用来更新按钮的frame
  */
@@ -185,7 +203,13 @@
         }
     }
     
-    // 更新textFiled的frame
+}
+/**
+ *  更新textFiled的frame
+ */
+- (void)updateTextFiledFrame
+{
+    
     YGTagButton *lastBtn = [self.tagBtnArr lastObject];
     CGFloat leftMargin = self.contentView.width - CGRectGetMaxX(lastBtn.frame) - YGTagMargin;
     if (leftMargin >= [self textFiledWidth]) { // 一行够显示
@@ -204,5 +228,17 @@
     CGFloat text = [self.txtFiled.text sizeWithAttributes:@{NSFontAttributeName : self.txtFiled.font}].width;
     
     return MAX(100, text);
+}
+
+#pragma mark - UITextFieldDelegate代理方法
+/**
+ *  监听换行按钮的点击
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (self.txtFiled.hasText) {
+        [self txtRemindBtnClick];
+    }
+    return YES;
 }
 @end
