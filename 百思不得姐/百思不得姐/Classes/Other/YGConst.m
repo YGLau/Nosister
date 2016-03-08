@@ -40,3 +40,8 @@ NSString * const YGSelelctedControllerIndexKey = @"YGSelelctedControllerIndexKey
  *  tabBar被选中的通知 - 被选中的控制器的key
  */
 NSString * const YGSelelctedControllerIndex = @"YGSelelctedControllerIndex";
+
+/**
+ *  标签 - 间距
+ */
+CGFloat const YGTagMargin = 5;

@@ -20,9 +20,13 @@
  */
 @property (weak, nonatomic) UIButton *txtRemindBtn;
 
+@property (strong, nonatomic) NSMutableArray *tagBtnArr;
+
 @end
 
 @implementation YGAddTagViewController
+
+#pragma mark - 懒加载
 
 - (UIButton *)txtRemindBtn
 {
@@ -31,16 +35,25 @@
         txtRemindBtn.width = self.contentView.width;
         txtRemindBtn.height = 30;
         txtRemindBtn.y = 100;
-        txtRemindBtn.backgroundColor = YGRGBColor(74, 139, 209);
+        txtRemindBtn.backgroundColor = YGTagBg;
         [txtRemindBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [txtRemindBtn addTarget:self action:@selector(txtRemindBtnClick) forControlEvents:UIControlEventTouchUpInside];
         txtRemindBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        txtRemindBtn.contentEdgeInsets = UIEdgeInsetsMake(0, YGTopicCellMargin, 0, YGTopicCellMargin);
+        txtRemindBtn.contentEdgeInsets = UIEdgeInsetsMake(0, YGTagMargin, 0, YGTagMargin);
         [self.contentView addSubview:txtRemindBtn];
         self.txtRemindBtn = txtRemindBtn;
     }
     
     return _txtRemindBtn;
+}
+
+- (NSMutableArray *)tagBtnArr
+{
+    if (!_tagBtnArr) {
+        _tagBtnArr = [NSMutableArray array];
+    }
+    
+    return _tagBtnArr;
 }
 
 - (void)viewDidLoad {
@@ -52,13 +65,15 @@
     // 设置输入框
     [self setupTextFiled];
     
+    
+    
 }
 
 - (void)setupContentView
 {
     UIView *contentView = [[UIView alloc] init];
-    contentView.x = YGTopicCellMargin;
-    contentView.y = YGTitleViewY + YGTopicCellMargin;
+    contentView.x = YGTagMargin;
+    contentView.y = YGTitleViewY + YGTagMargin;
     contentView.width = YGmainScreenW - 2 * contentView.x;
     contentView.height = 200;
     [self.view addSubview:contentView];
@@ -83,6 +98,7 @@
     [txtFiled addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:txtFiled];
     self.txtFiled = txtFiled;
+    [txtFiled becomeFirstResponder];
 }
 
 - (void)done
@@ -97,9 +113,9 @@
     if (self.txtFiled.hasText) {
         self.txtRemindBtn.hidden = NO;
         self.txtRemindBtn.titleLabel.text = self.txtFiled.text;
-        self.txtRemindBtn.y = CGRectGetMaxY(self.txtFiled.frame) + YGTopicCellMargin;
+        self.txtRemindBtn.y = CGRectGetMaxY(self.txtFiled.frame) + YGTagMargin;
         [self.txtRemindBtn setTitle:[NSString stringWithFormat:@"添加标签：%@", self.txtFiled.text] forState:UIControlStateNormal];
-        [self.contentView becomeFirstResponder];
+        
     } else {
         self.txtRemindBtn.hidden = YES;
     }
@@ -111,6 +127,70 @@
  */
 - (void)txtRemindBtnClick
 {
+    // 1.添加标签按钮
+    UIButton *tagBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [tagBtn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [tagBtn setTitle:self.txtFiled.text forState:UIControlStateNormal];
+    [tagBtn setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
+    [tagBtn sizeToFit];
+    tagBtn.backgroundColor = YGTagBg;
+    [self.contentView addSubview:tagBtn];
+    [self.tagBtnArr addObject:tagBtn];
     
+    // 更新按钮的frame
+    [self updateTagBtnFrame];
+    // 2.清空文字
+    self.txtFiled.text = nil;
+    // 隐藏添加按钮
+    self.txtRemindBtn.hidden = YES;
+}
+
+- (void)tagBtnClick:(UIButton *)button
+{
+    // 删除按钮
+    [button removeFromSuperview];
+    
+    // 从数组中移除
+    [self.tagBtnArr removeObject:button];
+    [UIView animateWithDuration:0.25 animations:^{
+        // 更新frame
+        [self updateTagBtnFrame];
+    }];
+    
+}
+/**
+ *  用来更新按钮的frame
+ */
+- (void)updateTagBtnFrame
+{
+    // 更新标签按钮的frame
+    for (int i = 0; i < self.tagBtnArr.count; i++) {
+        UIButton *tagBtn = self.tagBtnArr[i];
+        if (i == 0) { // 第一个按钮
+            tagBtn.x = 0;
+            tagBtn.y = 0;
+        } else { // 其他按钮
+            UIButton *lastTagBtn = self.tagBtnArr[i - 1];
+            CGFloat leftMargin = self.contentView.width - CGRectGetMaxX(lastTagBtn.frame) - YGTagMargin;
+            if (leftMargin >= tagBtn.width) { //当前行
+                tagBtn.x = CGRectGetMaxX(lastTagBtn.frame) + YGTagMargin;
+                tagBtn.y = lastTagBtn.y;
+            } else { // 下一行
+                tagBtn.x = 0;
+                tagBtn.y = CGRectGetMaxY(lastTagBtn.frame) + YGTagMargin;
+            }
+        }
+    }
+    
+    // 更新textFiled的frame
+    UIButton *lastBtn = [self.tagBtnArr lastObject];
+    CGFloat leftMargin = self.contentView.width - CGRectGetMaxX(lastBtn.frame) - YGTagMargin;
+    if (leftMargin >= self.contentView.width / 3) { // 一行够显示
+        self.txtFiled.x = CGRectGetMaxX(lastBtn.frame) + YGTagMargin;
+        self.txtFiled.y = lastBtn.y;
+    } else { // 一行不够显示
+        self.txtFiled.x = 0;
+        self.txtFiled.y = CGRectGetMaxY(lastBtn.frame) + YGTagMargin;
+    }
 }
 @end

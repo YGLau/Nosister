@@ -64,3 +64,8 @@ UIKIT_EXTERN NSString * const YGSelelctedControllerIndexKey;
  *  tabBar被选中的通知 - 被选中的控制器的key
  */
 UIKIT_EXTERN NSString * const YGSelelctedControllerIndex;
+
+/**
+ *  标签 - 间距
+ */
+UIKIT_EXTERN CGFloat const YGTagMargin;
